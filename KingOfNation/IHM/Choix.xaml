@@ -1,0 +1,53 @@
+﻿<Window x:Class="KingOfNation.IHM.Choix"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KingOfNation.IHM"
+        mc:Ignorable="d"
+        Title="Choix" Height="450" Width="800">
+    <Grid>
+        <Button Margin="10,85,679,126" Click="Romain">
+            <Button.Background>
+                <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
+            </Button.Background>
+        </Button>
+        <TextBlock Text="Empire Romain" Margin="10,325,679,87" TextAlignment="Center"></TextBlock>
+
+        <Button Margin="140,85,548,126" Click="Gaulois">
+            <Button.Background>
+                <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
+            </Button.Background>
+        </Button>
+        <TextBlock Text="Empire Gaulois" Margin="141,325,548,87" TextAlignment="Center"></TextBlock>
+
+        <Button Margin="270,85,419,126" Click="Nippon">
+            <Button.Background>
+                <ImageBrush ImageSource="../img/Choix/EmpireNippon.jpg" />
+            </Button.Background>
+        </Button>
+        <TextBlock Text="Empire Nippon" Margin="270,325,419,87" TextAlignment="Center"></TextBlock>
+
+        <Button Margin="419,85,270,126" Click="Viking">
+            <Button.Background>
+                <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
+            </Button.Background>
+        </Button>
+        <TextBlock Text="Empire Viking" Margin="419,321,270,91" TextAlignment="Center"></TextBlock>
+
+        <Button Margin="548,85,140,126" Click="Egypte">
+            <Button.Background>
+                <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
+            </Button.Background>
+        </Button>
+        <TextBlock Text="Empire D'Egypte" Margin="549,321,140,91" TextAlignment="Center" RenderTransformOrigin="0.712,0.592"></TextBlock>
+
+        <Button Margin="679,85,10,126" Click="Azteque">
+            <Button.Background>
+                <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
+            </Button.Background>
+        </Button>
+        <TextBlock Text="Empire Aztèque" Margin="679,323,10,89" TextAlignment="Center"></TextBlock>
+
+    </Grid>
+</Window>
