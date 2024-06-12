@@ -28,8 +28,13 @@ namespace KingOfNation.IHM
             musicGame.URL = "Taverne.mp3";
             musicGame.controls.play();
         }
-
-            private void FarfadetMalicieux(object sender, RoutedEventArgs e)
+        private void Home(object sender, RoutedEventArgs e)
+        {
+            Game game = new Game(true);
+            game.Show();
+            this.Close();
+        }
+        private void FarfadetMalicieux(object sender, RoutedEventArgs e)
         {
             Farfadet farfadet = new Farfadet();
             farfadet.Show();

@@ -1,0 +1,30 @@
+﻿<Window x:Class="KingOfNation.IHM.Boutique"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KingOfNation.IHM"
+        mc:Ignorable="d"
+        Title="Boutique" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Button Margin="10,10,108,55" BorderBrush="Transparent" Click="Home">
+            <Image Source="../img/Button/retour.png"/>
+        </Button>
+        <Button Content="Acheter" FontSize="15" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="30"/>
+        <Button Content="Vendre" FontSize="15" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="30"/>
+        <Button Content="{Binding ButtonContent}"  FontSize="15" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" Margin="75, 35"/>
+    </Grid>
+</Window>

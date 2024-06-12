@@ -149,9 +149,9 @@ namespace KingOfNation.IHM
             {
                 if (elt.Nom == "Boutique")
                 {
-                    Taverne taverne = new Taverne();
+                    Boutique boutique = new Boutique();
                     ((App)Application.Current).musicGame.controls.stop();
-                    taverne.Show();
+                    boutique.Show();
                     this.Close();
                 }
             }

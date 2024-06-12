@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KingOfNation.IHM"
         mc:Ignorable="d"
-        Title="ChargerPartie" Height="450" Width="800">
+        Title="ChargerPartie" Height="300" Width="200" ResizeMode="NoResize">
     <Grid>
-            <ListBox x:Name="fileListBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="300"/>
-            <Button Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="210,10,0,0" Click="Valider_Click"/>
+            <ListBox x:Name="fileListBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="200"/>
+            <Button Content="Valider" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,170,0,0" Width="75" Height="25" Click="Valider_Click"/>
         </Grid>
 </Window>
