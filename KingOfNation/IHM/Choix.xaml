@@ -5,49 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KingOfNation.IHM"
         mc:Ignorable="d"
-        Title="Choix" Height="450" Width="800">
+        Title="Choix de l'Empire" MinHeight="400" MaxHeight="710" MinWidth="850" MaxWidth="1500" ResizeMode="NoResize">
+
     <Grid>
-        <Button Margin="10,85,679,126" Click="Romain">
-            <Button.Background>
-                <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
-            </Button.Background>
-        </Button>
-        <TextBlock Text="Empire Romain" Margin="10,325,679,87" TextAlignment="Center"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="../img/Choix/imgFond1.jpg"/>
+        </Grid.Background>
+        <!-- Nom de l'image centrale -->
+        <TextBlock x:Name="ImageNameTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" FontSize="24" FontWeight="Bold"/>
 
-        <Button Margin="140,85,548,126" Click="Gaulois">
-            <Button.Background>
-                <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
-            </Button.Background>
-        </Button>
-        <TextBlock Text="Empire Gaulois" Margin="141,325,548,87" TextAlignment="Center"></TextBlock>
+        <!-- Boutons de navigation et images -->
+        <Button x:Name="LeftButton" Content="Prev" Width="65" Height="40" Grid.Row="1" Grid.Column="0" Click="LeftButton_Click"/>
 
-        <Button Margin="270,85,419,126" Click="Nippon">
-            <Button.Background>
-                <ImageBrush ImageSource="../img/Choix/EmpireNippon.jpg" />
-            </Button.Background>
-        </Button>
-        <TextBlock Text="Empire Nippon" Margin="270,325,419,87" TextAlignment="Center"></TextBlock>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="LeftImage" Width="200" Height="300" Opacity="0.5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
+            <Image x:Name="CenterImage" Width="400" Height="550" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
+            <Image x:Name="RightImage" Width="200" Height="300" Opacity="0.5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
+        </Grid>
 
-        <Button Margin="419,85,270,126" Click="Viking">
-            <Button.Background>
-                <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
-            </Button.Background>
-        </Button>
-        <TextBlock Text="Empire Viking" Margin="419,321,270,91" TextAlignment="Center"></TextBlock>
+        <Button x:Name="RightButton" Content="Next" Width="65" Height="40" Grid.Row="1" Grid.Column="2" Click="RightButton_Click"/>
 
-        <Button Margin="548,85,140,126" Click="Egypte">
-            <Button.Background>
-                <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
-            </Button.Background>
-        </Button>
-        <TextBlock Text="Empire D'Egypte" Margin="549,321,140,91" TextAlignment="Center" RenderTransformOrigin="0.712,0.592"></TextBlock>
-
-        <Button Margin="679,85,10,126" Click="Azteque">
-            <Button.Background>
-                <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
-            </Button.Background>
-        </Button>
-        <TextBlock Text="Empire Aztèque" Margin="679,323,10,89" TextAlignment="Center"></TextBlock>
-
+        <!-- Bouton Valider -->
+        <Button x:Name="ValidateButton" Content="Valider" Width="100" Height="30" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ValidateButton_Click"/>
     </Grid>
 </Window>

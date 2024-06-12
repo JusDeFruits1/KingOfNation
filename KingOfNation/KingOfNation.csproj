@@ -9,7 +9,86 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="img\Choix\" />
+    <None Remove="Code\afm142uo.5mn~" />
+    <None Remove="Code\Production.cs~RF1c2dde.TMP" />
+    <None Remove="CSV\AAB1433D.tmp" />
+    <None Remove="img\Batiment\farfadet.jpg" />
+    <None Remove="img\Batiment\farfadet.png" />
+    <None Remove="img\Batiment\Taverne.jpg" />
+    <None Remove="img\Batiment\Taverne.png" />
+    <None Remove="img\Button\back.png" />
+    <None Remove="img\Button\retour.png" />
+    <None Remove="img\Choix\EmpireAzteque.jpg" />
+    <None Remove="img\Choix\EmpireAztèque.jpg" />
+    <None Remove="img\Choix\EmpireBritannique.jpg" />
+    <None Remove="img\Choix\EmpireEgypte.jpg" />
+    <None Remove="img\Choix\imgfond.jpg" />
+    <None Remove="img\Choix\imgFond1.jpg" />
+    <None Remove="img\EmpireNippon.jpg" />
+    <None Remove="img\EmpireNippon.png" />
+    <None Remove="img\EmpireRomain.jpg" />
+    <None Remove="img\EmpireViking.jpg" />
+    <None Remove="img\imgGame\barreauHorizon.png" />
+    <None Remove="img\imgGame\barreauVerti.png" />
+    <None Remove="img\imgGame\barrefond.png" />
+    <None Remove="img\imgGame\nvbarreau.png" />
+    <None Remove="img\imgRessources\Bois.png" />
+    <None Remove="img\imgRessources\Fer.png" />
+    <None Remove="img\imgRessources\Habitant.png" />
+    <None Remove="img\imgRessources\Or.png" />
+    <None Remove="img\imgRessources\Pierre.png" />
+    <None Remove="img\Village\Viking1.png" />
+    <None Remove="img\Village\Viking2.png" />
+    <None Remove="img\Village\Viking3.png" />
+    <None Remove="img\Village\Viking4.png" />
+    <None Remove="Music\ClashofClans.mp3" />
+    <None Remove="Music\FarfadetM.mp3" />
+    <None Remove="Music\Taverne.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>6bf52a50-394a-11d3-b153-00c04f79faa6</Guid>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\Batiment\farfadet.jpg" />
+    <Resource Include="img\Batiment\farfadet.png" />
+    <Resource Include="img\Batiment\Taverne.jpg" />
+    <Resource Include="img\Batiment\Taverne.png" />
+    <Resource Include="img\Button\back.png" />
+    <Resource Include="img\Button\retour.png" />
+    <Resource Include="img\Choix\EmpireAzteque.jpg" />
+    <Resource Include="img\Choix\EmpireBritannique.jpg" />
+    <Resource Include="img\Choix\EmpireEgypte.jpg" />
+    <Resource Include="img\Choix\EmpireNippon.jpg" />
+    <Resource Include="img\Choix\EmpireRomain.jpg" />
+    <Resource Include="img\Choix\EmpireViking.jpg" />
+    <Resource Include="img\Choix\imgfond.jpg" />
+    <Resource Include="img\Choix\imgFond1.jpg" />
+    <Resource Include="img\imgGame\barreauHorizon.png" />
+    <Resource Include="img\imgGame\barreauVerti.png" />
+    <Resource Include="img\imgGame\nvbarreau.png" />
+    <Resource Include="img\imgGame\barrefond.png" />
+    <Resource Include="img\imgRessources\Bois.png" />
+    <Resource Include="img\imgRessources\Fer.png" />
+    <Resource Include="img\imgRessources\Habitant.png" />
+    <Resource Include="img\imgRessources\Or.png" />
+    <Resource Include="img\imgRessources\Pierre.png" />
+    <Resource Include="img\Village\Viking1.png" />
+    <Resource Include="img\Village\Viking2.png" />
+    <Resource Include="img\Village\Viking3.png" />
+    <Resource Include="img\Village\Viking4.png" />
+    <Resource Include="Music\ClashofClans.mp3" />
+    <Resource Include="Music\FarfadetM.mp3" />
+    <Resource Include="Music\Taverne.mp3" />
   </ItemGroup>
 
 </Project>
