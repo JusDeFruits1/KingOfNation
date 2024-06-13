@@ -1,0 +1,10 @@
+id;nom;imgPath;quantite;prix
+1;Bois;../img/imgRessources/Bois.png;50;25
+2;Pierre;../img/imgRessources/Pierre.png;50;50
+3;Fer;../img/imgRessources/Fer.png;50;75
+4;Bois;../img/imgRessources/Bois.png;100;50
+5;Pierre;../img/imgRessources/Pierre.png;100;100
+6;Fer;../img/imgRessources/Fer.png;100;150
+7;Bois;../img/imgRessources/Bois.png;250;100
+8;Pierre;../img/imgRessources/Pierre.png;250;200
+9;Fer;../img/imgRessources/Fer.png;250;300
