@@ -54,7 +54,7 @@ namespace KingOfNation.IHM
 
         private void Romain(object sender, RoutedEventArgs e)
         {
-            ((App)Application.Current).Empire = "Romain";
+            ((App)Application.Current).Joueur.Empire = "Romain";
             Game game = new Game(true);
             game.Show();
             this.Close();
@@ -62,7 +62,7 @@ namespace KingOfNation.IHM
 
         private void Britannique(object sender, RoutedEventArgs e)
         {
-            ((App)Application.Current).Empire = "Britannique";
+            ((App)Application.Current).Joueur.Empire = "Britannique";
             Game game = new Game(true);
             game.Show();
             this.Close();
@@ -70,7 +70,7 @@ namespace KingOfNation.IHM
 
         private void Nippon(object sender, RoutedEventArgs e)
         {
-            ((App)Application.Current).Empire = "Nippon";
+            ((App)Application.Current).Joueur.Empire = "Nippon";
             Game game = new Game(true);
             game.Show();
             this.Close();
@@ -78,7 +78,7 @@ namespace KingOfNation.IHM
 
         private void Viking(object sender, RoutedEventArgs e)
         {
-            ((App)Application.Current).Empire = "Viking";
+            ((App)Application.Current).Joueur.Empire = "Viking";
             Game game = new Game(true);
             game.Show();
             this.Close();
@@ -86,7 +86,7 @@ namespace KingOfNation.IHM
 
         private void Egypte(object sender, RoutedEventArgs e)
         {
-            ((App)Application.Current).Empire = "Egypte";
+            ((App)Application.Current).Joueur.Empire = "Egypte";
             Game game = new Game(true);
             game.Show();
             this.Close();
@@ -94,7 +94,7 @@ namespace KingOfNation.IHM
 
         private void Azteque(object sender, RoutedEventArgs e)
         {
-            ((App)Application.Current).Empire = "Azteque";
+            ((App)Application.Current).Joueur.Empire = "Azteque";
             Game game = new Game(true);
             game.Show();
             this.Close();

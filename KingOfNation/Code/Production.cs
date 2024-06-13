@@ -63,8 +63,8 @@ public class Production
             }
             
         }
-        ((App)Application.Current).bois += 100 * scierieConstruite;
-        return ((App)Application.Current).bois;
+        ((App)Application.Current).Joueur.Bois += 100 * scierieConstruite;
+        return ((App)Application.Current).Joueur.Bois;
 
     }
 
@@ -85,8 +85,8 @@ public class Production
                 }
             }            
         }
-        ((App)Application.Current).pierre += 50 * mineConstruitePierre;
-        return ((App)Application.Current).pierre;
+        ((App)Application.Current).Joueur.Pierre += 50 * mineConstruitePierre;
+        return ((App)Application.Current).Joueur.Pierre;
     }
 
     public int ProdFer()
@@ -106,8 +106,8 @@ public class Production
                 }
             }            
         }
-        ((App)Application.Current).fer += 30 * mineConstruiteFer;
-        return ((App)Application.Current).fer;
+        ((App)Application.Current).Joueur.Fer += 30 * mineConstruiteFer;
+        return ((App)Application.Current).Joueur.Fer;
     }
 
     public int ProdOr()
@@ -127,8 +127,8 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).or += 20 * commerceConstruite;
-        return ((App)Application.Current).or;
+        ((App)Application.Current).Joueur.Or += 20 * commerceConstruite;
+        return ((App)Application.Current).Joueur.Or;
     }
 
     public int ProdHab()

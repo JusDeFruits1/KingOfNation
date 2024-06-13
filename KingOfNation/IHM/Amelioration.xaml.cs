@@ -159,10 +159,10 @@ namespace KingOfNation.IHM
                     string? nomMateriau1 = selectedData.Mat_Amelio1;
                     string? nomMateriau2 = selectedData.Mat_Amelio2;
 
-                    int nb_Bois = ((App)Application.Current).bois;
-                    int nb_Pierre = ((App)Application.Current).pierre;
-                    int nb_Fer = ((App)Application.Current).fer;
-                    int nb_Or = ((App)Application.Current).or;
+                    int nb_Bois = ((App)Application.Current).Joueur.Bois;
+                    int nb_Pierre = ((App)Application.Current).Joueur.Pierre;
+                    int nb_Fer = ((App)Application.Current).Joueur.Fer;
+                    int nb_Or = ((App)Application.Current).Joueur.Or;
 
                     // Convertir multiAmelio en entier
                     int multiAmelio = 1; // Valeur par défaut
@@ -202,8 +202,8 @@ namespace KingOfNation.IHM
                                     nb_Bois -= coutMateriau1;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).bois = nb_Bois;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Bois = nb_Bois;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbBois.Text = nb_Bois.ToString();
                                     nbOr.Text = nb_Or.ToString();
@@ -228,9 +228,9 @@ namespace KingOfNation.IHM
                                     nb_Pierre -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).bois = nb_Bois;
-                                    ((App)Application.Current).pierre = nb_Pierre;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Bois = nb_Bois;
+                                    ((App)Application.Current).Joueur.Pierre = nb_Pierre;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbBois.Text = nb_Bois.ToString();
                                     nbPierre.Text = nb_Pierre.ToString();
@@ -257,9 +257,9 @@ namespace KingOfNation.IHM
                                     nb_Fer -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).bois = nb_Bois;
-                                    ((App)Application.Current).fer = nb_Fer;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Bois = nb_Bois;
+                                    ((App)Application.Current).Joueur.Fer = nb_Fer;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbBois.Text = nb_Bois.ToString();
                                     nbFer.Text = nb_Fer.ToString();
@@ -285,8 +285,8 @@ namespace KingOfNation.IHM
                                     nb_Or -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).bois = nb_Bois;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Bois = nb_Bois;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbBois.Text = nb_Bois.ToString();
                                     nbOr.Text = nb_Or.ToString();
@@ -309,8 +309,8 @@ namespace KingOfNation.IHM
                                     nb_Pierre -= coutMateriau1;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).pierre = nb_Pierre;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Pierre = nb_Pierre;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbPierre.Text = nb_Pierre.ToString();
                                     nbOr.Text = nb_Or.ToString();
@@ -335,9 +335,9 @@ namespace KingOfNation.IHM
                                     nb_Bois -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).pierre = nb_Pierre;
-                                    ((App)Application.Current).bois = nb_Bois;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Pierre = nb_Pierre;
+                                    ((App)Application.Current).Joueur.Bois = nb_Bois;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbPierre.Text = nb_Pierre.ToString();
                                     nbBois.Text = nb_Bois.ToString();
@@ -363,9 +363,9 @@ namespace KingOfNation.IHM
                                     nb_Fer -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).pierre = nb_Pierre;
-                                    ((App)Application.Current).fer = nb_Fer;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Pierre = nb_Pierre;
+                                    ((App)Application.Current).Joueur.Fer = nb_Fer;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbPierre.Text = nb_Pierre.ToString();
                                     nbFer.Text = nb_Fer.ToString();
@@ -391,8 +391,8 @@ namespace KingOfNation.IHM
                                     nb_Or -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).pierre = nb_Pierre;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Pierre = nb_Pierre;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbPierre.Text = nb_Pierre.ToString();
                                     nbOr.Text = nb_Or.ToString();
@@ -419,8 +419,8 @@ namespace KingOfNation.IHM
                                     nb_Fer -= coutMateriau1;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).fer = nb_Fer;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Fer = nb_Fer;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbFer.Text = nb_Fer.ToString();
                                     nbOr.Text = nb_Or.ToString();
@@ -443,9 +443,9 @@ namespace KingOfNation.IHM
                                     nb_Bois -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).fer = nb_Fer;
-                                    ((App)Application.Current).bois = nb_Bois;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Fer = nb_Fer;
+                                    ((App)Application.Current).Joueur.Bois = nb_Bois;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbFer.Text = nb_Fer.ToString();
                                     nbBois.Text = nb_Bois.ToString();
@@ -468,9 +468,9 @@ namespace KingOfNation.IHM
                                     nb_Pierre -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).fer = nb_Fer;
-                                    ((App)Application.Current).pierre = nb_Pierre;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Fer = nb_Fer;
+                                    ((App)Application.Current).Joueur.Pierre = nb_Pierre;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbFer.Text = nb_Fer.ToString();
                                     nbPierre.Text = nb_Pierre.ToString();
@@ -492,8 +492,8 @@ namespace KingOfNation.IHM
                                     nb_Or -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).fer = nb_Fer;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Fer = nb_Fer;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbFer.Text = nb_Fer.ToString();
                                     nbOr.Text = nb_Or.ToString();
@@ -516,7 +516,7 @@ namespace KingOfNation.IHM
                                     nb_Or -= coutMateriau1;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbOr.Text = nb_Or.ToString();
 
@@ -536,8 +536,8 @@ namespace KingOfNation.IHM
                                     nb_Bois -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).bois = nb_Bois;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Bois = nb_Bois;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbBois.Text = nb_Bois.ToString();
                                     nbOr.Text = nb_Or.ToString();
@@ -558,8 +558,8 @@ namespace KingOfNation.IHM
                                     nb_Pierre -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).pierre = nb_Pierre;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Pierre = nb_Pierre;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbPierre.Text = nb_Pierre.ToString();
                                     nbOr.Text = nb_Or.ToString();
@@ -580,8 +580,8 @@ namespace KingOfNation.IHM
                                     nb_Fer -= coutMateriau2;
                                     nb_Or -= coutAmelioration;
 
-                                    ((App)Application.Current).fer = nb_Fer;
-                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).Joueur.Fer = nb_Fer;
+                                    ((App)Application.Current).Joueur.Or = nb_Or;
 
                                     nbFer.Text = nb_Fer.ToString();
                                     nbOr.Text = nb_Or.ToString();
@@ -615,27 +615,27 @@ namespace KingOfNation.IHM
 
         private void afficherBois(object sender, EventArgs e)
         {
-            nbBois.Text = ((App)Application.Current).bois.ToString();
+            nbBois.Text = ((App)Application.Current).Joueur.Bois.ToString();
         }
 
         private void afficherPierre(object sender, EventArgs e)
         {
-            nbPierre.Text = ((App)Application.Current).pierre.ToString();
+            nbPierre.Text = ((App)Application.Current).Joueur.Pierre.ToString();
         }
 
         private void afficherFer(object sender, EventArgs e)
         {
-            nbFer.Text = ((App)Application.Current).fer.ToString();
+            nbFer.Text = ((App)Application.Current).Joueur.Fer.ToString();
         }
 
         private void afficherOr(object sender, EventArgs e)
         {
-            nbOr.Text = ((App)Application.Current).or.ToString();
+            nbOr.Text = ((App)Application.Current).Joueur.Or.ToString();
         }
 
         private void afficherHab(object sender, EventArgs e)
         {
-            nbHab.Text = ((App)Application.Current).hab.ToString();
+            nbHab.Text = ((App)Application.Current).Joueur.Hab.ToString();
         }
 
         private void UpdateCsv(CsvData selectedData)
