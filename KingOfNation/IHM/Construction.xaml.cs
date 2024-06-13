@@ -1,5 +1,4 @@
-﻿using KingOfNation.Code;
-using Microsoft.VisualBasic.FileIO;
+﻿using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +13,6 @@ namespace KingOfNation.IHM
     public partial class Construction : Window
     {
         #region Attributes
-
         #endregion
 
         #region Properties
@@ -27,6 +25,12 @@ namespace KingOfNation.IHM
             InitializeComponent();
             LoadCsvData();
 
+            ((App)Application.Current).timerJ.Tick += afficherBois;
+            ((App)Application.Current).timerJ.Tick += afficherPierre;
+            ((App)Application.Current).timerJ.Tick += afficherFer;
+            ((App)Application.Current).timerJ.Tick += afficherOr;
+            ((App)Application.Current).timerJ.Tick += afficherHab;
+            ((App)Application.Current).timerJ.Start();
         }
 
         #endregion
@@ -35,7 +39,7 @@ namespace KingOfNation.IHM
 
         private void LoadCsvData()
         {
-            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
+            string filePath = "../../../CSV/joueur.csv";
 
             try
             {
@@ -85,16 +89,54 @@ namespace KingOfNation.IHM
 
         private void CsvDataListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Rien à faire ici pour le moment
+            if (CsvDataListView.SelectedItem is CsvData selectedData)
+            {
+                // Accéder à la valeur de la 5ème colonne (Qt_rs_constru1)
+                int coutMateriau1;
+                int coutMateriau2;
+                string? batselec = selectedData.Nom;
+                string? mat1 = selectedData.Rs_construction1;
+                string? mat2 = selectedData.Rs_construction2;
+
+
+                // Effectuer l'opération souhaitée avec coutMateriaux1
+                //MessageBox.Show($"mat 1: {mat1}, coutMat1 : {coutMateriau1}, bat selec : {batselec} ");
+                if (string.IsNullOrEmpty(selectedData.Qt_rs_constru1) || selectedData.Qt_rs_constru1 == "NULL")
+                {
+                    coutMateriau1 = 0;
+                }
+                else
+                {
+                    coutMateriau1 = Convert.ToInt32(selectedData.Qt_rs_constru1);
+                }
+
+                //MessageBox.Show($"mat 1: {mat1}, coutMat1 : {coutMateriau1}, bat selec : {batselec} ");
+                if (string.IsNullOrEmpty(selectedData.Qt_rs_constru2) || selectedData.Qt_rs_constru2 == "NULL")
+                {
+                    coutMateriau2 = 0;
+                }
+                else
+                {
+                    coutMateriau2 = Convert.ToInt32(selectedData.Qt_rs_constru2);
+                }
+                if(coutMateriau1 == coutMateriau2 && mat2 == "NULL" && mat2 == "NULL")
+                {
+                    MessageBox.Show("Vous avez besoin d'aucune ressource pour construire ce bâtiment");
+                }
+                else
+                {
+                    MessageBox.Show($"Vous avez besoin de {coutMateriau1} de {mat1} et {coutMateriau2} de {mat2} pour construire ce bâtiment");
+                }
+                
+            }
         }
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        private void Construire(object sender, RoutedEventArgs e)
         {
             try
             {
                 if (CsvDataListView.SelectedItem is CsvData selectedData)
                 {
-<<<<<<< HEAD
 
                     int coutMateriau1;
                     int coutMateriau2;
@@ -508,10 +550,8 @@ namespace KingOfNation.IHM
                         }
                     }                                        
                     
-=======
-                    UpdateCsv(selectedData);
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
                 }
+                    
                 else
                 {
                     MessageBox.Show("Veuillez sélectionner une ligne à mettre à jour.");
@@ -525,7 +565,7 @@ namespace KingOfNation.IHM
 
         private void UpdateCsv(CsvData selectedData)
         {
-            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
+            string filePath = "../../../CSV/joueur.csv";
             List<string> lines = new List<string>();
 
             try
@@ -572,7 +612,6 @@ namespace KingOfNation.IHM
                 MessageBox.Show("Erreur lors de la mise à jour du CSV: " + ex.Message);
             }
         }
-<<<<<<< HEAD
 
         private void afficherBois(object sender, EventArgs e)
         {
@@ -599,8 +638,6 @@ namespace KingOfNation.IHM
             nbHab.Text = ((App)Application.Current).Joueur.Hab.ToString();
         }
 
-=======
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
     }
 
     #endregion

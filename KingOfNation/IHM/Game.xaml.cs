@@ -18,10 +18,7 @@ using System.Media;
 using Microsoft.VisualBasic.FileIO;
 using System.Diagnostics;
 using KingOfNation.Code;
-<<<<<<< HEAD
-=======
 using System.Text.Json;
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
 
 namespace KingOfNation.IHM
 {
@@ -65,10 +62,6 @@ namespace KingOfNation.IHM
             }
 
             imgVillage.Source = new BitmapImage(new Uri(@"../img/Village/" + ((App)Application.Current).Joueur.Empire + nv + ".png", UriKind.Relative));
-<<<<<<< HEAD
-            Trace.WriteLine(new Uri(@"../img/Village/" + ((App)Application.Current).Joueur.Empire + nv + ".png", UriKind.Relative));
-=======
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
             ((App)Application.Current).timerJ.Tick += afficherBois;
             ((App)Application.Current).timerJ.Tick += afficherPierre;
             ((App)Application.Current).timerJ.Tick += afficherFer;

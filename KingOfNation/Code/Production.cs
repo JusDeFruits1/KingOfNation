@@ -53,11 +53,8 @@ public class Production
                 }
             }
         }
-<<<<<<< HEAD
-        ((App)Application.Current).Joueur.Bois += 100 * scierieConstruite;
-=======
+
         ((App)Application.Current).Joueur.Bois += 10 * scierieConstruite;
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         return ((App)Application.Current).Joueur.Bois;
 
     }
@@ -79,11 +76,7 @@ public class Production
                 }
             }
         }
-<<<<<<< HEAD
-        ((App)Application.Current).Joueur.Pierre += 50 * mineConstruitePierre;
-=======
         ((App)Application.Current).Joueur.Pierre += 5 * minePConstruite;
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         return ((App)Application.Current).Joueur.Pierre;
     }
 
@@ -104,11 +97,7 @@ public class Production
                 }
             }
         }
-<<<<<<< HEAD
-        ((App)Application.Current).Joueur.Fer += 30 * mineConstruiteFer;
-=======
         ((App)Application.Current).Joueur.Fer += 3 * mineFConstruite;
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         return ((App)Application.Current).Joueur.Fer;
     }
 
@@ -130,11 +119,7 @@ public class Production
                 }
             }
         }
-<<<<<<< HEAD
-        ((App)Application.Current).Joueur.Or += 20 * commerceConstruite;
-=======
         ((App)Application.Current).Joueur.Or += 2 * commerceConstruite;
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         return ((App)Application.Current).Joueur.Or;
     }
 

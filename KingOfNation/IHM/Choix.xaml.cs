@@ -31,78 +31,27 @@ namespace KingOfNation.IHM
 
         private void UpdateImages()
         {
-<<<<<<< HEAD
-            ((App)Application.Current).Joueur.Empire = "Romain";
-            Game game = new Game(true);
-            game.Show();
-            this.Close();
-=======
             LeftImage.Source = images[(centerIndex + 5) % 6];
             CenterImage.Source = images[centerIndex];
             RightImage.Source = images[(centerIndex + 1) % 6];
 
             ImageNameTextBlock.Text = System.IO.Path.GetFileNameWithoutExtension(images[centerIndex].UriSource.LocalPath);
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         }
 
         private void LeftButton_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            ((App)Application.Current).Joueur.Empire = "Britannique";
-            Game game = new Game(true);
-            game.Show();
-            this.Close();
-=======
             centerIndex = (centerIndex + 5) % 6;
             UpdateImages();
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         }
 
         private void RightButton_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            ((App)Application.Current).Joueur.Empire = "Nippon";
-            Game game = new Game(true);
-            game.Show();
-            this.Close();
-=======
             centerIndex = (centerIndex + 1) % 6;
             UpdateImages();
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         }
 
         private void ValidateButton_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            ((App)Application.Current).Joueur.Empire = "Viking";
-            Game game = new Game(true);
-            game.Show();
-            this.Close();
-        }
-
-        private void Egypte(object sender, RoutedEventArgs e)
-        {
-            ((App)Application.Current).Joueur.Empire = "Egypte";
-            Game game = new Game(true);
-            game.Show();
-            this.Close();
-        }
-
-        private void Azteque(object sender, RoutedEventArgs e)
-        {
-            ((App)Application.Current).Joueur.Empire = "Azteque";
-            Game game = new Game(true);
-            game.Show();
-            this.Close();
-        }
-
-        #endregion
-
-
-
-
-
-=======
             if (ImageNameTextBlock.Text == "EmpireRomain")
             {
                 MessageBox.Show($"Vous avez sélectionné l'empire : {ImageNameTextBlock.Text}");
@@ -158,6 +107,5 @@ namespace KingOfNation.IHM
                 this.Close();
             }
         }
->>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
     }
 }
