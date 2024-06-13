@@ -48,7 +48,7 @@
 
 
 
-        <ListView Name="CsvDataListView" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10" SelectionChanged="CsvDataListView_SelectionChanged">
+        <ListView Name="CsvDataListView" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}" Width="100"/>

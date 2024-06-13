@@ -46,7 +46,7 @@
         </Label>
         <TextBlock HorizontalAlignment="Left" Margin="700,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbHab" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
 
-        <ListView Name="CsvDataListView" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10" SelectionChanged="CsvDataListView_SelectionChanged">
+        <ListView Name="CsvDataListView" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}" Width="90"/>
@@ -65,6 +65,6 @@
             <Image Source="../img/Button/back.png"/>
         </Button>
         <Button Content="Améliorer" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="15" Click="Améliorer" FontSize="20"/>
-        <Label Content="Sélectionnez un bâtiment à construire :" Margin="10,10,0,40" Grid.ColumnSpan="2" FontSize="20" FontFamily="Comic Sans MS" HorizontalAlignment="Left" Grid.Column="1"/>
+        <Label Content="Sélectionnez un bâtiment à améliorer :" Margin="10,10,0,40" Grid.ColumnSpan="2" FontSize="20" FontFamily="Comic Sans MS" HorizontalAlignment="Left" Grid.Column="1"/>
     </Grid>
 </Window>

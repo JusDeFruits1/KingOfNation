@@ -194,11 +194,13 @@ namespace KingOfNation.IHM
 
                                     ((App)Application.Current).bois = nb_Bois;
                                     ((App)Application.Current).or -= coutConstruction;
+                                    
                                     nbBois.Text = nb_Bois.ToString();
+                                    nbOr.Text = nb_Or.ToString();
 
                                     UpdateCsv(selectedData);
 
-                                    MessageBox.Show($"Bâtiment construit ! Coût matériaux 1: {coutMateriau1}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} \n Coût en or : {coutConstruction} Gold");
                                 }
 
                                 else
@@ -221,7 +223,7 @@ namespace KingOfNation.IHM
                                     nbBois.Text += nb_Bois.ToString();
                                     nbPierre.Text = nb_Pierre.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
 
                                 else
@@ -244,7 +246,7 @@ namespace KingOfNation.IHM
                                     nbBois.Text += nb_Bois.ToString();
                                     nbFer.Text = nb_Fer.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
@@ -254,7 +256,7 @@ namespace KingOfNation.IHM
 
                             else if (nomMateriau2 == "Gold")
                             {
-                                if (nb_Bois >= coutMateriau1 && nb_Or >= coutMateriau2)
+                                if (nb_Bois >= coutMateriau1 && nb_Or >= coutMateriau2 + coutConstruction)
                                 {
                                     nb_Bois -= coutMateriau1;
                                     nb_Or -= coutMateriau2;
@@ -266,7 +268,7 @@ namespace KingOfNation.IHM
                                     nbBois.Text += nb_Bois.ToString();
                                     nbOr.Text = nb_Or.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
@@ -286,7 +288,7 @@ namespace KingOfNation.IHM
                                     ((App)Application.Current).or -= coutConstruction;
                                     nbPierre.Text = nb_Pierre.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût matériaux utilisé : {nomMateriau1} {coutMateriau1}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} \n Coût en or : {coutConstruction} Gold");
                                 }
 
                                 else
@@ -309,7 +311,7 @@ namespace KingOfNation.IHM
                                     nbPierre.Text += nb_Pierre.ToString();
                                     nbBois.Text = nb_Bois.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés :   {coutMateriau1}   de   {nomMateriau1}   et   {coutMateriau2}   de   {nomMateriau2}   \n Coût en or :   {coutConstruction}   Gold");
                                 }
                                 else
                                 {
@@ -331,7 +333,7 @@ namespace KingOfNation.IHM
                                     nbPierre.Text += nb_Pierre.ToString();
                                     nbFer.Text = nb_Fer.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés :   {coutMateriau1}   de   {nomMateriau1}   et   {coutMateriau2}   de   {nomMateriau2}   \n Coût en or :   {coutConstruction}   Gold");
                                 }
                                 else
                                 {
@@ -341,7 +343,7 @@ namespace KingOfNation.IHM
 
                             else if (nomMateriau2 == "Gold")
                             {
-                                if (nb_Pierre >= coutMateriau1 && nb_Or >= coutMateriau2)
+                                if (nb_Pierre >= coutMateriau1 && nb_Or >= coutMateriau2 + coutConstruction)
                                 {
                                     nb_Pierre -= coutMateriau1;
                                     nb_Or -= coutMateriau2;
@@ -353,7 +355,7 @@ namespace KingOfNation.IHM
                                     nbPierre.Text += nb_Pierre.ToString();
                                     nbOr.Text = nb_Or.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés :   {coutMateriau1}   de   {nomMateriau1}   et   {coutMateriau2}   de   {nomMateriau2}   \n Coût en or :   {coutConstruction}   Gold");
                                 }
                                 else
                                 {
@@ -374,7 +376,7 @@ namespace KingOfNation.IHM
                                     ((App)Application.Current).or -= coutConstruction;
                                     nbFer.Text = nb_Fer.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût matériaux utilisé : {nomMateriau1} {coutMateriau1}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} \n Coût en or : {coutConstruction} Gold");
                                 }
 
                                 else
@@ -397,7 +399,7 @@ namespace KingOfNation.IHM
                                     nbFer.Text += nb_Fer.ToString();
                                     nbBois.Text = nb_Bois.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
@@ -419,7 +421,7 @@ namespace KingOfNation.IHM
                                     nbFer.Text += nb_Fer.ToString();
                                     nbPierre.Text = nb_Pierre.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
@@ -429,7 +431,7 @@ namespace KingOfNation.IHM
 
                             else if (nomMateriau2 == "Gold")
                             {
-                                if (nb_Fer >= coutMateriau1 && nb_Or >= coutMateriau2)
+                                if (nb_Fer >= coutMateriau1 && nb_Or >= coutMateriau2 + coutConstruction)
                                 {
                                     nb_Fer -= coutMateriau1;
                                     nb_Or -= coutMateriau2;
@@ -441,7 +443,7 @@ namespace KingOfNation.IHM
                                     nbFer.Text += nb_Fer.ToString();
                                     nbOr.Text = nb_Or.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
@@ -455,14 +457,14 @@ namespace KingOfNation.IHM
                         {
                             if (nomMateriau2 == "NULL")
                             {
-                                if (nb_Or >= coutMateriau1)
+                                if (nb_Or >= coutMateriau1 + coutConstruction)
                                 {
                                     nb_Or -= coutMateriau1;
                                     ((App)Application.Current).or = nb_Or;
                                     ((App)Application.Current).or -= coutConstruction;
                                     nbOr.Text = nb_Or.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût matériaux utilisé : {nomMateriau1} {coutMateriau1}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} \n Coût en or : {coutConstruction} Gold");
                                 }
 
                                 else
@@ -473,7 +475,7 @@ namespace KingOfNation.IHM
 
                             else if (nomMateriau2 == "Bois")
                             {
-                                if (nb_Or >= coutMateriau1 && nb_Bois >= coutMateriau2)
+                                if (nb_Or >= coutMateriau1 + coutConstruction && nb_Bois >= coutMateriau2 )
                                 {
                                     nb_Or -= coutMateriau1;
                                     nb_Bois -= coutMateriau2;
@@ -485,7 +487,7 @@ namespace KingOfNation.IHM
                                     nbOr.Text += nb_Or.ToString();
                                     nbBois.Text = nb_Bois.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
@@ -495,7 +497,7 @@ namespace KingOfNation.IHM
 
                             else if (nomMateriau2 == "Pierre")
                             {
-                                if (nb_Or >= coutMateriau1 && nb_Pierre >= coutMateriau2)
+                                if (nb_Or >= coutMateriau1 + coutConstruction && nb_Pierre >= coutMateriau2)
                                 {
                                     nb_Or -= coutMateriau1;
                                     nb_Pierre -= coutMateriau2;
@@ -507,7 +509,7 @@ namespace KingOfNation.IHM
                                     nbOr.Text += nb_Or.ToString();
                                     nbPierre.Text = nb_Pierre.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
@@ -517,7 +519,7 @@ namespace KingOfNation.IHM
 
                             else if (nomMateriau2 == "Fer")
                             {
-                                if (nb_Or >= coutMateriau1 && nb_Fer >= coutMateriau2)
+                                if (nb_Or >= coutMateriau1 + coutConstruction && nb_Fer >= coutMateriau2)
                                 {
                                     nb_Or -= coutMateriau1;
                                     nb_Fer -= coutMateriau2;
@@ -529,7 +531,7 @@ namespace KingOfNation.IHM
                                     nbOr.Text += nb_Or.ToString();
                                     nbFer.Text = nb_Fer.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût de matériaux utilisé : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2}");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
@@ -540,6 +542,10 @@ namespace KingOfNation.IHM
                         }
                         else
                         {
+                            nb_Or -= coutConstruction;
+                            ((App)Application.Current).or = nb_Or;
+                            nbOr.Text = nb_Or.ToString();
+                            MessageBox.Show($"Bâtiment construit ! Aucun matériaux utilisés. \n Coût en or : {coutConstruction} Gold");
                             UpdateCsv(selectedData);
                         }
                     }                                        

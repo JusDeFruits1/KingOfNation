@@ -190,66 +190,416 @@ namespace KingOfNation.IHM
                     {
                         MessageBox.Show("Vous n'avez pas assez d'or pour construire ce bâtiment");
                     }
+
                     else
                     {
                         if (nomMateriau1 == "Bois")
                         {
                             if (nomMateriau2 == "NULL")
                             {
-                                if (nb_Bois >= coutMateriau1)
+                                if (nb_Bois >= coutMateriau1 && nb_Or >= coutAmelioration)
                                 {
                                     nb_Bois -= coutMateriau1;
-                                    nb_Or -= coutAmelioration; // Déduire le coût en or aussi
+                                    nb_Or -= coutAmelioration;
+
                                     ((App)Application.Current).bois = nb_Bois;
                                     ((App)Application.Current).or = nb_Or;
-                                    nbBois.Text = nb_Bois.ToString();
 
-                                    // Mise à jour du coût d'amélioration
-                                    coutAmelioration *= multiAmelio;
-                                    selectedData.Cout_en_Or = coutAmelioration.ToString();
+                                    nbBois.Text = nb_Bois.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
 
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût matériaux 1: {coutMateriau1}");
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
                                 else
                                 {
                                     MessageBox.Show("Vous n'avez pas assez de bois pour construire ce bâtiment");
                                 }
                             }
+
                             else if (nomMateriau2 == "Pierre")
                             {
                                 if (nb_Bois >= coutMateriau1 && nb_Pierre >= coutMateriau2 && nb_Or >= coutAmelioration)
                                 {
                                     nb_Bois -= coutMateriau1;
                                     nb_Pierre -= coutMateriau2;
-                                    nb_Or -= coutAmelioration; // Déduire le coût en or aussi
+                                    nb_Or -= coutAmelioration;
+
                                     ((App)Application.Current).bois = nb_Bois;
                                     ((App)Application.Current).pierre = nb_Pierre;
                                     ((App)Application.Current).or = nb_Or;
+
                                     nbBois.Text = nb_Bois.ToString();
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    nbOr.Text = nb_Or.ToString();
 
-                                    
 
-                                    // Mise à jour du coût d'amélioration
-                                    //coutAmelioration *= multiAmelio;            
-                                    selectedData.Cout_en_Or = coutAmelioration.ToString();
+                                    // Mise à jour du coût d'amélioration                                                                                  
                                     LoadCsvData();
-                                    MessageBox.Show($"Cout en or = {coutAmelioration}");
+
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Coût matériaux 1: {coutMateriau1}");
+                                    MessageBox.Show($"Bâtiment amélioré  ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
                                 else
                                 {
                                     MessageBox.Show("Vous n'avez pas assez de matériaux pour construire ce bâtiment");
                                 }
                             }
+
+                            else if (nomMateriau2 == "Fer")
+                            {
+                                if (nb_Bois >= coutMateriau1 && nb_Fer >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                {
+                                    nb_Bois -= coutMateriau1;
+                                    nb_Fer -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbBois.Text = nb_Bois.ToString();
+                                    nbFer.Text = nb_Fer.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de matériaux pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Gold")
+                            {
+                                if (nb_Bois >= coutMateriau1 && nb_Or >= coutMateriau2 + coutAmelioration)
+                                {
+                                    nb_Bois -= coutMateriau1;
+                                    nb_Or -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbBois.Text = nb_Bois.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+                            }
+
                         }
+
+                        else if (nomMateriau1 == "Pierre")
+                        {
+                            if (nomMateriau2 == "NULL")
+                            {
+                                if (nb_Pierre >= coutMateriau1 && nb_Or >= coutAmelioration)
+                                {
+                                    nb_Pierre -= coutMateriau1;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de pierre pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Bois")
+                            {
+                                if (nb_Pierre >= coutMateriau1 && nb_Bois >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                {
+                                    nb_Pierre -= coutMateriau1;
+                                    nb_Bois -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    nbBois.Text = nb_Bois.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Fer")
+                            {
+                                if (nb_Pierre >= coutMateriau1 && nb_Fer >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                {
+                                    nb_Pierre -= coutMateriau1;
+                                    nb_Fer -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    nbFer.Text = nb_Fer.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Gold")
+                            {
+                                if (nb_Pierre >= coutMateriau1 && nb_Or >= coutMateriau2 + coutAmelioration)
+                                {
+                                    nb_Pierre -= coutMateriau1;
+                                    nb_Or -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+                        }
+
+                        else if (nomMateriau1 == "Fer")
+                        {
+                            if (nomMateriau2 == "NULL")
+                            {
+                                if (nb_Fer >= coutMateriau1 && nb_Or >= coutAmelioration)
+                                {
+                                    nb_Fer -= coutMateriau1;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbFer.Text = nb_Fer.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+
+
+                            }
+
+                            else if (nomMateriau2 == "Bois")
+                            {
+                                if (nb_Fer >= coutMateriau1 && nb_Bois >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                {
+                                    nb_Fer -= coutMateriau1;
+                                    nb_Bois -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbFer.Text = nb_Fer.ToString();
+                                    nbBois.Text = nb_Bois.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+
+                            }
+
+                            else if (nomMateriau2 == "Pierre")
+                            {
+                                if (nb_Fer >= coutMateriau1 && nb_Pierre >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                {
+                                    nb_Fer -= coutMateriau1;
+                                    nb_Pierre -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbFer.Text = nb_Fer.ToString();
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré  ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Gold")
+                            {
+                                if (nb_Fer >= coutMateriau1 && nb_Or >= coutMateriau2 + coutAmelioration)
+                                {
+                                    nb_Fer -= coutMateriau1;
+                                    nb_Or -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbFer.Text = nb_Fer.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+                            }
+                        }
+
+                        else if (nomMateriau1 == "Gold")
+                        {
+                            if (nomMateriau2 == "NULL")
+                            {
+                                if (nb_Or >= coutMateriau1 + coutAmelioration)
+                                {
+                                    nb_Or -= coutMateriau1;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Bois")
+                            {
+                                if (nb_Bois >= coutMateriau2 && nb_Or >= coutMateriau1 + coutAmelioration)
+                                {
+                                    nb_Or -= coutMateriau1;
+                                    nb_Bois -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbBois.Text = nb_Bois.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Pierre")
+                            {
+                                if (nb_Or >= coutMateriau1 + coutAmelioration && nb_Pierre >= coutMateriau2)
+                                {
+                                    nb_Or -= coutMateriau1;
+                                    nb_Pierre -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Fer")
+                            {
+                                if (nb_Or >= coutMateriau1 + coutAmelioration && nb_Fer >= coutMateriau2)
+                                {
+                                    nb_Or -= coutMateriau1;
+                                    nb_Fer -= coutMateriau2;
+                                    nb_Or -= coutAmelioration;
+
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).or = nb_Or;
+
+                                    nbFer.Text = nb_Fer.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    // Mise à jour du coût d'amélioration                                                                                  
+                                    LoadCsvData();
+
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+                            }
+                        }
+
                         else
                         {
-                            // Si d'autres matériaux sont utilisés, mettre à jour en conséquence
-                            // Code de gestion pour d'autres matériaux
                             UpdateCsv(selectedData);
                         }
+
                     }
                 }
                 else
@@ -309,16 +659,23 @@ namespace KingOfNation.IHM
                 for (int i = 0; i < lines.Count; i++)
                 {
                     string[] fields = lines[i].Split(';');
-                    if (fields.Length >= 11 && fields[0] == selectedData.Nom && fields[2] == selectedData.Niveau && fields[3] == selectedData.NiveauMax && fields[2][0] < fields[3][0] && fields[16] == selectedData.Cout_en_Or && fields[18] == selectedData.Cout_Mat_Amelio1 && fields[18] == selectedData.Cout_Mat_Amelio2 && fields[21] == selectedData.Mult_Amelio)
+                    if (fields.Length >= 11 && fields[0] == selectedData.Nom && fields[2] == selectedData.Niveau && fields[3] == selectedData.NiveauMax && fields[2][0] < fields[3][0] && fields[16] == selectedData.Cout_en_Or && fields[18] == selectedData.Cout_Mat_Amelio1 && fields[20] == selectedData.Cout_Mat_Amelio2 && fields[21] == selectedData.Mult_Amelio)
                     {
                         int nv = Int32.Parse(fields[2]);
                         nv++;
+
                         int cout = Int32.Parse(fields[16]);
                         int mult = Int32.Parse(fields[21]);
-
                         cout *= mult;
 
+                        int coutmat1 = Int32.Parse(fields[18]);
+                        int coutmat2 = Int32.Parse(fields[20]);
+                        coutmat1 *= mult;
+                        coutmat2 *= mult;
+
                         fields[16] = Convert.ToString(cout);
+                        fields[18] = Convert.ToString(coutmat1);
+                        fields[20] = Convert.ToString(coutmat2);
                         fields[21] = Convert.ToString(mult);
                         fields[2] = Convert.ToString(nv);
 
