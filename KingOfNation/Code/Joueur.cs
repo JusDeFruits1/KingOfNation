@@ -29,41 +29,48 @@ namespace KingOfNation.Code
             get { return nomVillage; }
             set { nomVillage = value; }
         }
-        private int bois;
+        private int bois = 5000;
         public int Bois
         {
             get { return bois; }
             set { bois = value; }
         }
-        private int pierre;
+        private int pierre = 5000;
         public int Pierre
         {
             get { return pierre; }
             set { pierre = value; }
         }
-        private int fer;
+        private int fer = 5000;
         public int Fer
         {
             get { return fer; }
             set { fer = value; }
         }
-        private int or;
+        private int or = 5000;
         public int Or
         {
             get { return or; }
             set { or = value; }
         }
-        private int hab;
+        private int hab = 5000;
         public int Hab
         {
             get { return hab; }
             set { hab = value; }
         }
+        private List<Tresor> tresorsJoueur = new List<Tresor>();
+        public List<Tresor> TresorsJoueur
+        {
+            get { return tresorsJoueur; }
+            set { tresorsJoueur = value; }
+        }
+
         // Constructeur sans paramètres pour la désérialisation
         public Joueur() { }
 
         // (Optionnel) Constructeur avec paramètres pour initialisation facile
-        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab)
+        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Tresor> tresorsJoueur)
         {
             Pseudo = pseudo;
             Empire = empire;
@@ -73,6 +80,7 @@ namespace KingOfNation.Code
             Fer = fer;
             Or = or;
             Hab = hab;
+            TresorsJoueur = tresorsJoueur;
         }
         // Méthode pour sérialiser l'objet dans un fichier avec le nom du joueur
         public void SerializeToFile(string directoryPath)

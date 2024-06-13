@@ -21,10 +21,15 @@ public class Production
     #region Properties
 
     public int scierieConstruite = 0;
+    public double scierieNV = 1;
     public int minePConstruite = 0;
+    public double minePNV = 1;
     public int mineFConstruite = 0;
+    public double mineFNV = 1;
     public int commerceConstruite = 0;
+    public double commerceNV = 1;
     public int habitationConstruite = 0;
+    public double habitationNV = 1;
 
     #endregion
 
@@ -46,6 +51,10 @@ public class Production
                 if (elt.Niveau != "0")
                 {
                     scierieConstruite = 1;
+                    if (elt.Niveau != "1") 
+                    {
+                        scierieNV = (Convert.ToInt32(elt.Niveau)*0.1)+1;
+                    }
                 }
                 else
                 {
@@ -54,7 +63,7 @@ public class Production
             }
         }
 
-        ((App)Application.Current).Joueur.Bois += 10 * scierieConstruite;
+        ((App)Application.Current).Joueur.Bois += (int)Math.Ceiling(10 * scierieConstruite*scierieNV);
         return ((App)Application.Current).Joueur.Bois;
 
     }
@@ -69,6 +78,10 @@ public class Production
                 if (elt.Niveau != "0")
                 {
                     minePConstruite = 1;
+                    if (elt.Niveau != "1")
+                    {
+                        minePNV = (Convert.ToInt32(elt.Niveau) * 0.1) + 1;
+                    }
                 }
                 else
                 {
@@ -76,7 +89,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Pierre += 5 * minePConstruite;
+        ((App)Application.Current).Joueur.Pierre += (int)Math.Ceiling(5 * minePConstruite*minePNV);
         return ((App)Application.Current).Joueur.Pierre;
     }
 
@@ -90,6 +103,7 @@ public class Production
                 if (elt.Niveau == "3" || elt.Niveau == "4" || elt.Niveau == "5")
                 {
                     mineFConstruite = 1;
+                    mineFNV = (Convert.ToInt32(elt.Niveau) * 0.1) + 1;
                 }
                 else
                 {
@@ -97,7 +111,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Fer += 3 * mineFConstruite;
+        ((App)Application.Current).Joueur.Fer += (int)Math.Ceiling(3 * mineFConstruite * mineFNV);
         return ((App)Application.Current).Joueur.Fer;
     }
 
@@ -111,6 +125,10 @@ public class Production
                 if (elt.Niveau != "0")
                 {
                     commerceConstruite = 1;
+                    if (elt.Niveau != "1")
+                    {
+                        commerceNV = (Convert.ToInt32(elt.Niveau) * 0.1) + 1;
+                    }
                 }
                 else
                 {
@@ -119,7 +137,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Or += 2 * commerceConstruite;
+        ((App)Application.Current).Joueur.Or += (int)Math.Ceiling(2 * commerceConstruite*commerceNV);
         return ((App)Application.Current).Joueur.Or;
     }
 
@@ -133,6 +151,10 @@ public class Production
                 if (elt.Niveau != "0")
                 {
                     habitationConstruite = 1;
+                    if (elt.Niveau != "1")
+                    {
+                        habitationNV = (Convert.ToInt32(elt.Niveau) * 0.1) + 1;
+                    }
                 }
                 else
                 {
@@ -141,7 +163,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Hab += 30 * habitationConstruite;
+        ((App)Application.Current).Joueur.Hab += (int)Math.Ceiling(30 * habitationConstruite*habitationNV);
         return ((App)Application.Current).Joueur.Hab;
     }
 
@@ -156,11 +178,11 @@ public class Production
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(";");
 
-                // Lire la ligne d'en-tête si elle existe
+                // Lire la ligne d'en-tï¿½te si elle existe
                 if (!parser.EndOfData)
                 {
                     string[] headers = parser.ReadFields();
-                    // Vous pouvez utiliser les en-têtes si nécessaire
+                    // Vous pouvez utiliser les en-tï¿½tes si nï¿½cessaire
                 }
                 // Lire les lignes suivantes
                 while (!parser.EndOfData)
@@ -168,7 +190,7 @@ public class Production
                     string[] fields = parser.ReadFields();
                     if (fields.Length >= 11) // Assurez-vous qu'il y a au moins 11 colonnes
                     {
-                        // Ajouter uniquement les lignes où la seconde colonne est "1"
+                        // Ajouter uniquement les lignes oï¿½ la seconde colonne est "1"
                         if (fields[1] == "1")
                         {
                             csvDataList.Add(new CsvData { Nom = fields[0], Niveau = fields[2]});

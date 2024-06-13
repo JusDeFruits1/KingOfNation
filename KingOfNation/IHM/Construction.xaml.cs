@@ -39,7 +39,7 @@ namespace KingOfNation.IHM
 
         private void LoadCsvData()
         {
-            string filePath = "../../../CSV/joueur.csv";
+            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
 
             try
             {
@@ -565,7 +565,7 @@ namespace KingOfNation.IHM
 
         private void UpdateCsv(CsvData selectedData)
         {
-            string filePath = "../../../CSV/joueur.csv";
+            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
             List<string> lines = new List<string>();
 
             try
