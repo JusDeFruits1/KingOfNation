@@ -17,8 +17,6 @@ using System.Printing;
 using System.Media;
 using Microsoft.VisualBasic.FileIO;
 using System.Diagnostics;
-using KingOfNation.Code;
-using System.Text.Json;
 
 namespace KingOfNation.IHM
 {
@@ -61,7 +59,8 @@ namespace KingOfNation.IHM
                 }
             }
 
-            imgVillage.Source = new BitmapImage(new Uri(@"../img/Village/" + ((App)Application.Current).Joueur.Empire + nv + ".png", UriKind.Relative));
+            imgVillage.Source = new BitmapImage(new Uri(@"../img/Village/" + ((App)Application.Current).Empire + nv + ".png", UriKind.Relative));
+            Trace.WriteLine(new Uri(@"../img/Village/" + ((App)Application.Current).Empire + nv + ".png", UriKind.Relative));
             ((App)Application.Current).timerJ.Tick += afficherBois;
             ((App)Application.Current).timerJ.Tick += afficherPierre;
             ((App)Application.Current).timerJ.Tick += afficherFer;
@@ -94,6 +93,7 @@ namespace KingOfNation.IHM
                 if (elt.Nom == "Taverne")
                 {
                     Taverne taverne = new Taverne();
+                    ((App)Application.Current).musicGame.controls.stop();
                     taverne.Show();
                     this.Close();
                 }
@@ -173,7 +173,7 @@ namespace KingOfNation.IHM
 
         private void LoadCsvData(List<CsvData> csvDataList)
         {
-            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
+            string filePath = "../../../CSV/joueur.csv";
 
             try
             {

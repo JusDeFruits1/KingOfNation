@@ -5,42 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KingOfNation.IHM"
         mc:Ignorable="d"
-        Title="Choix de l'Empire" MinHeight="400" MaxHeight="710" MinWidth="850" MaxWidth="1500" ResizeMode="NoResize">
+        Title="Choix de l'Empire" MinHeight="400" MaxHeight="710" MinWidth="850" MaxWidth="1500">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <ImageBrush ImageSource="../img/Choix/imgFond1.jpg"/>
-        </Grid.Background>
-        <!-- Nom de l'image centrale -->
-        <TextBlock x:Name="ImageNameTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" FontSize="24" FontWeight="Bold"/>
+    <Viewbox Stretch="Uniform">
+        <StackPanel Orientation="Horizontal">
 
-        <!-- Boutons de navigation et images -->
-        <Button x:Name="LeftButton" Content="Prev" Width="65" Height="40" Grid.Row="1" Grid.Column="0" Click="LeftButton_Click"/>
+            <!--<TextBlock Text="Empire Romain" TextAlignment="Center" Grid.Row="0"></TextBlock>-->
+            <Button  Click="Romain" Width="180" Height="480">
+                <Button.Background>
+                    <ImageBrush ImageSource="../img/Choix/EmpireRomain.jpg" />
+                </Button.Background>
+            </Button>
 
-        <Grid Grid.Row="1" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Image x:Name="LeftImage" Width="200" Height="300" Opacity="0.5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0"/>
-            <Image x:Name="CenterImage" Width="400" Height="550" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
-            <Image x:Name="RightImage" Width="200" Height="300" Opacity="0.5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2"/>
-        </Grid>
 
-        <Button x:Name="RightButton" Content="Next" Width="65" Height="40" Grid.Row="1" Grid.Column="2" Click="RightButton_Click"/>
+            <Button  Click="Britannique" Width="180">
+                <Button.Background>
+                    <ImageBrush ImageSource="../img/Choix/EmpireBritannique.jpg" />
+                </Button.Background>
+            </Button>
 
-        <!-- Bouton Valider -->
-        <Button x:Name="ValidateButton" Content="Valider" Width="100" Height="30" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ValidateButton_Click"/>
-    </Grid>
+
+            <Button Click="Nippon" Width="180">
+                <Button.Background>
+                    <ImageBrush ImageSource="../img/Choix/EmpireNippon.jpg" />
+                </Button.Background>
+            </Button>
+
+
+            <Button Click="Viking" Width="180">
+                <Button.Background>
+                    <ImageBrush ImageSource="../img/Choix/EmpireViking.jpg" />
+                </Button.Background>
+            </Button>
+
+
+            <Button Click="Egypte" Width="180">
+                <Button.Background>
+                    <ImageBrush ImageSource="../img/Choix/EmpireEgypte.jpg"/>
+                </Button.Background>
+            </Button>
+
+
+            <Button Click="Azteque" Width="180">
+                <Button.Background>
+                    <ImageBrush ImageSource="../img/Choix/EmpireAzteque.jpg" />
+                </Button.Background>
+            </Button>
+
+        </StackPanel>
+    </Viewbox>
 </Window>

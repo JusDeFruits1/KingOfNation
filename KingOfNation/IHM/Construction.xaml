@@ -19,23 +19,52 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        
-        <ListView Name="CsvDataListView" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10" SelectionChanged="CsvDataListView_SelectionChanged">
+
+        <Label HorizontalAlignment="Left" Margin="225,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            <Image Source="../img/imgRessources/Bois.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="270,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbBois" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+        <Label HorizontalAlignment="Left" Margin="350,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            <Image Source="../img/imgRessources/Pierre.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="400,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbPierre" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+        <Label HorizontalAlignment="Left" Margin="475,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            <Image Source="../img/imgRessources/Fer.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="525,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbFer" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+        <Label HorizontalAlignment="Left" Margin="575,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            <Image Source="../img/imgRessources/Or.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="625,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbOr" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+
+        <Label HorizontalAlignment="Left" Margin="675,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            <Image Source="../img/imgRessources/Habitant.png" />
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="700,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbHab" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+
+
+        <ListView Name="CsvDataListView" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}" Width="100"/>
-                    <GridViewColumn Header="Ressource produit" DisplayMemberBinding="{Binding Ressource_produit}" Width="110"/>
-                    <GridViewColumn Header="Cout construction" DisplayMemberBinding="{Binding Cout_construction}" Width="110"/>
-                    <GridViewColumn Header="Matériaux 1" DisplayMemberBinding="{Binding Rs_construction1}" Width="98"/>
-                    <GridViewColumn Header="Cout materiaux 1" DisplayMemberBinding="{Binding Qt_rs_constru1}" Width="110"/>
-                    <GridViewColumn Header="Matériaux 2" DisplayMemberBinding="{Binding Rs_construction2}" Width="98"/>
-                    <GridViewColumn Header="Cout materiaux 1" DisplayMemberBinding="{Binding Qt_rs_constru2}" Width="110"/>
+                    <GridViewColumn Header="Ressource produite" DisplayMemberBinding="{Binding Ressource_produit}" Width="110"/>
+                    <GridViewColumn Header="Coût construction" DisplayMemberBinding="{Binding Cout_construction}" Width="110"/>
+                    <GridViewColumn Header="Matériau 1" DisplayMemberBinding="{Binding Rs_construction1}" Width="98"/>
+                    <GridViewColumn Header="Cout matériau 1" DisplayMemberBinding="{Binding Qt_rs_constru1}" Width="110"/>
+                    <GridViewColumn Header="Matériau 2" DisplayMemberBinding="{Binding Rs_construction2}" Width="98"/>
+                    <GridViewColumn Header="Cout matériaux 2" DisplayMemberBinding="{Binding Qt_rs_constru2}" Width="110"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <Button Margin="10,10,148,55" BorderBrush="White" Click="Back">
             <Image Source="../img/Button/back.png"/>
         </Button>
-        <Button Content="Construire" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="15" Click="UpdateButton_Click" FontSize="20"/>
+        <Button Content="Construire" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="15" Click="Construire" FontSize="20"/>
+        <Label Content="Sélectionnez un bâtiment à construire :" Margin="10,10,0,40" Grid.ColumnSpan="2" FontSize="20" FontFamily="Comic Sans MS" HorizontalAlignment="Left" Grid.Column="1"/>
     </Grid>
 </Window>

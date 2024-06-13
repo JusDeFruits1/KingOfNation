@@ -1,5 +1,4 @@
-﻿using KingOfNation.Code;
-using Microsoft.VisualBasic.FileIO;
+﻿using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,7 +13,6 @@ namespace KingOfNation.IHM
     public partial class Construction : Window
     {
         #region Attributes
-
         #endregion
 
         #region Properties
@@ -27,6 +25,12 @@ namespace KingOfNation.IHM
             InitializeComponent();
             LoadCsvData();
 
+            ((App)Application.Current).timerJ.Tick += afficherBois;
+            ((App)Application.Current).timerJ.Tick += afficherPierre;
+            ((App)Application.Current).timerJ.Tick += afficherFer;
+            ((App)Application.Current).timerJ.Tick += afficherOr;
+            ((App)Application.Current).timerJ.Tick += afficherHab;
+            ((App)Application.Current).timerJ.Start();
         }
 
         #endregion
@@ -35,7 +39,7 @@ namespace KingOfNation.IHM
 
         private void LoadCsvData()
         {
-            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
+            string filePath = "../../../CSV/joueur.csv";
 
             try
             {
@@ -85,17 +89,469 @@ namespace KingOfNation.IHM
 
         private void CsvDataListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Rien à faire ici pour le moment
+            if (CsvDataListView.SelectedItem is CsvData selectedData)
+            {
+                // Accéder à la valeur de la 5ème colonne (Qt_rs_constru1)
+                int coutMateriau1;
+                int coutMateriau2;
+                string? batselec = selectedData.Nom;
+                string? mat1 = selectedData.Rs_construction1;
+                string? mat2 = selectedData.Rs_construction2;
+
+
+                // Effectuer l'opération souhaitée avec coutMateriaux1
+                //MessageBox.Show($"mat 1: {mat1}, coutMat1 : {coutMateriau1}, bat selec : {batselec} ");
+                if (string.IsNullOrEmpty(selectedData.Qt_rs_constru1) || selectedData.Qt_rs_constru1 == "NULL")
+                {
+                    coutMateriau1 = 0;
+                }
+                else
+                {
+                    coutMateriau1 = Convert.ToInt32(selectedData.Qt_rs_constru1);
+                }
+
+                //MessageBox.Show($"mat 1: {mat1}, coutMat1 : {coutMateriau1}, bat selec : {batselec} ");
+                if (string.IsNullOrEmpty(selectedData.Qt_rs_constru2) || selectedData.Qt_rs_constru2 == "NULL")
+                {
+                    coutMateriau2 = 0;
+                }
+                else
+                {
+                    coutMateriau2 = Convert.ToInt32(selectedData.Qt_rs_constru2);
+                }
+                if(coutMateriau1 == coutMateriau2 && mat2 == "NULL" && mat2 == "NULL")
+                {
+                    MessageBox.Show("Vous avez besoin d'aucune ressource pour construire ce bâtiment");
+                }
+                else
+                {
+                    MessageBox.Show($"Vous avez besoin de {coutMateriau1} de {mat1} et {coutMateriau2} de {mat2} pour construire ce bâtiment");
+                }
+                
+            }
         }
 
-        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        private void Construire(object sender, RoutedEventArgs e)
         {
             try
             {
                 if (CsvDataListView.SelectedItem is CsvData selectedData)
                 {
-                    UpdateCsv(selectedData);
+
+                    int coutMateriau1;
+                    int coutMateriau2;
+                    int coutConstruction;
+
+                    string? nomMateriau1 = selectedData.Rs_construction1;
+                    string? nomMateriau2 = selectedData.Rs_construction2;
+
+                    int nb_Bois = ((App)Application.Current).bois;
+                    int nb_Pierre = ((App)Application.Current).pierre;
+                    int nb_Fer = ((App)Application.Current).fer;
+                    int nb_Or = ((App)Application.Current).or;
+                    
+
+                    if (string.IsNullOrEmpty(selectedData.Cout_construction) || selectedData.Cout_construction == "NULL")
+                    {
+                        coutConstruction = 0;
+                    }
+                    else
+                    {
+                        coutConstruction = Convert.ToInt32(selectedData.Cout_construction);
+                    }
+
+                    if (string.IsNullOrEmpty(selectedData.Qt_rs_constru1) || selectedData.Qt_rs_constru1 == "NULL")
+                    {
+                        coutMateriau1 = 0;
+                    }                  
+                    else
+                    {
+                        coutMateriau1 = Convert.ToInt32(selectedData.Qt_rs_constru1);
+                    }
+
+                    if(string.IsNullOrEmpty(selectedData.Qt_rs_constru2) || selectedData.Qt_rs_constru2 == "NULL")
+                    {
+                        coutMateriau2 = 0;
+                    }
+                    else
+                    {
+                        coutMateriau2 = Convert.ToInt32(selectedData.Qt_rs_constru2);
+                    }
+                    
+                    if ( nb_Or < coutConstruction)
+                    {
+                        MessageBox.Show("Vous n'avez pas assez d'or pour construire ce bâtiment");
+                    }
+                    else if(nb_Or > coutConstruction)
+                    {
+                        if (nomMateriau1 == "Bois")
+                        {
+                            if (nomMateriau2 == "NULL")
+                            {
+                                if (nb_Bois >= coutMateriau1)
+                                {
+                                    nb_Bois -= coutMateriau1;
+
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).or -= coutConstruction;
+                                    
+                                    nbBois.Text = nb_Bois.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+
+                                    UpdateCsv(selectedData);
+
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} \n Coût en or : {coutConstruction} Gold");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de bois pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Pierre")
+                            {
+                                if (nb_Bois >= coutMateriau1 && nb_Pierre >= coutMateriau2)
+                                {
+                                    nb_Bois -= coutMateriau1;
+                                    nb_Pierre -= coutMateriau2;
+
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbBois.Text += nb_Bois.ToString();
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+
+                            }
+
+                            else if (nomMateriau2 == "Fer")
+                            {
+                                if (nb_Bois >= coutMateriau1 && nb_Fer >= coutMateriau2)
+                                {
+                                    nb_Bois -= coutMateriau1;
+                                    nb_Fer -= coutMateriau2;
+
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).or -= coutConstruction;
+                                    nbBois.Text += nb_Bois.ToString();
+                                    nbFer.Text = nb_Fer.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Gold")
+                            {
+                                if (nb_Bois >= coutMateriau1 && nb_Or >= coutMateriau2 + coutConstruction)
+                                {
+                                    nb_Bois -= coutMateriau1;
+                                    nb_Or -= coutMateriau2;
+
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbBois.Text += nb_Bois.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+                        }
+
+                        else if (nomMateriau1 == "Pierre")
+                        {
+                            if (nomMateriau2 == "NULL")
+                            {
+                                if (nb_Pierre >= coutMateriau1)
+                                {
+                                    nb_Pierre -= coutMateriau1;
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).or -= coutConstruction;
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} \n Coût en or : {coutConstruction} Gold");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de pierre pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Bois")
+                            {
+                                if (nb_Pierre >= coutMateriau1 && nb_Bois >= coutMateriau2)
+                                {
+                                    nb_Pierre -= coutMateriau1;
+                                    nb_Bois -= coutMateriau2;
+
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbPierre.Text += nb_Pierre.ToString();
+                                    nbBois.Text = nb_Bois.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés :   {coutMateriau1}   de   {nomMateriau1}   et   {coutMateriau2}   de   {nomMateriau2}   \n Coût en or :   {coutConstruction}   Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Fer")
+                            {
+                                if (nb_Pierre >= coutMateriau1 && nb_Fer >= coutMateriau2)
+                                {
+                                    nb_Pierre -= coutMateriau1;
+                                    nb_Fer -= coutMateriau2;
+
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbPierre.Text += nb_Pierre.ToString();
+                                    nbFer.Text = nb_Fer.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés :   {coutMateriau1}   de   {nomMateriau1}   et   {coutMateriau2}   de   {nomMateriau2}   \n Coût en or :   {coutConstruction}   Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Gold")
+                            {
+                                if (nb_Pierre >= coutMateriau1 && nb_Or >= coutMateriau2 + coutConstruction)
+                                {
+                                    nb_Pierre -= coutMateriau1;
+                                    nb_Or -= coutMateriau2;
+
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbPierre.Text += nb_Pierre.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés :   {coutMateriau1}   de   {nomMateriau1}   et   {coutMateriau2}   de   {nomMateriau2}   \n Coût en or :   {coutConstruction}   Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                        }
+
+                        else if (nomMateriau1 == "Fer")
+                        {
+                            if (nomMateriau2 == "NULL")
+                            {
+                                if (nb_Fer >= coutMateriau1)
+                                {
+                                    nb_Fer -= coutMateriau1;
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).or -= coutConstruction;
+                                    nbFer.Text = nb_Fer.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} \n Coût en or : {coutConstruction} Gold");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de fer pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Bois")
+                            {
+                                if (nb_Fer >= coutMateriau1 && nb_Bois >= coutMateriau2)
+                                {
+                                    nb_Fer -= coutMateriau1;
+                                    nb_Bois -= coutMateriau2;
+
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbFer.Text += nb_Fer.ToString();
+                                    nbBois.Text = nb_Bois.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Pierre")
+                            {
+                                if (nb_Fer >= coutMateriau1 && nb_Pierre >= coutMateriau2)
+                                {
+                                    nb_Fer -= coutMateriau1;
+                                    nb_Pierre -= coutMateriau2;
+
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbFer.Text += nb_Fer.ToString();
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Gold")
+                            {
+                                if (nb_Fer >= coutMateriau1 && nb_Or >= coutMateriau2 + coutConstruction)
+                                {
+                                    nb_Fer -= coutMateriau1;
+                                    nb_Or -= coutMateriau2;
+
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbFer.Text += nb_Fer.ToString();
+                                    nbOr.Text = nb_Or.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                        }
+
+                        else if (nomMateriau1 == "Gold")
+                        {
+                            if (nomMateriau2 == "NULL")
+                            {
+                                if (nb_Or >= coutMateriau1 + coutConstruction)
+                                {
+                                    nb_Or -= coutMateriau1;
+                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).or -= coutConstruction;
+                                    nbOr.Text = nb_Or.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} \n Coût en or : {coutConstruction} Gold");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez d'or pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Bois")
+                            {
+                                if (nb_Or >= coutMateriau1 + coutConstruction && nb_Bois >= coutMateriau2 )
+                                {
+                                    nb_Or -= coutMateriau1;
+                                    nb_Bois -= coutMateriau2;
+
+                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).bois = nb_Bois;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbOr.Text += nb_Or.ToString();
+                                    nbBois.Text = nb_Bois.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Pierre")
+                            {
+                                if (nb_Or >= coutMateriau1 + coutConstruction && nb_Pierre >= coutMateriau2)
+                                {
+                                    nb_Or -= coutMateriau1;
+                                    nb_Pierre -= coutMateriau2;
+
+                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).pierre = nb_Pierre;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbOr.Text += nb_Or.ToString();
+                                    nbPierre.Text = nb_Pierre.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                            else if (nomMateriau2 == "Fer")
+                            {
+                                if (nb_Or >= coutMateriau1 + coutConstruction && nb_Fer >= coutMateriau2)
+                                {
+                                    nb_Or -= coutMateriau1;
+                                    nb_Fer -= coutMateriau2;
+
+                                    ((App)Application.Current).or = nb_Or;
+                                    ((App)Application.Current).fer = nb_Fer;
+                                    ((App)Application.Current).or -= coutConstruction;
+
+                                    nbOr.Text += nb_Or.ToString();
+                                    nbFer.Text = nb_Fer.ToString();
+                                    UpdateCsv(selectedData);
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                }
+                            }
+
+                        }
+                        else
+                        {
+                            nb_Or -= coutConstruction;
+                            ((App)Application.Current).or = nb_Or;
+                            nbOr.Text = nb_Or.ToString();
+                            MessageBox.Show($"Bâtiment construit ! Aucun matériaux utilisés. \n Coût en or : {coutConstruction} Gold");
+                            UpdateCsv(selectedData);
+                        }
+                    }                                        
+                    
                 }
+                    
                 else
                 {
                     MessageBox.Show("Veuillez sélectionner une ligne à mettre à jour.");
@@ -109,7 +565,7 @@ namespace KingOfNation.IHM
 
         private void UpdateCsv(CsvData selectedData)
         {
-            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
+            string filePath = "../../../CSV/joueur.csv";
             List<string> lines = new List<string>();
 
             try
@@ -156,6 +612,32 @@ namespace KingOfNation.IHM
                 MessageBox.Show("Erreur lors de la mise à jour du CSV: " + ex.Message);
             }
         }
+
+        private void afficherBois(object sender, EventArgs e)
+        {
+            nbBois.Text = ((App)Application.Current).bois.ToString();
+        }
+
+        private void afficherPierre(object sender, EventArgs e)
+        {
+            nbPierre.Text = ((App)Application.Current).pierre.ToString();
+        }
+
+        private void afficherFer(object sender, EventArgs e)
+        {
+            nbFer.Text = ((App)Application.Current).fer.ToString();
+        }
+
+        private void afficherOr(object sender, EventArgs e)
+        {
+            nbOr.Text = ((App)Application.Current).or.ToString();
+        }
+
+        private void afficherHab(object sender, EventArgs e)
+        {
+            nbHab.Text = ((App)Application.Current).hab.ToString();
+        }
+
     }
 
     #endregion

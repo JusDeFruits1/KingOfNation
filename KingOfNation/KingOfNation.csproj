@@ -11,7 +11,8 @@
   <ItemGroup>
     <None Remove="Code\afm142uo.5mn~" />
     <None Remove="Code\Production.cs~RF1c2dde.TMP" />
-    <None Remove="CSV\AAB1433D.tmp" />
+    <None Remove="IHM\Construction.xaml.cs~RF16b365c.TMP" />
+    <None Remove="IHM\Construction.xaml~RFfe0480.TMP" />
     <None Remove="img\Batiment\farfadet.jpg" />
     <None Remove="img\Batiment\farfadet.png" />
     <None Remove="img\Batiment\Taverne.jpg" />
@@ -23,7 +24,6 @@
     <None Remove="img\Choix\EmpireBritannique.jpg" />
     <None Remove="img\Choix\EmpireEgypte.jpg" />
     <None Remove="img\Choix\imgfond.jpg" />
-    <None Remove="img\Choix\imgFond1.jpg" />
     <None Remove="img\EmpireNippon.jpg" />
     <None Remove="img\EmpireNippon.png" />
     <None Remove="img\EmpireRomain.jpg" />
@@ -42,8 +42,6 @@
     <None Remove="img\Village\Viking3.png" />
     <None Remove="img\Village\Viking4.png" />
     <None Remove="Music\ClashofClans.mp3" />
-    <None Remove="Music\FarfadetM.mp3" />
-    <None Remove="Music\Taverne.mp3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,12 +70,13 @@
     <Resource Include="img\Choix\EmpireRomain.jpg" />
     <Resource Include="img\Choix\EmpireViking.jpg" />
     <Resource Include="img\Choix\imgfond.jpg" />
-    <Resource Include="img\Choix\imgFond1.jpg" />
     <Resource Include="img\imgGame\barreauHorizon.png" />
     <Resource Include="img\imgGame\barreauVerti.png" />
     <Resource Include="img\imgGame\nvbarreau.png" />
     <Resource Include="img\imgGame\barrefond.png" />
-    <Resource Include="img\imgRessources\Bois.png" />
+    <Resource Include="img\imgRessources\Bois.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\imgRessources\Fer.png" />
     <Resource Include="img\imgRessources\Habitant.png" />
     <Resource Include="img\imgRessources\Or.png" />
@@ -87,8 +86,6 @@
     <Resource Include="img\Village\Viking3.png" />
     <Resource Include="img\Village\Viking4.png" />
     <Resource Include="Music\ClashofClans.mp3" />
-    <Resource Include="Music\FarfadetM.mp3" />
-    <Resource Include="Music\Taverne.mp3" />
   </ItemGroup>
 
 </Project>
