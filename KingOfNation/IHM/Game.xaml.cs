@@ -17,8 +17,6 @@ using System.Printing;
 using System.Media;
 using Microsoft.VisualBasic.FileIO;
 using System.Diagnostics;
-using KingOfNation.Code;
-using System.Text.Json;
 
 namespace KingOfNation.IHM
 {
@@ -61,7 +59,8 @@ namespace KingOfNation.IHM
                 }
             }
 
-            imgVillage.Source = new BitmapImage(new Uri(@"../img/Village/" + ((App)Application.Current).Joueur.Empire + nv + ".png", UriKind.Relative));
+            imgVillage.Source = new BitmapImage(new Uri(@"../img/Village/" + ((App)Application.Current).Empire + nv + ".png", UriKind.Relative));
+            Trace.WriteLine(new Uri(@"../img/Village/" + ((App)Application.Current).Empire + nv + ".png", UriKind.Relative));
             ((App)Application.Current).timerJ.Tick += afficherBois;
             ((App)Application.Current).timerJ.Tick += afficherPierre;
             ((App)Application.Current).timerJ.Tick += afficherFer;
@@ -73,12 +72,6 @@ namespace KingOfNation.IHM
         #endregion
 
         #region Operations
-        private void Save(object sender, EventArgs e)
-        {
-            // Sérialisation
-            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab);
-            ((App)Application.Current).Joueur.SerializeToFile("DataSave");
-        }
 
         private void Village(object sender, RoutedEventArgs e)
         {
@@ -89,31 +82,27 @@ namespace KingOfNation.IHM
 
         private void afficherBois(object sender, EventArgs e)
         {
-            nbBois.Text = ((App)Application.Current).Joueur.Bois.ToString();
+            nbBois.Text = ((App)Application.Current).bois.ToString();
         }
 
         private void afficherPierre(object sender, EventArgs e)
         {
-
-            nbPierre.Text = ((App)Application.Current).Joueur.Pierre.ToString();
+            nbPierre.Text = ((App)Application.Current).pierre.ToString();
         }
 
         private void afficherFer(object sender, EventArgs e)
         {
-
-            nbFer.Text = ((App)Application.Current).Joueur.Fer.ToString();
+            nbFer.Text = ((App)Application.Current).fer.ToString();
         }
 
         private void afficherOr(object sender, EventArgs e)
         {
-
-            nbOr.Text = ((App)Application.Current).Joueur.Or.ToString();
+            nbOr.Text = ((App)Application.Current).or.ToString();
         }
 
         private void afficherHab(object sender, EventArgs e)
         {
-
-            nbHab.Text = ((App)Application.Current).Joueur.Hab.ToString();
+            nbHab.Text = ((App)Application.Current).hab.ToString();
         }
 
         private void Taverne(object sender, RoutedEventArgs e)
@@ -123,6 +112,7 @@ namespace KingOfNation.IHM
                 if (elt.Nom == "Taverne")
                 {
                     Taverne taverne = new Taverne();
+                    ((App)Application.Current).musicGame.controls.stop();
                     taverne.Show();
                     this.Close();
                 }
@@ -173,7 +163,7 @@ namespace KingOfNation.IHM
 
         private void LoadCsvData(List<CsvData> csvDataList)
         {
-            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
+            string filePath = "../../../CSV/joueur.csv";
 
             try
             {

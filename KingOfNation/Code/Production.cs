@@ -1,11 +1,9 @@
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Threading;
 using KingOfNation;
-using KingOfNation.Code;
 using KingOfNation.IHM;
 using Microsoft.VisualBasic.FileIO;
 
@@ -14,17 +12,28 @@ public class Production
 
     #region Attributes
 
+    private bool verifscierieConstruite = false;
+    private int scierieConstruite = 0;
+
+    private bool verifminePConstruite = false;
+    private int mineConstruitePierre = 0;
+
+    private bool verifmineFConstruite = false;
+    private int mineConstruiteFer = 0;
+
+    private bool verifcommerceConstruite = false;
+    private int commerceConstruite = 0;
+
+    private bool verifhabConstruite = false;
+    private int habitationConstruite = 0;
+
     List<CsvData> csvDataList = new List<CsvData>();
 
     #endregion
 
     #region Properties
 
-    public int scierieConstruite = 0;
-    public int minePConstruite = 0;
-    public int mineFConstruite = 0;
-    public int commerceConstruite = 0;
-    public int habitationConstruite = 0;
+
 
     #endregion
 
@@ -43,7 +52,7 @@ public class Production
         {
             if (elt.Nom == "Scierie")
             {
-                if (elt.Niveau != "0")
+                if( elt.Niveau != "0")
                 {
                     scierieConstruite = 1;
                 }
@@ -52,9 +61,10 @@ public class Production
                     scierieConstruite = 0;
                 }
             }
+            
         }
-        ((App)Application.Current).Joueur.Bois += 10 * scierieConstruite;
-        return ((App)Application.Current).Joueur.Bois;
+        ((App)Application.Current).bois += 100 * scierieConstruite;
+        return ((App)Application.Current).bois;
 
     }
 
@@ -63,20 +73,20 @@ public class Production
         CanProduce(csvDataList);
         foreach (CsvData elt in csvDataList)
         {
-            if (elt.Nom == "Mine")  
+            if (elt.Nom == "Mine")
             {
                 if (elt.Niveau != "0")
                 {
-                    minePConstruite = 1;
+                    mineConstruitePierre = 1;
                 }
                 else
                 {
-                    minePConstruite = 0;
+                    mineConstruitePierre = 0;
                 }
-            }
+            }            
         }
-        ((App)Application.Current).Joueur.Pierre += 5 * minePConstruite;
-        return ((App)Application.Current).Joueur.Pierre;
+        ((App)Application.Current).pierre += 50 * mineConstruitePierre;
+        return ((App)Application.Current).pierre;
     }
 
     public int ProdFer()
@@ -88,16 +98,16 @@ public class Production
             {
                 if (elt.Niveau == "3" || elt.Niveau == "4" || elt.Niveau == "5")
                 {
-                    mineFConstruite = 1;
+                    mineConstruiteFer = 1;
                 }
                 else
                 {
-                    mineFConstruite = 0;
+                    mineConstruiteFer = 0;
                 }
-            }
+            }            
         }
-        ((App)Application.Current).Joueur.Fer += 3 * mineFConstruite;
-        return ((App)Application.Current).Joueur.Fer;
+        ((App)Application.Current).fer += 30 * mineConstruiteFer;
+        return ((App)Application.Current).fer;
     }
 
     public int ProdOr()
@@ -109,17 +119,16 @@ public class Production
             {
                 if (elt.Niveau != "0")
                 {
-                    commerceConstruite = 1;
+                    mineConstruiteFer = 1;
                 }
                 else
                 {
                     commerceConstruite = 0;
-
                 }
             }
         }
-        ((App)Application.Current).Joueur.Or += 2 * commerceConstruite;
-        return ((App)Application.Current).Joueur.Or;
+        ((App)Application.Current).or += 20 * commerceConstruite;
+        return ((App)Application.Current).or;
     }
 
     public int ProdHab()
@@ -136,17 +145,16 @@ public class Production
                 else
                 {
                     habitationConstruite = 0;
-
                 }
             }
         }
-        ((App)Application.Current).Joueur.Hab += 30 * habitationConstruite;
-        return ((App)Application.Current).Joueur.Hab;
+        ((App)Application.Current).hab += 30 * habitationConstruite;
+        return ((App)Application.Current).hab;
     }
 
     public void CanProduce(List<CsvData> csvDataList)
     {
-        string filePath = "../../../CSV/"+ ((App)Application.Current).Joueur.NomVillage + ".csv";
+        string filePath = "../../../CSV/joueur.csv";
         try
         {
             using (TextFieldParser parser = new TextFieldParser(filePath))
@@ -167,10 +175,10 @@ public class Production
                     string[] fields = parser.ReadFields();
                     if (fields.Length >= 11) // Assurez-vous qu'il y a au moins 11 colonnes
                     {
-                        // Ajouter uniquement les lignes où la seconde colonne est "1"
+                        // Ajouter uniquement les lignes où la seconde colonne est "0"
                         if (fields[1] == "1")
                         {
-                            csvDataList.Add(new CsvData { Nom = fields[0], Niveau = fields[2]});
+                            csvDataList.Add(new CsvData { Nom = fields[0], Niveau = fields[2], Description = fields[4] });
                         }
                     }
                 }
@@ -178,7 +186,7 @@ public class Production
         }
         catch (Exception ex)
         {
-            
+            MessageBox.Show("Le fichier ne peut pas être lu: " + ex.Message);
         }
     }
     #endregion

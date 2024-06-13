@@ -1,6 +1,6 @@
 using System;
 
-public class Taverne  {
+public class Taverne : Batiment  {
 	/// <summary>
 	/// La ressource que va g�n�rer le bat�ment
 	/// </summary>

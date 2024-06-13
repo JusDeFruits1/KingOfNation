@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KingOfNation.IHM"
         mc:Ignorable="d"
-        Title="Amelioration" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Amelioration" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -19,18 +19,52 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListView Name="CsvDataListView" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
+
+        <Label HorizontalAlignment="Left" Margin="225,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            <Image Source="../img/imgRessources/Bois.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="270,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbBois" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+        <Label HorizontalAlignment="Left" Margin="350,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            <Image Source="../img/imgRessources/Pierre.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="400,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbPierre" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+        <Label HorizontalAlignment="Left" Margin="475,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            <Image Source="../img/imgRessources/Fer.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="525,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbFer" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+        <Label HorizontalAlignment="Left" Margin="575,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            <Image Source="../img/imgRessources/Or.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="625,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbOr" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+
+        <Label HorizontalAlignment="Left" Margin="675,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            <Image Source="../img/imgRessources/Habitant.png" />
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="700,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbHab" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+        <ListView Name="CsvDataListView" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" Margin="10" SelectionChanged="CsvDataListView_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}" Width="100"/>
-                    <GridViewColumn Header="niveau" DisplayMemberBinding="{Binding Niveau}" Width="110"/>
-                    <GridViewColumn Header="niveau max" DisplayMemberBinding="{Binding NiveauMax}" Width="110"/>
+                    <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}" Width="90"/>
+                    <GridViewColumn Header="Nv" DisplayMemberBinding="{Binding Niveau}" Width="40"/>
+                    <GridViewColumn Header="Nv Max" DisplayMemberBinding="{Binding NiveauMax}" Width="50"/>
+                    <GridViewColumn Header="Coût en Or" DisplayMemberBinding="{Binding Cout_en_Or}" Width="70"/>
+                    <GridViewColumn Header="Mat Amélio1" DisplayMemberBinding="{Binding Mat_Amelio1}" Width="100"/>
+                    <GridViewColumn Header="Coût Mat Amélio1" DisplayMemberBinding="{Binding Cout_Mat_Amelio1}" Width="100"/>
+                    <GridViewColumn Header="Mat Amélio2" DisplayMemberBinding="{Binding Mat_Amelio2}" Width="100"/>
+                    <GridViewColumn Header="Coût Mat Amélio2" DisplayMemberBinding="{Binding Cout_Mat_Amelio2}" Width="100"/>
+                    <GridViewColumn Header="Mult Amélio" DisplayMemberBinding="{Binding Mult_Amelio}" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <Button Margin="10,10,148,55" BorderBrush="White" Click="Back">
             <Image Source="../img/Button/back.png"/>
         </Button>
-        <Button Content="Améliorer" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="15" Click="UpdateButton_Click" FontSize="20"/>
+        <Button Content="Améliorer" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="15" Click="Améliorer" FontSize="20"/>
+        <Label Content="Sélectionnez un bâtiment à construire :" Margin="10,10,0,40" Grid.ColumnSpan="2" FontSize="20" FontFamily="Comic Sans MS" HorizontalAlignment="Left" Grid.Column="1"/>
     </Grid>
 </Window>

@@ -22,14 +22,11 @@ namespace KingOfNation.IHM
 
         public Taverne()
         {
-            WMPLib.WindowsMediaPlayer musicGame = ((App)Application.Current).musicGame;
             InitializeComponent();
-            musicGame.controls.stop();
-            musicGame.URL = "Taverne.mp3";
-            musicGame.controls.play();
+
         }
 
-            private void FarfadetMalicieux(object sender, RoutedEventArgs e)
+        private void FarfadetMalicieux(object sender, RoutedEventArgs e)
         {
             Farfadet farfadet = new Farfadet();
             farfadet.Show();

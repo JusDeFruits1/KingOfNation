@@ -1,10 +1,10 @@
 using System;
 
-public class Boutique  {
+public class Boutique : Batiment  {
 	/// <summary>
 	/// La ressource que va g�n�rer le bat�ment
 	/// </summary>
-	private Production ressource;
+	private Production? ressource;
 	public Production Ressource {
 		get {
 			return ressource;
