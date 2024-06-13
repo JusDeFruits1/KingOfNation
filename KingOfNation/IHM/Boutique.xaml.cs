@@ -20,40 +20,54 @@ using System.Windows.Shapes;
 namespace KingOfNation.IHM
 {
 
-    public class Produit
+    public class RelayCommand : ICommand
     {
-        public string Id { get; set; }
-        public string Nom { get; set; }
-        public string ImgPath { get; set; }
-        public string Quantite { get; set; }
-        public string Prix { get; set; }
+        private readonly Action<object> execute;
+        private readonly Predicate<object> canExecute;
+
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
+        {
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            this.canExecute = canExecute;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return canExecute == null || canExecute(parameter);
+        }
+
+        public void Execute(object parameter)
+        {
+            execute(parameter);
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
     }
 
-    public class Tresor
-    {
-        public string Nom { get; set; }
-        public string Price { get; set; }
-        public string ImagPath { get; set; }
-    }
 
-    /// <summary>
-    /// Logique d'interaction pour Boutique.xaml
-    /// </summary>
     public partial class Boutique : Window, INotifyPropertyChanged
     {
         private string buttonContent;
         private ObservableCollection<Produit> acheterItems;
         private ObservableCollection<Tresor> vendreItems;
         private ObservableCollection<object> currentItems;
+        private object selectedItem;
 
         public string ButtonContent
         {
             get { return buttonContent; }
             set
             {
-                buttonContent = value;
-                OnPropertyChanged(nameof(ButtonContent));
-                UpdateCurrentItems(); // Mettre à jour les éléments de la ListBox
+                if (buttonContent != value)
+                {
+                    buttonContent = value;
+                    OnPropertyChanged(nameof(ButtonContent));
+                    UpdateCurrentItems(); // Mettre à jour les éléments de la ListBox
+                }
             }
         }
 
@@ -62,22 +76,127 @@ namespace KingOfNation.IHM
             get { return currentItems; }
             set
             {
-                currentItems = value;
-                OnPropertyChanged(nameof(CurrentItems));
+                if (currentItems != value)
+                {
+                    currentItems = value;
+                    OnPropertyChanged(nameof(CurrentItems));
+                }
             }
         }
+
+        public object SelectedItem
+        {
+            get { return selectedItem; }
+            set
+            {
+                if (selectedItem != value)
+                {
+                    selectedItem = value;
+                    OnPropertyChanged(nameof(SelectedItem));
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public ICommand BuyCommand { get; }
 
         public Boutique()
         {
             InitializeComponent();
-            LoadAcheterItemsFromCsv("../../../CSV/boutique.csv"); // Spécifiez le chemin vers votre fichier CSV
-            vendreItems = new ObservableCollection<Tresor>
-            {
-                new Tresor { Nom = "Tresor 1", Price = "100", ImagPath = "path/to/image1.png" },
-                new Tresor { Nom = "Tresor 2", Price = "200", ImagPath = "path/to/image2.png" }
-            };
-            ButtonContent = "acheter";
             DataContext = this;
+            ((App)Application.Current).timerJ.Tick += afficherBois;
+            ((App)Application.Current).timerJ.Tick += afficherPierre;
+            ((App)Application.Current).timerJ.Tick += afficherFer;
+            ((App)Application.Current).timerJ.Tick += afficherOr;
+            ((App)Application.Current).timerJ.Tick += afficherHab;
+            ((App)Application.Current).timerJ.Start();
+            LoadAcheterItemsFromCsv("../../../CSV/boutique.csv"); // Spécifiez le chemin vers votre fichier CSV
+            vendreItems = new ObservableCollection<Tresor>();
+            foreach (Tresor elt in ((App)Application.Current).Joueur.TresorsJoueur)
+            {
+                vendreItems.Add(elt);
+            }
+            ButtonContent = "acheter";
+            
+
+            BuyCommand = new RelayCommand(BuyItem, CanBuyItem);
+        }
+
+        private bool CanBuyItem(object parameter)
+        {
+            return SelectedItem != null;
+        }
+
+        private void BuyItem(object parameter)
+        {
+            if (SelectedItem is Produit produit)
+            {
+                int.TryParse(produit.Prix, out int price);
+                if (((App)Application.Current).Joueur.Or >= price)
+                {
+                    ((App)Application.Current).Joueur.Or -= price;
+                    if (produit.Id == "1")
+                    {
+                        ((App)Application.Current).Joueur.Bois += 50;
+                    }
+                    else if (produit.Id == "2")
+                    {
+                        ((App)Application.Current).Joueur.Pierre += 50;
+                    }
+                    else if (produit.Id == "3")
+                    {
+                        ((App)Application.Current).Joueur.Fer += 50;
+                    }
+                    else if (produit.Id == "4")
+                    {
+                        ((App)Application.Current).Joueur.Bois += 100;
+                    }
+                    else if (produit.Id == "5")
+                    {
+                        ((App)Application.Current).Joueur.Pierre += 100;
+                    }
+                    else if (produit.Id == "6")
+                    {
+                        ((App)Application.Current).Joueur.Fer += 100;
+                    }
+                    else if (produit.Id == "7")
+                    {
+                        ((App)Application.Current).Joueur.Bois += 250;
+                    }
+                    else if (produit.Id == "8")
+                    {
+                        ((App)Application.Current).Joueur.Pierre += 250;
+                    }
+                    else if (produit.Id == "9")
+                    {
+                        ((App)Application.Current).Joueur.Fer += 250;
+                    }
+
+                    MessageBox.Show($"Achat réussi: {produit.Nom} pour {price} or.");
+                }
+                else
+                {
+                    MessageBox.Show("Vous n'avez pas assez d'or pour acheter cet article.");
+                }
+            }
+            else if (SelectedItem is Tresor tresor)
+            {
+                int.TryParse(tresor.Price, out int price);
+                if (((App)Application.Current).Joueur.Or >= price)
+                {
+                    ((App)Application.Current).Joueur.Or -= price;
+                    MessageBox.Show($"Achat réussi: {tresor.Nom} pour {price} or.");
+                }
+                else
+                {
+                    MessageBox.Show("Vous n'avez pas assez d'or pour acheter cet article.");
+                }
+            }
         }
 
         private void LoadAcheterItemsFromCsv(string filePath)
@@ -112,10 +231,9 @@ namespace KingOfNation.IHM
             }
         }
 
-
-                private void UpdateCurrentItems()
+        private void UpdateCurrentItems()
         {
-            if (ButtonContent == "acheter")
+            if (ButtonContent == "Acheter")
             {
                 CurrentItems = new ObservableCollection<object>(acheterItems);
             }
@@ -133,19 +251,38 @@ namespace KingOfNation.IHM
 
         private void BuyButton(object sender, RoutedEventArgs e)
         {
-            ButtonContent = "acheter";
+            ButtonContent = "Acheter";
         }
 
         private void SaleButton(object sender, RoutedEventArgs e)
         {
-            ButtonContent = "vendre";
+            ButtonContent = "Vendre";
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName)
+        private void afficherBois(object sender, EventArgs e)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            nbBois.Text = ((App)Application.Current).Joueur.Bois.ToString();
+        }
+
+        private void afficherPierre(object sender, EventArgs e)
+        {
+            nbPierre.Text = ((App)Application.Current).Joueur.Pierre.ToString();
+        }
+
+        private void afficherFer(object sender, EventArgs e)
+        {
+            nbFer.Text = ((App)Application.Current).Joueur.Fer.ToString();
+        }
+
+        private void afficherOr(object sender, EventArgs e)
+        {
+            nbOr.Text = ((App)Application.Current).Joueur.Or.ToString();
+        }
+
+        private void afficherHab(object sender, EventArgs e)
+        {
+            nbHab.Text = ((App)Application.Current).Joueur.Hab.ToString();
         }
     }
 }

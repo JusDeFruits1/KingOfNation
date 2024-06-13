@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:KingOfNation.IHM"
+        xmlns:local="clr-namespace:KingOfNation.Code"
         mc:Ignorable="d"
         Title="Boutique" Height="450" Width="800">
     <Grid>
@@ -23,10 +23,35 @@
         <Button Margin="10,10,108,55" BorderBrush="Transparent" Click="Home">
             <Image Source="../img/Button/retour.png"/>
         </Button>
-        <Button Content="Acheter" Click="BuyButton" FontSize="15" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="30"/>
-        <Button Content="Vendre" Click="SaleButton" FontSize="15" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="30"/>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="53" Grid.Column="1" Margin="107,59,0,0" Grid.RowSpan="2">
+            <Image Source="../img/imgRessources/Bois.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbBois" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="2" Margin="0,71,0,0"/>
 
-        <ListBox ItemsSource="{Binding CurrentItems}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Standard" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="30">
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="55" Grid.Column="2" Margin="50,60,0,0" Grid.RowSpan="2">
+            <Image Source="../img/imgRessources/Pierre.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left"  VerticalAlignment="Top" Height="25" Width="50" x:Name="nbPierre" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="2" Margin="110,71,0,0"/>
+
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Height="54" Width="62" Grid.Column="3" Margin="0,54,0,0">
+            <Image Source="../img/imgRessources/Fer.png" Height="44" Width="62"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbFer" Text="0" FontSize="20" FontFamily="Comic sans Ms" RenderTransformOrigin="-0.617,0.604" Grid.Column="3" Margin="69,71,0,0"/>
+
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="53" Grid.Column="3" Margin="119,62,0,0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Image Source="../img/imgRessources/Or.png" Height="41" Width="42" RenderTransformOrigin="0.571,0.757"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left"  VerticalAlignment="Top" Height="25" Width="50" x:Name="nbOr" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="4" Margin="12,72,0,0"/>
+
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Height="46" Width="28" Grid.Column="4" Margin="72,62,0,0">
+            <Image Source="../img/imgRessources/Habitant.png" />
+        </Label>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbHab" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="4" Margin="105,72,0,0"/>
+
+        <Button Content="Achat" IsEnabled="{Binding SelectedItem}" Click="BuyButton" FontSize="15" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="30"/>
+        <Button Content="Vente" Click="SaleButton" FontSize="15" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="30"/>
+
+        <ListBox ItemsSource="{Binding CurrentItems}" SelectedItem="{Binding SelectedItem}" Grid.Column="2" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="30">
             <ListBox.Resources>
                 <DataTemplate DataType="{x:Type local:Produit}">
                     <Grid>
@@ -60,6 +85,6 @@
             </ListBox.Resources>
         </ListBox>
 
-        <Button Content="{Binding ButtonContent}"  FontSize="15" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" Margin="75, 35"/>
+        <Button Content="{Binding ButtonContent}" Command="{Binding BuyCommand}"  FontSize="15" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" Margin="75, 35"/>
     </Grid>
 </Window>
