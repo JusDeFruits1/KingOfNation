@@ -25,7 +25,12 @@ namespace KingOfNation.IHM
             InitializeComponent();
 
         }
-
+        private void Home(object sender, RoutedEventArgs e)
+        {
+            Game game = new Game(true);
+            game.Show();
+            this.Close();
+        }
         private void FarfadetMalicieux(object sender, RoutedEventArgs e)
         {
             Farfadet farfadet = new Farfadet();

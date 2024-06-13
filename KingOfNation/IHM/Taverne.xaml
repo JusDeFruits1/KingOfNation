@@ -24,6 +24,9 @@
         <Grid.Background>
             <ImageBrush ImageSource="../img/Batiment/Taverne.png"/>
         </Grid.Background>
+        <Button Margin="10,10,112,44" Background="#4D2C0A" Click="Home">
+            <Image Source="../img/Button/retour.png"/>
+        </Button>
         <Button Grid.Column="4" Grid.Row="2" Opacity="0" Margin="10,43,101,59" RenderTransformOrigin="-0.391,0.779" Click="FarfadetMalicieux" Grid.RowSpan="2"/>
     </Grid>
 </Window>

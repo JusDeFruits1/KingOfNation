@@ -16,7 +16,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Margin="10,10,148,55" BorderBrush="White" Click="Home">
+        <Button Margin="10,10,148,55" BorderBrush="Transparent" Click="Home">
             <Image Source="../img/Button/retour.png"/>
         </Button>
         <Label Content="Votre village" Grid.Column="1" Grid.ColumnSpan="2" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
