@@ -148,7 +148,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Hab += 10 * habitationConstruite;
+        ((App)Application.Current).Joueur.Hab += 30 * habitationConstruite;
         return ((App)Application.Current).Joueur.Hab;
     }
 

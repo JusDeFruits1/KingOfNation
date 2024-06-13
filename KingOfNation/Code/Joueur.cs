@@ -59,18 +59,11 @@ namespace KingOfNation.Code
             get { return hab; }
             set { hab = value; }
         }
-        private List<Tresor> tresorsJoueur = new List<Tresor>();
-        public List<Tresor> TresorsJoueur
-        {
-            get { return tresorsJoueur; }
-            set { tresorsJoueur = value; }
-        }
-
         // Constructeur sans paramètres pour la désérialisation
         public Joueur() { }
 
         // (Optionnel) Constructeur avec paramètres pour initialisation facile
-        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Tresor> tresorsJoueur)
+        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab)
         {
             Pseudo = pseudo;
             Empire = empire;
@@ -80,7 +73,6 @@ namespace KingOfNation.Code
             Fer = fer;
             Or = or;
             Hab = hab;
-            TresorsJoueur = tresorsJoueur;
         }
         // Méthode pour sérialiser l'objet dans un fichier avec le nom du joueur
         public void SerializeToFile(string directoryPath)

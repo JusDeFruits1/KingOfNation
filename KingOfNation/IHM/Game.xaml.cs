@@ -75,7 +75,7 @@ namespace KingOfNation.IHM
         private void Save(object sender, EventArgs e)
         {
             // Sérialisation
-            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.TresorsJoueur);
+            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab);
             ((App)Application.Current).Joueur.SerializeToFile("DataSave");
         }
 
@@ -84,6 +84,35 @@ namespace KingOfNation.IHM
             Village village = new Village();
             village.Show();
             this.Close();
+        }
+
+        private void afficherBois(object sender, EventArgs e)
+        {
+            nbBois.Text = ((App)Application.Current).Joueur.Bois.ToString();
+        }
+
+        private void afficherPierre(object sender, EventArgs e)
+        {
+
+            nbPierre.Text = ((App)Application.Current).Joueur.Pierre.ToString();
+        }
+
+        private void afficherFer(object sender, EventArgs e)
+        {
+
+            nbFer.Text = ((App)Application.Current).Joueur.Fer.ToString();
+        }
+
+        private void afficherOr(object sender, EventArgs e)
+        {
+
+            nbOr.Text = ((App)Application.Current).Joueur.Or.ToString();
+        }
+
+        private void afficherHab(object sender, EventArgs e)
+        {
+
+            nbHab.Text = ((App)Application.Current).Joueur.Hab.ToString();
         }
 
         private void Taverne(object sender, RoutedEventArgs e)
@@ -140,35 +169,6 @@ namespace KingOfNation.IHM
                     this.Close();
                 }
             }
-        }
-
-        private void afficherBois(object sender, EventArgs e)
-        {
-            nbBois.Text = ((App)Application.Current).Joueur.Bois.ToString();
-        }
-
-        private void afficherPierre(object sender, EventArgs e)
-        {
-
-            nbPierre.Text = ((App)Application.Current).Joueur.Pierre.ToString();
-        }
-
-        private void afficherFer(object sender, EventArgs e)
-        {
-
-            nbFer.Text = ((App)Application.Current).Joueur.Fer.ToString();
-        }
-
-        private void afficherOr(object sender, EventArgs e)
-        {
-
-            nbOr.Text = ((App)Application.Current).Joueur.Or.ToString();
-        }
-
-        private void afficherHab(object sender, EventArgs e)
-        {
-
-            nbHab.Text = ((App)Application.Current).Joueur.Hab.ToString();
         }
 
         private void LoadCsvData(List<CsvData> csvDataList)

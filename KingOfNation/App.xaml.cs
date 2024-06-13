@@ -79,7 +79,7 @@ namespace KingOfNation
             timerOr.Start();
 
             timerHab = new DispatcherTimer();
-            timerHab.Interval = TimeSpan.FromSeconds(25);
+            timerHab.Interval = TimeSpan.FromSeconds(6);
             timerHab.Tick += ProdHabHandler;
             timerHab.Start();
 
@@ -109,7 +109,6 @@ namespace KingOfNation
         {
             ((App)Application.Current).hab = Hab.ProdHab();
         }
-
 
         public void OpenGame()
         {
