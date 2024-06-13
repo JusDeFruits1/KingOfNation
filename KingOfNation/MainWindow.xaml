@@ -10,6 +10,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="img/Choix/imgfond.jpg"/>
         </Grid.Background>
-        <Button Content="Start" FontSize="20" Click="Start" Margin="323,257,323,111"/>
+        <Button Content="Nouvelle partie" FontSize="20" Click="New_game" Margin="323,227,323,144"/>
+        <Button Content="Charger partie" FontSize="20"  Click="Load_game"  Margin="323,279,323,94"/>
     </Grid>
 </Window>

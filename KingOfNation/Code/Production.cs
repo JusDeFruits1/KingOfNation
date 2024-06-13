@@ -1,9 +1,11 @@
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Threading;
 using KingOfNation;
+using KingOfNation.Code;
 using KingOfNation.IHM;
 using Microsoft.VisualBasic.FileIO;
 
@@ -12,28 +14,17 @@ public class Production
 
     #region Attributes
 
-    private bool verifscierieConstruite = false;
-    private int scierieConstruite = 0;
-
-    private bool verifminePConstruite = false;
-    private int mineConstruitePierre = 0;
-
-    private bool verifmineFConstruite = false;
-    private int mineConstruiteFer = 0;
-
-    private bool verifcommerceConstruite = false;
-    private int commerceConstruite = 0;
-
-    private bool verifhabConstruite = false;
-    private int habitationConstruite = 0;
-
     List<CsvData> csvDataList = new List<CsvData>();
 
     #endregion
 
     #region Properties
 
-
+    public int scierieConstruite = 0;
+    public int minePConstruite = 0;
+    public int mineFConstruite = 0;
+    public int commerceConstruite = 0;
+    public int habitationConstruite = 0;
 
     #endregion
 
@@ -52,7 +43,7 @@ public class Production
         {
             if (elt.Nom == "Scierie")
             {
-                if( elt.Niveau != "0")
+                if (elt.Niveau != "0")
                 {
                     scierieConstruite = 1;
                 }
@@ -61,9 +52,12 @@ public class Production
                     scierieConstruite = 0;
                 }
             }
-            
         }
+<<<<<<< HEAD
         ((App)Application.Current).Joueur.Bois += 100 * scierieConstruite;
+=======
+        ((App)Application.Current).Joueur.Bois += 10 * scierieConstruite;
+>>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         return ((App)Application.Current).Joueur.Bois;
 
     }
@@ -73,19 +67,23 @@ public class Production
         CanProduce(csvDataList);
         foreach (CsvData elt in csvDataList)
         {
-            if (elt.Nom == "Mine")
+            if (elt.Nom == "Mine")  
             {
                 if (elt.Niveau != "0")
                 {
-                    mineConstruitePierre = 1;
+                    minePConstruite = 1;
                 }
                 else
                 {
-                    mineConstruitePierre = 0;
+                    minePConstruite = 0;
                 }
-            }            
+            }
         }
+<<<<<<< HEAD
         ((App)Application.Current).Joueur.Pierre += 50 * mineConstruitePierre;
+=======
+        ((App)Application.Current).Joueur.Pierre += 5 * minePConstruite;
+>>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         return ((App)Application.Current).Joueur.Pierre;
     }
 
@@ -98,15 +96,19 @@ public class Production
             {
                 if (elt.Niveau == "3" || elt.Niveau == "4" || elt.Niveau == "5")
                 {
-                    mineConstruiteFer = 1;
+                    mineFConstruite = 1;
                 }
                 else
                 {
-                    mineConstruiteFer = 0;
+                    mineFConstruite = 0;
                 }
-            }            
+            }
         }
+<<<<<<< HEAD
         ((App)Application.Current).Joueur.Fer += 30 * mineConstruiteFer;
+=======
+        ((App)Application.Current).Joueur.Fer += 3 * mineFConstruite;
+>>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         return ((App)Application.Current).Joueur.Fer;
     }
 
@@ -119,15 +121,20 @@ public class Production
             {
                 if (elt.Niveau != "0")
                 {
-                    mineConstruiteFer = 1;
+                    commerceConstruite = 1;
                 }
                 else
                 {
                     commerceConstruite = 0;
+
                 }
             }
         }
+<<<<<<< HEAD
         ((App)Application.Current).Joueur.Or += 20 * commerceConstruite;
+=======
+        ((App)Application.Current).Joueur.Or += 2 * commerceConstruite;
+>>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
         return ((App)Application.Current).Joueur.Or;
     }
 
@@ -145,6 +152,7 @@ public class Production
                 else
                 {
                     habitationConstruite = 0;
+
                 }
             }
         }
@@ -154,7 +162,7 @@ public class Production
 
     public void CanProduce(List<CsvData> csvDataList)
     {
-        string filePath = "../../../CSV/joueur.csv";
+        string filePath = "../../../CSV/"+ ((App)Application.Current).Joueur.NomVillage + ".csv";
         try
         {
             using (TextFieldParser parser = new TextFieldParser(filePath))
@@ -163,11 +171,11 @@ public class Production
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(";");
 
-                // Lire la ligne d'en-tï¿½te si elle existe
+                // Lire la ligne d'en-tête si elle existe
                 if (!parser.EndOfData)
                 {
                     string[] headers = parser.ReadFields();
-                    // Vous pouvez utiliser les en-tï¿½tes si nï¿½cessaire
+                    // Vous pouvez utiliser les en-têtes si nécessaire
                 }
                 // Lire les lignes suivantes
                 while (!parser.EndOfData)
@@ -175,10 +183,10 @@ public class Production
                     string[] fields = parser.ReadFields();
                     if (fields.Length >= 11) // Assurez-vous qu'il y a au moins 11 colonnes
                     {
-                        // Ajouter uniquement les lignes oï¿½ la seconde colonne est "0"
+                        // Ajouter uniquement les lignes où la seconde colonne est "1"
                         if (fields[1] == "1")
                         {
-                            csvDataList.Add(new CsvData { Nom = fields[0], Niveau = fields[2], Description = fields[4] });
+                            csvDataList.Add(new CsvData { Nom = fields[0], Niveau = fields[2]});
                         }
                     }
                 }
@@ -186,7 +194,7 @@ public class Production
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Le fichier ne peut pas ï¿½tre lu: " + ex.Message);
+            
         }
     }
     #endregion

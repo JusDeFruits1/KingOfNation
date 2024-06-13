@@ -9,6 +9,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KingOfNation.Code;
+using System.IO;
 
 namespace KingOfNation
 {
@@ -29,11 +31,17 @@ namespace KingOfNation
         #endregion
 
         #region Operations
-        private void Start(object sender, RoutedEventArgs e)
+        private void New_game(object sender, RoutedEventArgs e)
         {
             Choix choix = new Choix();
             choix.Show();
+            this.Close();
+        }
 
+        private void Load_game(object sender, RoutedEventArgs e)
+        {
+            ChargerPartie chargerPartie = new ChargerPartie();
+            chargerPartie.Show();
             this.Close();
         }
         #endregion

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.FileIO;
+﻿using KingOfNation.Code;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,7 @@ namespace KingOfNation.IHM
     {
 
         #region Attributes
+
         #endregion
 
         #region Properties
@@ -42,7 +44,7 @@ namespace KingOfNation.IHM
 
         private void LoadCsvData()
         {
-            string filePath = "../../../CSV/joueur.csv";
+            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
 
             try
             {
@@ -109,7 +111,7 @@ namespace KingOfNation.IHM
 
         private void UpdateCsv(CsvData selectedData)
         {
-            string filePath = "../../../CSV/joueur.csv";
+            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
             List<string> lines = new List<string>();
 
             try
@@ -133,6 +135,7 @@ namespace KingOfNation.IHM
                         fields[1] = "0";
                         fields[2] = "0";
                         lines[i] = string.Join(";", fields);
+                        
                     }
                 }
 

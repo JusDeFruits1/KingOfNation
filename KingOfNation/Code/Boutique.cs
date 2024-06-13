@@ -1,6 +1,6 @@
 using System;
 
-public class Boutique : Batiment  {
+public class Boutique  {
 	/// <summary>
 	/// Acheter des ressources
 	/// </summary>

@@ -1,6 +1,6 @@
 using System;
 
-public class Caserne : Batiment  {
+public class Caserne {
 	/// <summary>
 	/// La ressource que va g�n�rer le bat�ment
 	/// </summary>

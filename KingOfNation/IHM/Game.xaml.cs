@@ -18,6 +18,10 @@ using System.Media;
 using Microsoft.VisualBasic.FileIO;
 using System.Diagnostics;
 using KingOfNation.Code;
+<<<<<<< HEAD
+=======
+using System.Text.Json;
+>>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
 
 namespace KingOfNation.IHM
 {
@@ -61,7 +65,10 @@ namespace KingOfNation.IHM
             }
 
             imgVillage.Source = new BitmapImage(new Uri(@"../img/Village/" + ((App)Application.Current).Joueur.Empire + nv + ".png", UriKind.Relative));
+<<<<<<< HEAD
             Trace.WriteLine(new Uri(@"../img/Village/" + ((App)Application.Current).Joueur.Empire + nv + ".png", UriKind.Relative));
+=======
+>>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
             ((App)Application.Current).timerJ.Tick += afficherBois;
             ((App)Application.Current).timerJ.Tick += afficherPierre;
             ((App)Application.Current).timerJ.Tick += afficherFer;
@@ -123,7 +130,6 @@ namespace KingOfNation.IHM
                 if (elt.Nom == "Taverne")
                 {
                     Taverne taverne = new Taverne();
-                    ((App)Application.Current).musicGame.controls.stop();
                     taverne.Show();
                     this.Close();
                 }
@@ -174,7 +180,7 @@ namespace KingOfNation.IHM
 
         private void LoadCsvData(List<CsvData> csvDataList)
         {
-            string filePath = "../../../CSV/joueur.csv";
+            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
 
             try
             {

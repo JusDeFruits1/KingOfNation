@@ -7,6 +7,6 @@ public class Village {
 	/// <summary>
 	/// L'appartenance du village
 	/// </summary>
-	private Empire appartenance;
+	//private Empire appartenance;
 
 }

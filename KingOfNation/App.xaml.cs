@@ -47,7 +47,11 @@ namespace KingOfNation
         #region Operations
 
         protected override void OnStartup(StartupEventArgs e)
+<<<<<<< HEAD
         {
+=======
+        {            
+>>>>>>> parent of 6a6084b (Merge remote-tracking branch 'origin/Yram')
             Joueur = new Joueur();
             musicGame = new WMPLib.WindowsMediaPlayer();
             timerJ.Interval = TimeSpan.FromSeconds(0);

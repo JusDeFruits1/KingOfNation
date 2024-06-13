@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualBasic.FileIO;
+﻿using KingOfNation.Code;
+using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -43,7 +43,7 @@ namespace KingOfNation.IHM
 
         private void LoadCsvData()
         {
-            string filePath = "../../../CSV/joueur.csv";
+            string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
 
             try
             {
@@ -85,11 +85,8 @@ namespace KingOfNation.IHM
         }
         private void Home(object sender, RoutedEventArgs e)
         {
-            Game game = new Game();
-            game.Show();
+            ((App)Application.Current).OpenGame();
             this.Close();
-            //((App)Application.Current).OpenGame();
-            //this.Close();
         }
         private void OpenConstruction(object sender, RoutedEventArgs e)
         {
@@ -114,57 +111,30 @@ namespace KingOfNation.IHM
 
     }
 
-    public class CsvData : INotifyPropertyChanged
+    public class CsvData
     {
         #region Attributes
-
-        private string? _coutEnOr;
-        public event PropertyChangedEventHandler PropertyChanged;
-
         #endregion
 
         #region Properties
 
-        public string? Nom { get; set; }
-        public string? Niveau { get; set; }
-        public string? NiveauMax { get; set; }
-        public string? Description { get; set; }
-        public string? Ressource_produit { get; set; }
-        public string? Cout_construction { get; set; }
-        public string? Rs_construction1 { get; set; }
-        public string? Rs_construction2 { get; set; }
-        public string? Qt_rs_constru1 { get; set; }
-        public string? Qt_rs_constru2 { get; set; }
-        public string? Cout_en_Or
-        {
-            get => _coutEnOr;
-            set
-            {
-                _coutEnOr = value;
-                OnPropertyChanged(nameof(Cout_en_Or));
-            }
-        }
-        public string? Mat_Amelio1 { get; set;}
-        public string? Cout_Mat_Amelio1 { get; set; }
-        public string? Mat_Amelio2 { get; set; }
-        public string? Cout_Mat_Amelio2 { get; set; }
-        public string? Mult_Amelio { get; set; }
+        public string Nom { get; set; }
+        public string Niveau { get; set; }
+        public string NiveauMax { get; set; }
+        public string Description { get; set; }
+        public string Ressource_produit { get; set; }
+        public string Cout_construction { get; set; }
+        public string Rs_construction1 { get; set; }
+        public string Rs_construction2 { get; set; }
+        public string Qt_rs_constru1 { get; set; }
+        public string Qt_rs_constru2 { get; set; }
+
         #endregion
 
         #region Constructors
         #endregion
 
         #region Operations
-
-
-
-        
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         #endregion        
     }
 }
