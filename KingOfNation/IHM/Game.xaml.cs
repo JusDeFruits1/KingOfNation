@@ -76,7 +76,7 @@ namespace KingOfNation.IHM
         private void Save(object sender, EventArgs e)
         {
             // Sérialisation
-            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.TresorsJoueur);
+            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.LieutenantList ,((App)Application.Current).Joueur.TresorsJoueur);
             ((App)Application.Current).Joueur.SerializeToFile("DataSave");
         }
 

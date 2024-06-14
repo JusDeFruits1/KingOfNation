@@ -59,6 +59,12 @@ namespace KingOfNation.Code
             get { return hab; }
             set { hab = value; }
         }
+        private List<Lieutenant> lieutenantList = new List<Lieutenant>();
+        public List<Lieutenant> LieutenantList
+        {
+            get { return lieutenantList; }
+            set { lieutenantList = value; }
+        }
         private List<Tresor> tresorsJoueur = new List<Tresor>();
         public List<Tresor> TresorsJoueur
         {
@@ -70,7 +76,7 @@ namespace KingOfNation.Code
         public Joueur() { }
 
         // (Optionnel) Constructeur avec paramètres pour initialisation facile
-        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Tresor> tresorsJoueur)
+        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Lieutenant> lieutenantList, List<Tresor> tresorsJoueur)
         {
             Pseudo = pseudo;
             Empire = empire;

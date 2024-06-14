@@ -24,9 +24,29 @@
         <Grid.Background>
             <ImageBrush ImageSource="../img/Batiment/Taverne.png"/>
         </Grid.Background>
-        <Button Margin="10,10,112,44" Background="#4D2C0A" Click="Home">
+        <Button Margin="10,10,112,44" Opacity="0.7" Click="Home">
             <Image Source="../img/Button/retour.png"/>
         </Button>
+        <ListBox Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="25" Opacity="0.5" Name="LieutenantListBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{Binding ImagPath}" Width="50" Height="50"/>
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="16"/>
+                            <TextBlock Text="{Binding Metier}" FontStyle="Italic"/>
+                            <TextBlock Text="{Binding buff}"/>
+                        </StackPanel>
+                        <TextBlock Grid.Column="2" Text="{Binding Prix}" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Louer service" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="70,20" FontSize="17" Opacity="0.7" Click="LouerService_Click"></Button>
         <Button Grid.Column="4" Grid.Row="2" Opacity="0" Margin="10,43,101,59" RenderTransformOrigin="-0.391,0.779" Click="FarfadetMalicieux" Grid.RowSpan="2"/>
     </Grid>
 </Window>
