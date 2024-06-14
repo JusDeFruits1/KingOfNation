@@ -135,9 +135,9 @@ namespace KingOfNation.IHM
             {
                 if (elt.Nom == "Caserne")
                 {
-                    Taverne taverne = new Taverne();
+                    Caserne caserne = new Caserne();
                     ((App)Application.Current).musicGame.controls.stop();
-                    taverne.Show();
+                    caserne.Show();
                     this.Close();
                 }
             }

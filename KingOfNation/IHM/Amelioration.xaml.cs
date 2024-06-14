@@ -156,6 +156,9 @@ namespace KingOfNation.IHM
                     int coutMateriau2 = 0;
                     int coutAmelioration = 0;
 
+                    int nv = Convert.ToInt32(selectedData.Niveau);
+                    int nvMax = Convert.ToInt32(selectedData.NiveauMax);
+
                     string? nomMateriau1 = selectedData.Mat_Amelio1;
                     string? nomMateriau2 = selectedData.Mat_Amelio2;
 
@@ -188,7 +191,7 @@ namespace KingOfNation.IHM
 
                     if (nb_Or < coutAmelioration)
                     {
-                        MessageBox.Show("Vous n'avez pas assez d'or pour construire ce bâtiment");
+                        MessageBox.Show("Vous n'avez pas assez d'or pour améliorer ce bâtiment");
                     }
 
                     else
@@ -197,7 +200,7 @@ namespace KingOfNation.IHM
                         {
                             if (nomMateriau2 == "NULL")
                             {
-                                if (nb_Bois >= coutMateriau1 && nb_Or >= coutAmelioration)
+                                if (nb_Bois >= coutMateriau1 && nb_Or >= coutAmelioration && nv < nvMax)
                                 {
                                     nb_Bois -= coutMateriau1;
                                     nb_Or -= coutAmelioration;
@@ -214,15 +217,21 @@ namespace KingOfNation.IHM
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
                                 else
                                 {
-                                    MessageBox.Show("Vous n'avez pas assez de bois pour construire ce bâtiment");
+                                    MessageBox.Show("Vous n'avez pas assez de bois pour améliorer ce bâtiment");
                                 }
                             }
 
                             else if (nomMateriau2 == "Pierre")
                             {
-                                if (nb_Bois >= coutMateriau1 && nb_Pierre >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                if (nb_Bois >= coutMateriau1 && nb_Pierre >= coutMateriau2 && nb_Or >= coutAmelioration && nv < nvMax)
                                 {
                                     nb_Bois -= coutMateriau1;
                                     nb_Pierre -= coutMateriau2;
@@ -243,15 +252,21 @@ namespace KingOfNation.IHM
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré  ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
                                 else
                                 {
-                                    MessageBox.Show("Vous n'avez pas assez de matériaux pour construire ce bâtiment");
+                                    MessageBox.Show("Vous n'avez pas assez de matériaux pour améliorer ce bâtiment");
                                 }
                             }
 
                             else if (nomMateriau2 == "Fer")
                             {
-                                if (nb_Bois >= coutMateriau1 && nb_Fer >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                if (nb_Bois >= coutMateriau1 && nb_Fer >= coutMateriau2 && nb_Or >= coutAmelioration && nv < nvMax)
                                 {
                                     nb_Bois -= coutMateriau1;
                                     nb_Fer -= coutMateriau2;
@@ -271,15 +286,21 @@ namespace KingOfNation.IHM
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
 
                                 }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
                                 else
                                 {
-                                    MessageBox.Show("Vous n'avez pas assez de matériaux pour construire ce bâtiment");
+                                    MessageBox.Show("Vous n'avez pas assez de matériaux pour améliorer ce bâtiment");
                                 }
                             }
 
                             else if (nomMateriau2 == "Gold")
                             {
-                                if (nb_Bois >= coutMateriau1 && nb_Or >= coutMateriau2 + coutAmelioration)
+                                if (nb_Bois >= coutMateriau1 && nb_Or >= coutMateriau2 + coutAmelioration && nv < nvMax)
                                 {
                                     nb_Bois -= coutMateriau1;
                                     nb_Or -= coutMateriau2;
@@ -296,6 +317,17 @@ namespace KingOfNation.IHM
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
+                                }
+
                             }
 
                         }
@@ -304,7 +336,7 @@ namespace KingOfNation.IHM
                         {
                             if (nomMateriau2 == "NULL")
                             {
-                                if (nb_Pierre >= coutMateriau1 && nb_Or >= coutAmelioration)
+                                if (nb_Pierre >= coutMateriau1 && nb_Or >= coutAmelioration && nv < nvMax)
                                 {
                                     nb_Pierre -= coutMateriau1;
                                     nb_Or -= coutAmelioration;
@@ -321,15 +353,20 @@ namespace KingOfNation.IHM
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
 
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
                                 else
                                 {
-                                    MessageBox.Show("Vous n'avez pas assez de pierre pour construire ce bâtiment");
+                                    MessageBox.Show("Vous n'avez pas assez de pierre pour améliorer ce bâtiment");
                                 }
                             }
 
                             else if (nomMateriau2 == "Bois")
                             {
-                                if (nb_Pierre >= coutMateriau1 && nb_Bois >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                if (nb_Pierre >= coutMateriau1 && nb_Bois >= coutMateriau2 && nb_Or >= coutAmelioration && nv < nvMax)
                                 {
                                     nb_Pierre -= coutMateriau1;
                                     nb_Bois -= coutMateriau2;
@@ -349,15 +386,21 @@ namespace KingOfNation.IHM
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
                                 else
                                 {
-                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
                                 }
                             }
 
                             else if (nomMateriau2 == "Fer")
                             {
-                                if (nb_Pierre >= coutMateriau1 && nb_Fer >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                if (nb_Pierre >= coutMateriau1 && nb_Fer >= coutMateriau2 && nb_Or >= coutAmelioration && nv < nvMax)
                                 {
                                     nb_Pierre -= coutMateriau1;
                                     nb_Fer -= coutMateriau2;
@@ -377,15 +420,21 @@ namespace KingOfNation.IHM
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
                                 else
                                 {
-                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
                                 }
                             }
 
                             else if (nomMateriau2 == "Gold")
                             {
-                                if (nb_Pierre >= coutMateriau1 && nb_Or >= coutMateriau2 + coutAmelioration)
+                                if (nb_Pierre >= coutMateriau1 && nb_Or >= coutMateriau2 + coutAmelioration && nv < nvMax)
                                 {
                                     nb_Pierre -= coutMateriau1;
                                     nb_Or -= coutMateriau2;
@@ -403,9 +452,15 @@ namespace KingOfNation.IHM
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
                                 else
                                 {
-                                    MessageBox.Show("Vous n'avez pas assez de ressource pour construire ce bâtiment");
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
                                 }
                             }
                         }
@@ -414,7 +469,7 @@ namespace KingOfNation.IHM
                         {
                             if (nomMateriau2 == "NULL")
                             {
-                                if (nb_Fer >= coutMateriau1 && nb_Or >= coutAmelioration)
+                                if (nb_Fer >= coutMateriau1 && nb_Or >= coutAmelioration && nv < nvMax)
                                 {
                                     nb_Fer -= coutMateriau1;
                                     nb_Or -= coutAmelioration;
@@ -432,12 +487,22 @@ namespace KingOfNation.IHM
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
 
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
+                                }
+
 
                             }
 
                             else if (nomMateriau2 == "Bois")
                             {
-                                if (nb_Fer >= coutMateriau1 && nb_Bois >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                if (nb_Fer >= coutMateriau1 && nb_Bois >= coutMateriau2 && nb_Or >= coutAmelioration && nv < nvMax)
                                 {
                                     nb_Fer -= coutMateriau1;
                                     nb_Bois -= coutMateriau2;
@@ -458,11 +523,21 @@ namespace KingOfNation.IHM
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
 
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
+                                }
+
                             }
 
                             else if (nomMateriau2 == "Pierre")
                             {
-                                if (nb_Fer >= coutMateriau1 && nb_Pierre >= coutMateriau2 && nb_Or >= coutAmelioration)
+                                if (nb_Fer >= coutMateriau1 && nb_Pierre >= coutMateriau2 && nb_Or >= coutAmelioration && nv < nvMax)
                                 {
                                     nb_Fer -= coutMateriau1;
                                     nb_Pierre -= coutMateriau2;
@@ -482,11 +557,21 @@ namespace KingOfNation.IHM
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré  ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
+                                }
                             }
 
                             else if (nomMateriau2 == "Gold")
                             {
-                                if (nb_Fer >= coutMateriau1 && nb_Or >= coutMateriau2 + coutAmelioration)
+                                if (nb_Fer >= coutMateriau1 && nb_Or >= coutMateriau2 + coutAmelioration && nv < nvMax)
                                 {
                                     nb_Fer -= coutMateriau1;
                                     nb_Or -= coutMateriau2;
@@ -503,6 +588,16 @@ namespace KingOfNation.IHM
 
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
                                 }
                             }
                         }
@@ -526,11 +621,21 @@ namespace KingOfNation.IHM
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
+                                }
                             }
 
                             else if (nomMateriau2 == "Bois")
                             {
-                                if (nb_Bois >= coutMateriau2 && nb_Or >= coutMateriau1 + coutAmelioration)
+                                if (nb_Bois >= coutMateriau2 && nb_Or >= coutMateriau1 + coutAmelioration && nv < nvMax)
                                 {
                                     nb_Or -= coutMateriau1;
                                     nb_Bois -= coutMateriau2;
@@ -547,6 +652,16 @@ namespace KingOfNation.IHM
 
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
                                 }
                             }
 
@@ -570,6 +685,16 @@ namespace KingOfNation.IHM
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
                                 }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
+                                }
                             }
 
                             else if (nomMateriau2 == "Fer")
@@ -591,6 +716,16 @@ namespace KingOfNation.IHM
 
                                     UpdateCsv(selectedData);
                                     MessageBox.Show($"Bâtiment amélioré ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût d'amélioration : {coutAmelioration} Gold");
+                                }
+
+                                else if (nv == nvMax)
+                                {
+                                    MessageBox.Show("Votre bâtiment à déjà atteint son niveau maximum ! ");
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("Vous n'avez pas assez de ressource pour améliorer ce bâtiment");
                                 }
                             }
                         }

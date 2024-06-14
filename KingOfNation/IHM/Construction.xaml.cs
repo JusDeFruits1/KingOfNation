@@ -311,7 +311,7 @@ namespace KingOfNation.IHM
                                     nbPierre.Text += nb_Pierre.ToString();
                                     nbBois.Text = nb_Bois.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés :   {coutMateriau1}   de   {nomMateriau1}   et   {coutMateriau2}   de   {nomMateriau2}   \n Coût en or :   {coutConstruction}   Gold");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
@@ -333,7 +333,7 @@ namespace KingOfNation.IHM
                                     nbPierre.Text += nb_Pierre.ToString();
                                     nbFer.Text = nb_Fer.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés :   {coutMateriau1}   de   {nomMateriau1}   et   {coutMateriau2}   de   {nomMateriau2}   \n Coût en or :   {coutConstruction}   Gold");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
@@ -355,7 +355,7 @@ namespace KingOfNation.IHM
                                     nbPierre.Text += nb_Pierre.ToString();
                                     nbOr.Text = nb_Or.ToString();
                                     UpdateCsv(selectedData);
-                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés :   {coutMateriau1}   de   {nomMateriau1}   et   {coutMateriau2}   de   {nomMateriau2}   \n Coût en or :   {coutConstruction}   Gold");
+                                    MessageBox.Show($"Bâtiment construit ! Matériaux utilisés : {coutMateriau1} de {nomMateriau1} et {coutMateriau2} de {nomMateriau2} \n Coût en or : {coutConstruction} Gold");
                                 }
                                 else
                                 {
