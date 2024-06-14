@@ -8,7 +8,7 @@ public class Lourd : Soldat  {
     private string description;
     private int nb;
 
-    public Lourd(string nom, string description, int nb)
+    public Lourd(string nom,int nb)
     {
         this.nom = nom;
         this.description = description;

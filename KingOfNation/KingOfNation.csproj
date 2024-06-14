@@ -59,6 +59,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="img\Batiment\farfadet.jpg" />
     <Resource Include="img\Batiment\farfadet.png" />
     <Resource Include="img\Batiment\Taverne.jpg" />
