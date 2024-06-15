@@ -17,7 +17,9 @@
     <None Remove="img\Batiment\Taverne.jpg" />
     <None Remove="img\Batiment\Taverne.png" />
     <None Remove="img\Button\back.png" />
+    <None Remove="img\Button\quit.png" />
     <None Remove="img\Button\retour.png" />
+    <None Remove="img\Button\save.png" />
     <None Remove="img\Choix\EmpireAzteque.jpg" />
     <None Remove="img\Choix\EmpireAztèque.jpg" />
     <None Remove="img\Choix\EmpireBritannique.jpg" />
@@ -37,6 +39,11 @@
     <None Remove="img\imgRessources\Habitant.png" />
     <None Remove="img\imgRessources\Or.png" />
     <None Remove="img\imgRessources\Pierre.png" />
+    <None Remove="img\Lieutenant\chercheurOr.jpg" />
+    <None Remove="img\Lieutenant\deesse.jpg" />
+    <None Remove="img\Lieutenant\mineur.jpg" />
+    <None Remove="img\Lieutenant\mineurF.jpg" />
+    <None Remove="img\Lieutenant\nain.jpg" />
     <None Remove="img\Village\Viking1.png" />
     <None Remove="img\Village\Viking2.png" />
     <None Remove="img\Village\Viking3.png" />
@@ -68,7 +75,9 @@
     <Resource Include="img\Batiment\Taverne.jpg" />
     <Resource Include="img\Batiment\Taverne.png" />
     <Resource Include="img\Button\back.png" />
+    <Resource Include="img\Button\quit.png" />
     <Resource Include="img\Button\retour.png" />
+    <Resource Include="img\Button\save.png" />
     <Resource Include="img\Choix\EmpireAzteque.jpg" />
     <Resource Include="img\Choix\EmpireBritannique.jpg" />
     <Resource Include="img\Choix\EmpireEgypte.jpg" />
@@ -86,6 +95,11 @@
     <Resource Include="img\imgRessources\Habitant.png" />
     <Resource Include="img\imgRessources\Or.png" />
     <Resource Include="img\imgRessources\Pierre.png" />
+    <Resource Include="img\Lieutenant\chercheurOr.jpg" />
+    <Resource Include="img\Lieutenant\deesse.jpg" />
+    <Resource Include="img\Lieutenant\mineur.jpg" />
+    <Resource Include="img\Lieutenant\mineurF.jpg" />
+    <Resource Include="img\Lieutenant\nain.jpg" />
     <Resource Include="img\Village\Viking1.png" />
     <Resource Include="img\Village\Viking2.png" />
     <Resource Include="img\Village\Viking3.png" />

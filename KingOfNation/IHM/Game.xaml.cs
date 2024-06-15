@@ -61,6 +61,9 @@ namespace KingOfNation.IHM
                 }
             }
 
+            PseudoJ.Text = ((App)Application.Current).Joueur.Pseudo;
+            NomVillage.Text =((App)Application.Current).Joueur.NomVillage;
+
             imgVillage.Source = new BitmapImage(new Uri(@"../img/Village/" + ((App)Application.Current).Joueur.Empire + nv + ".png", UriKind.Relative));
             ((App)Application.Current).timerJ.Tick += afficherBois;
             ((App)Application.Current).timerJ.Tick += afficherPierre;
@@ -78,6 +81,15 @@ namespace KingOfNation.IHM
             // Sérialisation
             Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.TresorsJoueur, ((App)Application.Current).Joueur.Leger, ((App)Application.Current).Joueur.Lourd, ((App)Application.Current).Joueur.Mdg);
             ((App)Application.Current).Joueur.SerializeToFile("DataSave");
+        }
+        private void Quit(object sender, EventArgs e)
+        {
+            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.LieutenantList, ((App)Application.Current).Joueur.TresorsJoueur);
+            ((App)Application.Current).Joueur.SerializeToFile("DataSave");
+            MainWindow mainWindow = new MainWindow();
+            ((App)Application.Current).musicGame.controls.stop();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void Village(object sender, RoutedEventArgs e)

@@ -59,12 +59,19 @@ namespace KingOfNation.Code
             get { return hab; }
             set { hab = value; }
         }
+        private List<Lieutenant> lieutenantList = new List<Lieutenant>();
+        public List<Lieutenant> LieutenantList
+        {
+            get { return lieutenantList; }
+            set { lieutenantList = value; }
+        }
         private List<Tresor> tresorsJoueur = new List<Tresor>();
         public List<Tresor> TresorsJoueur
         {
             get { return tresorsJoueur; }
             set { tresorsJoueur = value; }
         }
+        
 
         private Leger leger;
         public Leger Leger
@@ -119,6 +126,7 @@ namespace KingOfNation.Code
             Fer = fer;
             Or = or;
             Hab = hab;
+            LieutenantList = lieutenantList; 
             TresorsJoueur = tresorsJoueur;
             Leger = leger;
             Lourd = lourd;
