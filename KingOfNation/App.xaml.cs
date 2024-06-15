@@ -21,6 +21,7 @@ namespace KingOfNation
 
         public DispatcherTimer timer = new DispatcherTimer();
         public DispatcherTimer timerJ = new DispatcherTimer();
+
         private DispatcherTimer? timerBois;
         private DispatcherTimer? timerPierre;
         private DispatcherTimer? timerFer;
@@ -34,7 +35,6 @@ namespace KingOfNation
         public Production Hab = new Production();
 
         public Joueur Joueur;
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
@@ -80,6 +80,7 @@ namespace KingOfNation
 
             MainWindow w = new MainWindow();
             w.Show();
+
         }
 
         private void ProdBoisHandler(object sender, EventArgs e)

@@ -21,6 +21,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <Button BorderBrush="Transparent" Click="Home" Grid.Row="0" Grid.Column="0" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -40,8 +41,13 @@
         <TextBlock HorizontalAlignment="Left" Grid.Row="3" TextWrapping="Wrap" Text="Vous aurez besoin de 200 habitants pour une machine de guerre" VerticalAlignment="Center" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
 
         <TextBlock Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" Text="Nombre de soldats légers : " VerticalAlignment="Center" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+        <TextBlock Grid.Column="1" x:Name="troupeLeger" HorizontalAlignment="Left" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Path=Leger.Nb}" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14" Margin="70,42,0,0" Height="19" Width="60"/>
+
         <TextBlock Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" Text="Nombre de soldats lourds : " VerticalAlignment="Center" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+        <TextBlock Grid.Column="2" x:Name="troupeLourd" HorizontalAlignment="Left" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Path=Lourd.Nb}" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14" Margin="70,42,0,0" Height="19" Width="60"/>
+        
         <TextBlock Grid.Column="3" HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" Text="Nombre de machines de guerre : " VerticalAlignment="Center" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14"/>
+        <TextBlock Grid.Column="3" x:Name="troupeMDG" HorizontalAlignment="Left" Grid.Row="4" TextWrapping="Wrap" Text="{Binding Path=Mdg.Nb}" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14" Margin="90,42,0,0" Height="19" Width="60"/>
 
         <xctk:IntegerUpDown x:Name="nbLeger" Grid.Column="3" Grid.Row="1" Width="100" Height="30" Minimum="0" Maximum="100" Value="0" AllowSpin="True"/>
         <xctk:IntegerUpDown x:Name="nbLourd" Grid.Column="3" Grid.Row="2" Width="100" Height="30" Minimum="0" Maximum="100" Value="0" AllowSpin="True"/>
@@ -50,8 +56,6 @@
         <TextBlock Grid.Column="2" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="Faire des soldats léger" VerticalAlignment="Center" FontSize="13" FontFamily="Comic Sans MS"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Faire des soldats lourd" VerticalAlignment="Center" FontSize="13" FontFamily="Comic Sans MS"/>
         <TextBlock Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="Faire des machines de guerres" VerticalAlignment="Center" FontSize="13" FontFamily="Comic Sans MS"/>
-        
-        <TextBlock TextWrapping="Wrap" Text="" Height="20" Grid.Column="1" Margin="75,45,35,25" Grid.Row="4" FontSize="13" FontFamily="Comic Sans MS" x:Name="soldatsLeger"/>
 
     </Grid>
 </Window>

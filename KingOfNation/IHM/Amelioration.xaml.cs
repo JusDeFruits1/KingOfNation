@@ -167,6 +167,8 @@ namespace KingOfNation.IHM
                     int nb_Fer = ((App)Application.Current).Joueur.Fer;
                     int nb_Or = ((App)Application.Current).Joueur.Or;
 
+                    
+
                     // Convertir multiAmelio en entier
                     int multiAmelio = 1; // Valeur par défaut
                     if (!string.IsNullOrEmpty(selectedData.Mult_Amelio) && int.TryParse(selectedData.Mult_Amelio, out int tempMultiAmelio))

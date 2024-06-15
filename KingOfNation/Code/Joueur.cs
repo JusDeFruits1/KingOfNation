@@ -53,7 +53,7 @@ namespace KingOfNation.Code
             get { return or; }
             set { or = value; }
         }
-        private int hab = 500000000;
+        private int hab = 550;
         public int Hab
         {
             get { return hab; }
@@ -66,11 +66,50 @@ namespace KingOfNation.Code
             set { tresorsJoueur = value; }
         }
 
+        private Leger leger;
+        public Leger Leger
+        {
+            get
+            {
+                return leger;
+            }
+            set 
+            { 
+                leger = value; 
+            }
+        }
+
+        private Lourd lourd;
+        public Lourd Lourd
+        {
+            get
+            {
+                return lourd;
+            }
+            set
+            {
+                lourd = value;
+            }
+        }
+
+        private Machine_de_guerre mdg;
+        public Machine_de_guerre Mdg
+        {
+            get
+            {
+                return mdg;
+            }
+            set
+            {
+                mdg = value;
+            }
+        }
+
         // Constructeur sans paramètres pour la désérialisation
         public Joueur() { }
 
         // (Optionnel) Constructeur avec paramètres pour initialisation facile
-        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Tresor> tresorsJoueur)
+        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Tresor> tresorsJoueur, Leger leger,Lourd lourd,Machine_de_guerre mdg)
         {
             Pseudo = pseudo;
             Empire = empire;
@@ -81,7 +120,11 @@ namespace KingOfNation.Code
             Or = or;
             Hab = hab;
             TresorsJoueur = tresorsJoueur;
+            Leger = leger;
+            Lourd = lourd;
+            Mdg = mdg;
         }
+        
         // Méthode pour sérialiser l'objet dans un fichier avec le nom du joueur
         public void SerializeToFile(string directoryPath)
         {
