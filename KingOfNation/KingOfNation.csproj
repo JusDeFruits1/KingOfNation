@@ -37,6 +37,10 @@
     <None Remove="img\imgRessources\Habitant.png" />
     <None Remove="img\imgRessources\Or.png" />
     <None Remove="img\imgRessources\Pierre.png" />
+    <None Remove="img\Lieutenant\chercheurOr.jpg" />
+    <None Remove="img\Lieutenant\deesse.jpg" />
+    <None Remove="img\Lieutenant\mineur.jpg" />
+    <None Remove="img\Lieutenant\mineurF.jpg" />
     <None Remove="img\Lieutenant\nain.jpg" />
     <None Remove="img\Village\Viking1.png" />
     <None Remove="img\Village\Viking2.png" />
@@ -83,6 +87,10 @@
     <Resource Include="img\imgRessources\Habitant.png" />
     <Resource Include="img\imgRessources\Or.png" />
     <Resource Include="img\imgRessources\Pierre.png" />
+    <Resource Include="img\Lieutenant\chercheurOr.jpg" />
+    <Resource Include="img\Lieutenant\deesse.jpg" />
+    <Resource Include="img\Lieutenant\mineur.jpg" />
+    <Resource Include="img\Lieutenant\mineurF.jpg" />
     <Resource Include="img\Lieutenant\nain.jpg" />
     <Resource Include="img\Village\Viking1.png" />
     <Resource Include="img\Village\Viking2.png" />

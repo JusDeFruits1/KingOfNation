@@ -71,9 +71,10 @@ namespace KingOfNation.Code
             get { return tresorsJoueur; }
             set { tresorsJoueur = value; }
         }
+        
 
-        // Constructeur sans paramètres pour la désérialisation
-        public Joueur() { }
+    // Constructeur sans paramètres pour la désérialisation
+    public Joueur() { }
 
         // (Optionnel) Constructeur avec paramètres pour initialisation facile
         public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Lieutenant> lieutenantList, List<Tresor> tresorsJoueur)
@@ -86,6 +87,7 @@ namespace KingOfNation.Code
             Fer = fer;
             Or = or;
             Hab = hab;
+            LieutenantList = lieutenantList; 
             TresorsJoueur = tresorsJoueur;
         }
         // Méthode pour sérialiser l'objet dans un fichier avec le nom du joueur

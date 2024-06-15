@@ -50,9 +50,11 @@ namespace KingOfNation.IHM
         {
             List<Lieutenant> lieutenants = new List<Lieutenant>
             {
-                new Lieutenant { Id = "1", Nom = "Gimli", Prix = 100, Metier = "Bucheron", buff = "Améliore de 20% la production de bois", ImagPath = "../img/Lieutenant/nain.jpg" },
-                new Lieutenant { Id = "2", Nom = "Lieutenant 2", Prix = 200, Metier = "Production pierre", buff = "20%", ImagPath = "../img/Lieutenant/2.png" }
-                // Ajoutez d'autres lieutenants ici
+                new Lieutenant { Id = "1", Nom = "Gimli", Prix = 200, Metier = "Bucheron", buff = "Améliore de 20% la production de bois", ImagPath = "../img/Lieutenant/nain.jpg" },
+                new Lieutenant { Id = "2", Nom = "Etienne Lantier", Prix = 300, Metier = "Galibot", buff = "Améliore de 20% la production de pierre", ImagPath = "../img/Lieutenant/mineur.jpg" },
+                new Lieutenant { Id = "3", Nom = "Hephaïstos", Prix = 400, Metier = "dieu", buff = "Améliore de 20% la production de fer", ImagPath = "../img/Lieutenant/mineurF.jpg" },
+                new Lieutenant { Id = "4", Nom = "Arthur Morgan", Prix = 550, Metier = "Chercher d'or", buff = "Améliore de 20% la production d'or", ImagPath = "../img/Lieutenant/chercheurOr.jpg" },
+                new Lieutenant { Id = "5", Nom = "Mia", Prix = 150, Metier = "déesse", buff = "Améliore de 20% la production d'habitant", ImagPath = "../img/Lieutenant/deesse.jpg" }
             };
 
             LieutenantListBox.ItemsSource = lieutenants;
@@ -61,23 +63,33 @@ namespace KingOfNation.IHM
         {
             if (LieutenantListBox.SelectedItem is Lieutenant selectedLieutenant)
             {
-                // Vérifier si le joueur a assez d'or pour louer le lieutenant
-                if (((App)Application.Current).Joueur.Or >= selectedLieutenant.Prix)
+                // Vérifier si la liste des lieutenants loués n'est pas vide
+                string idLieutenant = ((App)Application.Current).Joueur.LieutenantList.Count > 0 ? ((App)Application.Current).Joueur.LieutenantList[0].Id : null;
+
+                if (idLieutenant == null || idLieutenant != selectedLieutenant.Id)
                 {
-                    // Déduire le prix du lieutenant de l'or du joueur
-                    ((App)Application.Current).Joueur.Or -= selectedLieutenant.Prix;
+                    // Vérifier si le joueur a assez d'or pour louer le lieutenant
+                    if (((App)Application.Current).Joueur.Or >= selectedLieutenant.Prix)
+                    {
+                        // Déduire le prix du lieutenant de l'or du joueur
+                        ((App)Application.Current).Joueur.Or -= selectedLieutenant.Prix;
 
-                    // Afficher un message de confirmation
-                    MessageBox.Show($"Vous avez loué les service de {selectedLieutenant.Nom} pour {selectedLieutenant.Prix} d'or");
+                        // Afficher un message de confirmation
+                        MessageBox.Show($"Vous avez loué les service de {selectedLieutenant.Nom} pour {selectedLieutenant.Prix} d'or");
 
-                    // Supprime l'ancien lieutenant et ajouter le nouveau lieutenant à la liste lieutenant loué
-                    ((App)Application.Current).Joueur.LieutenantList.Clear();
-                    ((App)Application.Current).Joueur.LieutenantList.Add(selectedLieutenant);
+                        // Supprime l'ancien lieutenant et ajouter le nouveau lieutenant à la liste lieutenant loué
+                        ((App)Application.Current).Joueur.LieutenantList.Clear();
+                        ((App)Application.Current).Joueur.LieutenantList.Add(selectedLieutenant);
+                    }
+                    else
+                    {
+                        // Afficher un message si le joueur n'a pas assez d'or
+                        MessageBox.Show("Vous n'avez pas assez d'or pour louer les service de ce lieutenant.");
+                    }
                 }
                 else
                 {
-                    // Afficher un message si le joueur n'a pas assez d'or
-                    MessageBox.Show("Vous n'avez pas assez d'or pour louer les service de ce lieutenant.");
+                    MessageBox.Show("Ce lieutenant est déjà à votre service");
                 }
             }
             else

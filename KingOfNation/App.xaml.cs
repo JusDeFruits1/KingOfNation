@@ -34,8 +34,6 @@ namespace KingOfNation
         public Production Hab = new Production();
 
         public Joueur Joueur;
-
-
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 

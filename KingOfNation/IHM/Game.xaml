@@ -12,9 +12,6 @@
             <ImageBrush ImageSource="../img/imgGame/barrefond.png" Stretch="UniformToFill"/>
         </Grid.Background>
 
-        <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="100" Margin="107,101,0,0" x:Name="labelHeure"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="400,236,0,0" VerticalAlignment="Top" FontSize="100" x:Name="test"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="54,10,9,0" VerticalAlignment="Top" FontSize="20" x:Name="ressource" />
 
         <Button Width="130" Height="50" Content="Village" Click="Village" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,30,28,0"></Button>
         <Button Width="130" Height="50" Content="Taverne" Click="Taverne" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,95,28,0" ></Button>
@@ -22,32 +19,36 @@
         <Button Width="130" Height="50" Content="Boutique" Click="Boutique" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,227,28,0"></Button>
         <Button Width="130" Height="130" Content="Attaque" Click="Boutique" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,294,28,0"></Button>
 
+        <TextBlock Text="Pseudo Joueur  :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Background="LightGray" Width="95" Height="28"/>
+        <TextBlock x:Name="PseudoJ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,10" Background="LightGray" Width="80" Height="28"/>
+        <TextBlock Text="Nom village   : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,40,0,0" Background="LightGray" Width="85" Height="28"/>
+        <TextBlock x:Name="NomVillage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="105,40" Background="LightGray" Width="80" Height="28"/>
 
-        <Label HorizontalAlignment="Left" Margin="280,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
+        <Label HorizontalAlignment="Left" Margin="260,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
             <Image Source="../img/imgRessources/Bois.png"/>
         </Label>
-        <TextBlock HorizontalAlignment="Left" Margin="350,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbBois" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
+        <TextBlock HorizontalAlignment="Left" Margin="330,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbBois" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
 
         <Label HorizontalAlignment="Left" Margin="380,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
             <Image Source="../img/imgRessources/Pierre.png"/>
         </Label>
         <TextBlock HorizontalAlignment="Left" Margin="460,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbPierre" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
-        
+
         <Label HorizontalAlignment="Left" Margin="500,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
             <Image Source="../img/imgRessources/Fer.png"/>
         </Label>
         <TextBlock HorizontalAlignment="Left" Margin="570,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbFer" Text="0" FontSize="20" FontFamily="Comic sans Ms" RenderTransformOrigin="-0.617,0.604"/>
 
-        <Label HorizontalAlignment="Left" Margin="600,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
+        <Label HorizontalAlignment="Left" Margin="620,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
             <Image Source="../img/imgRessources/Or.png"/>
         </Label>
-        <TextBlock HorizontalAlignment="Left" Margin="675,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbOr" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
-        
+        <TextBlock HorizontalAlignment="Left" Margin="695,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbOr" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
 
-        <Label HorizontalAlignment="Left" Margin="700,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
+
+        <Label HorizontalAlignment="Left" Margin="750,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
             <Image Source="../img/imgRessources/Habitant.png" />
         </Label>
-        <TextBlock HorizontalAlignment="Left" Margin="730,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbHab" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
+        <TextBlock HorizontalAlignment="Left" Margin="780,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbHab" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
 
         <Image x:Name="imgVillage" Source="../img/Batiment/farfadet.png" Width="150" Height="100"/>
         <Button Content="save" Click="Save" FontSize="15" Width="30" Height="30" Margin="0,5,110,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>

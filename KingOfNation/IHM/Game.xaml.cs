@@ -61,6 +61,9 @@ namespace KingOfNation.IHM
                 }
             }
 
+            PseudoJ.Text = ((App)Application.Current).Joueur.Pseudo;
+            NomVillage.Text =((App)Application.Current).Joueur.NomVillage;
+
             imgVillage.Source = new BitmapImage(new Uri(@"../img/Village/" + ((App)Application.Current).Joueur.Empire + nv + ".png", UriKind.Relative));
             ((App)Application.Current).timerJ.Tick += afficherBois;
             ((App)Application.Current).timerJ.Tick += afficherPierre;

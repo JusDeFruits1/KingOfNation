@@ -27,21 +27,22 @@
         <Button Margin="10,10,112,44" Opacity="0.7" Click="Home">
             <Image Source="../img/Button/retour.png"/>
         </Button>
-        <ListBox Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="25" Opacity="0.5" Name="LieutenantListBox">
+        <ListBox Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="25" Opacity="0.7" Name="LieutenantListBox">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0" Source="{Binding ImagPath}" Width="50" Height="50"/>
-                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0,0,0">
                             <TextBlock Text="{Binding Nom}" FontWeight="Bold" FontSize="16"/>
                             <TextBlock Text="{Binding Metier}" FontStyle="Italic"/>
                             <TextBlock Text="{Binding buff}"/>
                         </StackPanel>
-                        <TextBlock Grid.Column="2" Text="{Binding Prix}" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="{Binding Prix}" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0,0,0"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
