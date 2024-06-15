@@ -111,7 +111,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Pierre += (int)Math.Ceiling(5 * minePConstruite * minePNV * buffPierre);
+        ((App)Application.Current).Joueur.Pierre += (int)Math.Ceiling(8 * minePConstruite * minePNV * buffPierre);
         return ((App)Application.Current).Joueur.Pierre;
     }
 
@@ -129,7 +129,7 @@ public class Production
                     mineFNV = ((Convert.ToInt32(elt.Niveau) + Convert.ToInt32(elt.Niveau)) * 0.2) + Convert.ToInt32(elt.Niveau) - 1;
                     if (idL == "3")
                     {
-                        buffFer = 1.2;
+                        buffFer = 1.3;
                     }
                     else
                     {
@@ -142,7 +142,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Fer += (int)Math.Ceiling(3 * mineFConstruite * mineFNV * buffFer);
+        ((App)Application.Current).Joueur.Fer += (int)Math.Ceiling(6 * mineFConstruite * mineFNV * buffFer);
         return ((App)Application.Current).Joueur.Fer;
     }
 
@@ -163,7 +163,7 @@ public class Production
                     }
                     if (idL == "4")
                     {
-                        buffGold = 1.2;
+                        buffGold = 1.4;
                     }
                     else
                     {
@@ -177,7 +177,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Or += (int)Math.Ceiling(2 * commerceConstruite * commerceNV * buffGold);
+        ((App)Application.Current).Joueur.Or += (int)Math.Ceiling(4 * commerceConstruite * commerceNV * buffGold);
         return ((App)Application.Current).Joueur.Or;
     }
 
@@ -212,7 +212,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Hab += (int)Math.Ceiling(30 * habitationConstruite * habitationNV * buffHab);
+        ((App)Application.Current).Joueur.Hab += (int)Math.Ceiling(10 * habitationConstruite * habitationNV * buffHab);
         return ((App)Application.Current).Joueur.Hab;
     }
 

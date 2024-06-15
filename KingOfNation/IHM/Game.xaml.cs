@@ -82,6 +82,15 @@ namespace KingOfNation.IHM
             Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.LieutenantList ,((App)Application.Current).Joueur.TresorsJoueur);
             ((App)Application.Current).Joueur.SerializeToFile("DataSave");
         }
+        private void Quit(object sender, EventArgs e)
+        {
+            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.LieutenantList, ((App)Application.Current).Joueur.TresorsJoueur);
+            ((App)Application.Current).Joueur.SerializeToFile("DataSave");
+            MainWindow mainWindow = new MainWindow();
+            ((App)Application.Current).musicGame.controls.stop();
+            mainWindow.Show();
+            this.Close();
+        }
 
         private void Village(object sender, RoutedEventArgs e)
         {
@@ -139,7 +148,6 @@ namespace KingOfNation.IHM
                 if (elt.Nom == "Caserne")
                 {
                     Taverne taverne = new Taverne();
-                    ((App)Application.Current).musicGame.controls.stop();
                     taverne.Show();
                     this.Close();
                 }

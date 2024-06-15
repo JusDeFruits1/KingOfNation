@@ -62,17 +62,17 @@ namespace KingOfNation
             timerPierre.Start();
 
             timerFer = new DispatcherTimer();
-            timerFer.Interval = TimeSpan.FromSeconds(6);
+            timerFer.Interval = TimeSpan.FromSeconds(7);
             timerFer.Tick += ProdFerHandler;
             timerFer.Start();
 
             timerOr = new DispatcherTimer();
-            timerOr.Interval = TimeSpan.FromSeconds(6);
+            timerOr.Interval = TimeSpan.FromSeconds(8);
             timerOr.Tick += ProdOrHandler;
             timerOr.Start();
 
             timerHab = new DispatcherTimer();
-            timerHab.Interval = TimeSpan.FromSeconds(6);
+            timerHab.Interval = TimeSpan.FromSeconds(10);
             timerHab.Tick += ProdHabHandler;
             timerHab.Start();
 

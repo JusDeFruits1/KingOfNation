@@ -27,6 +27,10 @@
         <Button Margin="10,10,112,44" Opacity="0.7" Click="Home">
             <Image Source="../img/Button/retour.png"/>
         </Button>
+        <Label Grid.Row="0" VerticalAlignment="Bottom"  Height="55" Margin="1,0,93,67" Grid.RowSpan="2" Grid.Column="1">
+            <Image Source="../img/imgRessources/Or.png"/>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Foreground="Gray" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbOr" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="1" Margin="67,56,0,0"/>
         <ListBox Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="25" Opacity="0.7" Name="LieutenantListBox">
             <ListBox.ItemTemplate>
                 <DataTemplate>

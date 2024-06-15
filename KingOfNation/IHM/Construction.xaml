@@ -30,10 +30,10 @@
         </Label>
         <TextBlock HorizontalAlignment="Left" Margin="400,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbPierre" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
 
-        <Label HorizontalAlignment="Left" Margin="475,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+        <Label HorizontalAlignment="Left" Margin="75,54,0,0" VerticalAlignment="Top" Height="46" Width="95" Grid.Column="2" Grid.Row="0">
             <Image Source="../img/imgRessources/Fer.png"/>
         </Label>
-        <TextBlock HorizontalAlignment="Left" Margin="525,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbFer" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"/>
+        <TextBlock HorizontalAlignment="Left" Margin="120,65,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbFer" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="2" Grid.Row="0"/>
 
         <Label HorizontalAlignment="Left" Margin="575,60,0,0" VerticalAlignment="Top" Height="40" Width="80" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
             <Image Source="../img/imgRessources/Or.png"/>

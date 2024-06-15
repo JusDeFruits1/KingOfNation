@@ -27,6 +27,7 @@ namespace KingOfNation.IHM
             musicGame.controls.stop();
             musicGame.URL = "Taverne.mp3";
             musicGame.controls.play();
+            ((App)Application.Current).timerJ.Tick += afficherOr;
 
             // Charger les lieutenants
             LoadLieutenants();
@@ -52,8 +53,8 @@ namespace KingOfNation.IHM
             {
                 new Lieutenant { Id = "1", Nom = "Gimli", Prix = 200, Metier = "Bucheron", buff = "Améliore de 20% la production de bois", ImagPath = "../img/Lieutenant/nain.jpg" },
                 new Lieutenant { Id = "2", Nom = "Etienne Lantier", Prix = 300, Metier = "Galibot", buff = "Améliore de 20% la production de pierre", ImagPath = "../img/Lieutenant/mineur.jpg" },
-                new Lieutenant { Id = "3", Nom = "Hephaïstos", Prix = 400, Metier = "dieu", buff = "Améliore de 20% la production de fer", ImagPath = "../img/Lieutenant/mineurF.jpg" },
-                new Lieutenant { Id = "4", Nom = "Arthur Morgan", Prix = 550, Metier = "Chercher d'or", buff = "Améliore de 20% la production d'or", ImagPath = "../img/Lieutenant/chercheurOr.jpg" },
+                new Lieutenant { Id = "3", Nom = "Hephaïstos", Prix = 400, Metier = "dieu", buff = "Améliore de 30% la production de fer", ImagPath = "../img/Lieutenant/mineurF.jpg" },
+                new Lieutenant { Id = "4", Nom = "Arthur Morgan", Prix = 550, Metier = "Chercher d'or", buff = "Améliore de 40% la production d'or", ImagPath = "../img/Lieutenant/chercheurOr.jpg" },
                 new Lieutenant { Id = "5", Nom = "Mia", Prix = 150, Metier = "déesse", buff = "Améliore de 20% la production d'habitant", ImagPath = "../img/Lieutenant/deesse.jpg" }
             };
 
@@ -97,6 +98,10 @@ namespace KingOfNation.IHM
                 // Afficher un message si aucun lieutenant n'est sélectionné
                 MessageBox.Show("Veuillez sélectionner un lieutenant.");
             }
+        }
+        private void afficherOr(object sender, EventArgs e)
+        {
+            nbOr.Text = ((App)Application.Current).Joueur.Or.ToString();
         }
     }
 }

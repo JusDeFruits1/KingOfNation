@@ -13,11 +13,11 @@
         </Grid.Background>
 
 
-        <Button Width="130" Height="50" Content="Village" Click="Village" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,30,28,0"></Button>
-        <Button Width="130" Height="50" Content="Taverne" Click="Taverne" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,95,28,0" ></Button>
-        <Button Width="130" Height="50" Content="Caserne" Click="Caserne" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,160,28,0"></Button>
-        <Button Width="130" Height="50" Content="Boutique" Click="Boutique" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,227,28,0"></Button>
-        <Button Width="130" Height="130" Content="Attaque" Click="Boutique" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,294,28,0"></Button>
+        <Button Width="140" Height="60" Content="Village" Click="Village" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,80,15,0"></Button>
+        <Button Width="140" Height="60" Content="Taverne" Click="Taverne" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,180,15,0" ></Button>
+        <Button Width="140" Height="60" Content="Caserne" Click="Caserne" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,280,15,0"></Button>
+        <Button Width="140" Height="60" Content="Boutique" Click="Boutique" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,380,15,0"></Button>
+        <Button Width="140" Height="130" Content="Attaque" Click="Boutique" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,480,15,0"></Button>
 
         <TextBlock Text="Pseudo Joueur  :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Background="LightGray" Width="95" Height="28"/>
         <TextBlock x:Name="PseudoJ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,10" Background="LightGray" Width="80" Height="28"/>
@@ -51,7 +51,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="780,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbHab" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
 
         <Image x:Name="imgVillage" Source="../img/Batiment/farfadet.png" Width="150" Height="100"/>
-        <Button Content="save" Click="Save" FontSize="15" Width="30" Height="30" Margin="0,5,110,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-        <Button Content="quit" FontSize="15" Width="30" Height="30" Margin="0,5,40,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <Button Click="Save" FontSize="15" Width="40" Height="40" Margin="0,20,290,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Image Source="../img/Button/save.png" Opacity="0.7"/>
+        </Button>
+        <Button Click="Quit" FontSize="15" Width="40" Height="40" Margin="0,20,230,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Image Source="../img/Button/quit.png" Opacity="0.6"/>
+        </Button>
     </Grid>
 </Window>

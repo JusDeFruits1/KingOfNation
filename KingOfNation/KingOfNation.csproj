@@ -17,7 +17,9 @@
     <None Remove="img\Batiment\Taverne.jpg" />
     <None Remove="img\Batiment\Taverne.png" />
     <None Remove="img\Button\back.png" />
+    <None Remove="img\Button\quit.png" />
     <None Remove="img\Button\retour.png" />
+    <None Remove="img\Button\save.png" />
     <None Remove="img\Choix\EmpireAzteque.jpg" />
     <None Remove="img\Choix\EmpireAztèque.jpg" />
     <None Remove="img\Choix\EmpireBritannique.jpg" />
@@ -69,7 +71,9 @@
     <Resource Include="img\Batiment\Taverne.jpg" />
     <Resource Include="img\Batiment\Taverne.png" />
     <Resource Include="img\Button\back.png" />
+    <Resource Include="img\Button\quit.png" />
     <Resource Include="img\Button\retour.png" />
+    <Resource Include="img\Button\save.png" />
     <Resource Include="img\Choix\EmpireAzteque.jpg" />
     <Resource Include="img\Choix\EmpireBritannique.jpg" />
     <Resource Include="img\Choix\EmpireEgypte.jpg" />
