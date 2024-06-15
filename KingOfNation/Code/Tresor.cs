@@ -10,6 +10,7 @@ namespace KingOfNation.Code
     {
         public string Nom { get; set; }
         public string Price { get; set; }
+        public string Description { get; set; }
         public string ImagPath { get; set; }
     }
 }

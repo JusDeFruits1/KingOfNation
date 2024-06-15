@@ -29,25 +29,25 @@ namespace KingOfNation.Code
             get { return nomVillage; }
             set { nomVillage = value; }
         }
-        private int bois = 500000000;
+        private int bois = 50000;
         public int Bois
         {
             get { return bois; }
             set { bois = value; }
         }
-        private int pierre = 500000000;
+        private int pierre = 500000;
         public int Pierre
         {
             get { return pierre; }
             set { pierre = value; }
         }
-        private int fer = 500000000;
+        private int fer = 50000;
         public int Fer
         {
             get { return fer; }
             set { fer = value; }
         }
-        private int or = 500000000;
+        private int or = 50000;
         public int Or
         {
             get { return or; }
@@ -116,7 +116,7 @@ namespace KingOfNation.Code
         public Joueur() { }
 
         // (Optionnel) Constructeur avec paramètres pour initialisation facile
-        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Tresor> tresorsJoueur, Leger leger,Lourd lourd,Machine_de_guerre mdg)
+        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Lieutenant> lieutenantsList, List<Tresor> tresorsJoueur, Leger leger,Lourd lourd,Machine_de_guerre mdg)
         {
             Pseudo = pseudo;
             Empire = empire;

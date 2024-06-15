@@ -29,15 +29,15 @@
         </Label>
         <TextBlock HorizontalAlignment="Left" Margin="330,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbBois" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
 
-        <Label HorizontalAlignment="Left" Margin="370,20,0,0" VerticalAlignment="Top" Height="50" Width="70">
+        <Label HorizontalAlignment="Left" Margin="400,20,0,0" VerticalAlignment="Top" Height="50" Width="70">
             <Image Source="../img/imgRessources/Pierre.png"/>
         </Label>
         <TextBlock HorizontalAlignment="Left" Margin="460,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbPierre" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
 
-        <Label HorizontalAlignment="Left" Margin="500,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
+        <Label HorizontalAlignment="Left" Margin="510,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
             <Image Source="../img/imgRessources/Fer.png"/>
         </Label>
-        <TextBlock HorizontalAlignment="Left" Margin="530,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbFer" Text="0" FontSize="20" FontFamily="Comic sans Ms" RenderTransformOrigin="-0.617,0.604"/>
+        <TextBlock HorizontalAlignment="Left" Margin="570,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbFer" Text="0" FontSize="20" FontFamily="Comic sans Ms" RenderTransformOrigin="-0.617,0.604"/>
 
         <Label HorizontalAlignment="Left" Margin="620,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
             <Image Source="../img/imgRessources/Or.png"/>

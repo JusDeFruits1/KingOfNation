@@ -79,12 +79,12 @@ namespace KingOfNation.IHM
         private void Save(object sender, EventArgs e)
         {
             // Sérialisation
-            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.TresorsJoueur, ((App)Application.Current).Joueur.Leger, ((App)Application.Current).Joueur.Lourd, ((App)Application.Current).Joueur.Mdg);
+            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.LieutenantList, ((App)Application.Current).Joueur.TresorsJoueur, ((App)Application.Current).Joueur.Leger, ((App)Application.Current).Joueur.Lourd, ((App)Application.Current).Joueur.Mdg);
             ((App)Application.Current).Joueur.SerializeToFile("DataSave");
         }
         private void Quit(object sender, EventArgs e)
         {
-            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.LieutenantList, ((App)Application.Current).Joueur.TresorsJoueur);
+            Joueur joueur = new Joueur(((App)Application.Current).Joueur.Pseudo, ((App)Application.Current).Joueur.Empire, ((App)Application.Current).Joueur.NomVillage, ((App)Application.Current).Joueur.Bois, ((App)Application.Current).Joueur.Pierre, ((App)Application.Current).Joueur.Fer, ((App)Application.Current).Joueur.Or, ((App)Application.Current).Joueur.Hab, ((App)Application.Current).Joueur.LieutenantList, ((App)Application.Current).Joueur.TresorsJoueur, ((App)Application.Current).Joueur.Leger, ((App)Application.Current).Joueur.Lourd, ((App)Application.Current).Joueur.Mdg);
             ((App)Application.Current).Joueur.SerializeToFile("DataSave");
             MainWindow mainWindow = new MainWindow();
             ((App)Application.Current).musicGame.controls.stop();
@@ -148,7 +148,6 @@ namespace KingOfNation.IHM
                 if (elt.Nom == "Caserne")
                 {
                     Caserne caserne = new Caserne();
-                    ((App)Application.Current).musicGame.controls.stop();
                     caserne.Show();
                     this.Close();
                 }
@@ -162,7 +161,6 @@ namespace KingOfNation.IHM
                 if (elt.Nom == "Boutique")
                 {
                     Boutique boutique = new Boutique();
-                    ((App)Application.Current).musicGame.controls.stop();
                     boutique.Show();
                     this.Close();
                 }
