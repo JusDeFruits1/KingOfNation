@@ -1,6 +1,7 @@
 ﻿using KingOfNation.IHM;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace KingOfNation.Code
 {
-    public class Joueur
+    public class Joueur : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private string pseudo;
         public string Pseudo
         {
@@ -80,10 +83,16 @@ namespace KingOfNation.Code
             {
                 return leger;
             }
-            set 
-            { 
-                leger = value; 
+            set
+            {
+                if (leger != value)
+                {
+                    leger = value;
+                    OnPropertyChanged(nameof(Leger));
+                }
             }
+                
+            
         }
 
         private Lourd lourd;
@@ -95,7 +104,11 @@ namespace KingOfNation.Code
             }
             set
             {
-                lourd = value;
+                if (lourd != value)
+                {
+                    lourd = value;
+                    OnPropertyChanged(nameof(Lourd));
+                }
             }
         }
 
@@ -108,7 +121,11 @@ namespace KingOfNation.Code
             }
             set
             {
-                mdg = value;
+                if (mdg != value)
+                {
+                    mdg = value;
+                    OnPropertyChanged(nameof(Mdg));
+                }
             }
         }
 
@@ -126,7 +143,7 @@ namespace KingOfNation.Code
             Fer = fer;
             Or = or;
             Hab = hab;
-            LieutenantList = lieutenantList; 
+            LieutenantList = lieutenantList;
             TresorsJoueur = tresorsJoueur;
             Leger = leger;
             Lourd = lourd;
@@ -146,5 +163,11 @@ namespace KingOfNation.Code
             string jsonString = File.ReadAllText(filePath);
             return JsonSerializer.Deserialize<Joueur>(jsonString);
         }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

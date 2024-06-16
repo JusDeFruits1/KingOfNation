@@ -171,11 +171,11 @@ namespace KingOfNation.IHM
         {
             foreach (CsvData elt in csvDataList)
             {
-                if (elt.Nom == "Camp d'entrainement")
+                if (elt.Nom == "Caserne")
                 {
-                    Taverne taverne = new Taverne();
+                    Raid raid = new Raid();
                     ((App)Application.Current).musicGame.controls.stop();
-                    taverne.Show();
+                    raid.Show();
                     this.Close();
                 }
             }

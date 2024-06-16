@@ -59,7 +59,7 @@ public class Production
                     scierieConstruite = 1;
                     if (elt.Niveau != "1")
                     {
-                        scierieNV = ((Convert.ToInt32(elt.Niveau)+ Convert.ToInt32(elt.Niveau)) * 0.2) + Convert.ToInt32(elt.Niveau)-1;
+                        scierieNV = ((Convert.ToInt32(elt.Niveau) + Convert.ToInt32(elt.Niveau)) * 0.2) + Convert.ToInt32(elt.Niveau) - 1;
                     }
                     if (idL == "1")
                     {

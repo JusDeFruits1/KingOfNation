@@ -1,0 +1,75 @@
+﻿<Window x:Class="KingOfNation.IHM.Raid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KingOfNation.IHM"
+        mc:Ignorable="d"
+        Title="Raid" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../img/imgGame/villageattack2Better.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Width="50" Height="40" BorderBrush="White" Click="Back" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Image Source="../img/Button/back.png"/>
+        </Button>
+
+        <Button Grid.Column="0" HorizontalAlignment="Left" Grid.Row="0" VerticalAlignment="Top" Width="40" Height="40" Click="backCaserne" BorderBrush="Transparent" Margin="75,0,0,0" Background="Transparent">
+            <Image Source="../img/imgGame/info.png"/>
+        </Button>
+        
+        <TextBlock HorizontalAlignment="Left" Margin="200,0,0,0" TextWrapping="Wrap" Text="Victoire" VerticalAlignment="Center" Width="100" Grid.ColumnSpan="4" FontFamily="Comic Sans MS"/>
+        <TextBlock HorizontalAlignment="Left" Margin="250,0,0,0" TextWrapping="Wrap" Text="/" VerticalAlignment="Center" Grid.ColumnSpan="4" FontFamily="Comic Sans MS"/>
+        <TextBlock HorizontalAlignment="Left" Margin="275,0,0,0" TextWrapping="Wrap" Text="Défaite" VerticalAlignment="Center" Grid.ColumnSpan="4" FontFamily="Comic Sans MS"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="350,0,0,0" Text="Soldats légers :" VerticalAlignment="Center" Grid.ColumnSpan="4" FontFamily="Comic Sans MS"/>
+        <TextBlock HorizontalAlignment="Left" Margin="475,0,0,0" Text="Soldats lourds :" VerticalAlignment="Center" Grid.ColumnSpan="4" FontFamily="Comic Sans MS"/>
+        <TextBlock HorizontalAlignment="Left" Margin="600,0,0,0" Text="Machines de guerres : " VerticalAlignment="Center" Grid.ColumnSpan="4" FontFamily="Comic Sans MS"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="435,0,0,0" Text="{Binding Leger.Nb}" VerticalAlignment="Center" Width="40" Grid.ColumnSpan="4" FontFamily="Comic Sans MS"/>
+        <TextBlock HorizontalAlignment="Left" Margin="560,0,0,0" Text="{Binding Lourd.Nb}" VerticalAlignment="Center" Width="40" Grid.ColumnSpan="4" FontFamily="Comic Sans MS"/>
+        <TextBlock HorizontalAlignment="Left" Margin="720,0,0,0" Text="{Binding Mdg.Nb}" VerticalAlignment="Center" Width="40" Grid.ColumnSpan="4" FontFamily="Comic Sans MS"/>
+
+        <Button Grid.Column="1" HorizontalAlignment="Left" Margin="5,50" Grid.Row="1" VerticalAlignment="Top" Height="75" Width="125" Background="Transparent" BorderBrush="Transparent" Click="raidPlaine" x:Name="attaquePlaine" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Button.RenderTransform>
+            <Image Source="../img/imgGame/marqueurCarte.png" Height="50" Opacity="1"/>
+            <Button.ToolTip>
+                <ToolTip Content="Attaque la plaine"/>
+            </Button.ToolTip>
+        </Button>
+
+        <Button Grid.Column="2" HorizontalAlignment="Right" Margin="0,145,22,0" Grid.Row="1" VerticalAlignment="Top" Height="75" Width="125" Background="Transparent" BorderBrush="Transparent" Opacity="1" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Button.RenderTransform>
+            <Image Source="../img/imgGame/marqueurCarte.png" Height="50" Opacity="1"/>
+            <Button.ToolTip>
+                <ToolTip Content="Attaque la plaine"/>
+            </Button.ToolTip>
+        </Button>
+        
+        <Button Grid.Column="2" HorizontalAlignment="Left" Margin="40,50" Grid.Row="1" VerticalAlignment="Top" Height="75" Width="125" Background="Transparent" BorderBrush="Transparent" Opacity="1" Style="{StaticResource NoHoverButtonStyle}">
+            <Button.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Button.RenderTransform>
+            <Image Source="../img/imgGame/marqueurCarte.png" Height="50" Opacity="1"/>
+            <Button.ToolTip>
+                <ToolTip Content="Attaque la plaine"/>
+            </Button.ToolTip>
+        </Button>
+        
+    </Grid>
+</Window>
