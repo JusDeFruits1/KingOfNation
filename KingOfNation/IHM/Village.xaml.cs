@@ -101,12 +101,6 @@ namespace KingOfNation.IHM
             amelioration.Show();
             this.Close();
         }
-        private void OpenDetruire(object sender, RoutedEventArgs e)
-        {
-            Destruction destruction = new Destruction();
-            destruction.Show();
-            this.Close();
-        }
 
         #endregion
 

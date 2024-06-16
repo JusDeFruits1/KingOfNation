@@ -19,10 +19,10 @@
         <Button Width="140" Height="60" Content="Boutique" Click="Boutique" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,380,15,0"></Button>
         <Button Width="140" Height="130" Content="Attaque" Click="Attaque" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,480,15,0"></Button>
 
-        <TextBlock Text="Pseudo Joueur  :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Background="LightGray" Width="95" Height="28"/>
-        <TextBlock x:Name="PseudoJ" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,10" Background="LightGray" Width="80" Height="28"/>
-        <TextBlock Text="Nom village   : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,40,0,0" Background="LightGray" Width="85" Height="28"/>
-        <TextBlock x:Name="NomVillage" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="105,40" Background="LightGray" Width="80" Height="28"/>
+        <TextBlock Text="Pseudo Joueur  :" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold" VerticalAlignment="Top" Margin="20,10,0,0" Width="95" Height="28"/>
+        <TextBlock x:Name="PseudoJ" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,10" Width="80" Height="28"/>
+        <TextBlock Text="Nom village   : " FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,40,0,0" Width="85" Height="28"/>
+        <TextBlock x:Name="NomVillage" HorizontalAlignment="Left" FontSize="15" FontWeight="Bold" VerticalAlignment="Top" Margin="105,40" Width="80" Height="28"/>
 
         <Label HorizontalAlignment="Left" Margin="260,20,0,0" VerticalAlignment="Top" Height="60" Width="80">
             <Image Source="../img/imgRessources/Bois.png"/>
@@ -50,7 +50,7 @@
         </Label>
         <TextBlock HorizontalAlignment="Left" Margin="780,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbHab" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
 
-        <Image x:Name="imgVillage" Source="../img/Batiment/farfadet.png" Width="150" Height="100"/>
+        <Image x:Name="imgVillage" Source="../img/Batiment/farfadet.png" Width="1150" Height="550" Margin="-90,0,95,-90"/>
         <Button Click="Save" FontSize="15" Width="40" Height="40" Margin="0,20,290,0" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Image Source="../img/Button/save.png" Opacity="0.7"/>
         </Button>

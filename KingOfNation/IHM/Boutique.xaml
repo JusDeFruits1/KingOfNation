@@ -20,7 +20,10 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Button Margin="10,10,130,58" BorderBrush="Transparent" Click="Home">
+        <Grid.Background>
+            <ImageBrush ImageSource="../img/Batiment/shop.png"/>
+        </Grid.Background>
+        <Button Margin="10,10,130,58" BorderBrush="Transparent" Click="Home" Opacity="0.7">
             <Image Source="../img/Button/retour.png"/>
         </Button>
         <Label HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="53" Grid.Column="1" Margin="127,60,0,0">
@@ -48,10 +51,10 @@
         </Label>
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbHab" Text="0" FontSize="20" FontFamily="Comic sans Ms" Grid.Column="4" Margin="83,72,0,0"/>
 
-        <Button Content="Achat" IsEnabled="{Binding SelectedItem}" Click="BuyButton" FontSize="15" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="30"/>
-        <Button Content="Vente" Click="SaleButton" FontSize="15" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="30"/>
+        <Button Content="Achat" Opacity="0.7" IsEnabled="{Binding SelectedItem}" Click="BuyButton" FontSize="15" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="30"/>
+        <Button Content="Vente" Opacity="0.7" Click="SaleButton" FontSize="15" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="30"/>
 
-        <ListBox ItemsSource="{Binding CurrentItems}" SelectedItem="{Binding SelectedItem}" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="30,30,30,101" Background="#A9A9A9">
+        <ListBox ItemsSource="{Binding CurrentItems}" SelectedItem="{Binding SelectedItem}" Opacity="0.7" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="30,30,30,101" Background="#A9A9A9">
             <ListBox.Resources>
                 <DataTemplate DataType="{x:Type local:Produit}">
                     <Grid>
@@ -87,6 +90,6 @@
             </ListBox.Resources>
         </ListBox>
 
-        <Button Content="{Binding ButtonContent}" Command="{Binding BuyCommand}"  FontSize="15" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" Margin="75, 35"/>
+        <Button Opacity="0.7" Content="{Binding ButtonContent}" Command="{Binding BuyCommand}"  FontSize="15" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" Margin="75, 35"/>
     </Grid>
 </Window>
