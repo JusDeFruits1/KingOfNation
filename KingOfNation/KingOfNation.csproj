@@ -33,7 +33,11 @@
     <None Remove="img\imgGame\barreauHorizon.png" />
     <None Remove="img\imgGame\barreauVerti.png" />
     <None Remove="img\imgGame\barrefond.png" />
+    <None Remove="img\imgGame\info.png" />
+    <None Remove="img\imgGame\marqueurCarte.png" />
     <None Remove="img\imgGame\nvbarreau.png" />
+    <None Remove="img\imgGame\villageattack2.jpg" />
+    <None Remove="img\imgGame\villageattack2Better.png" />
     <None Remove="img\imgRessources\Bois.png" />
     <None Remove="img\imgRessources\Fer.png" />
     <None Remove="img\imgRessources\Habitant.png" />
@@ -66,6 +70,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="img\imgGame\marqueurCarte.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\imgGame\villageattack2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
   </ItemGroup>
 
@@ -88,8 +101,14 @@
     <Resource Include="img\Choix\imgFond1.jpg" />
     <Resource Include="img\imgGame\barreauHorizon.png" />
     <Resource Include="img\imgGame\barreauVerti.png" />
+    <Resource Include="img\imgGame\info.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\imgGame\nvbarreau.png" />
     <Resource Include="img\imgGame\barrefond.png" />
+    <Resource Include="img\imgGame\villageattack2Better.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\imgRessources\Bois.png" />
     <Resource Include="img\imgRessources\Fer.png" />
     <Resource Include="img\imgRessources\Habitant.png" />

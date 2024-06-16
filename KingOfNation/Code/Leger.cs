@@ -1,8 +1,9 @@
 using System;
+using System.ComponentModel;
 
 namespace KingOfNation.Code
 {
-    public class Leger : Soldat
+    public class Leger : Soldat, INotifyPropertyChanged
     {
         /// <summary>
         /// Le nom du soldat
@@ -10,6 +11,8 @@ namespace KingOfNation.Code
         private string nom;
         private string description;
         private int nb;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Leger(string nom, int nb)
         {
@@ -41,8 +44,17 @@ namespace KingOfNation.Code
             }
             set
             {
-                nb = value;
+                if (nb != value)
+                {
+                    nb = value;
+                    OnPropertyChanged(nameof(Nb));
+                }
             }
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

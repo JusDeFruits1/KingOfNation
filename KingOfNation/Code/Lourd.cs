@@ -1,12 +1,17 @@
+using KingOfNation.Code;
 using System;
+using System.ComponentModel;
 
-public class Lourd : Soldat  {
+public class Lourd : Soldat,INotifyPropertyChanged  {
     /// <summary>
     /// Le nom du soldat
     /// </summary>
     private string nom;
     private string description;
     private int nb;
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
 
     public Lourd(string nom,int nb)
     {
@@ -39,8 +44,17 @@ public class Lourd : Soldat  {
         }
         set
         {
-            nb = value;
+            if (nb != value)
+            {
+                nb = value;
+                OnPropertyChanged(nameof(Nb));
+            }
         }
+    }
+
+    protected void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
 }
