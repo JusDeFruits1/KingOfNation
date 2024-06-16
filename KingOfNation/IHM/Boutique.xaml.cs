@@ -22,14 +22,30 @@ namespace KingOfNation.IHM
 
     public class RelayCommand : ICommand
     {
+        #region Attributes
+
         private readonly Action<object> execute;
         private readonly Predicate<object> canExecute;
+
+        #endregion
+
+        #region Properties
+
+
+
+        #endregion
+
+        #region Constructor
 
         public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
         {
             this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
             this.canExecute = canExecute;
         }
+
+        #endregion
+
+        #region Operations
 
         public bool CanExecute(object parameter)
         {
@@ -46,15 +62,26 @@ namespace KingOfNation.IHM
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
+
+        #endregion
     }
 
     public partial class Boutique : Window, INotifyPropertyChanged
     {
+        #region Attributes
+
         private string buttonContent;
         private ObservableCollection<Produit> acheterItems;
         private ObservableCollection<Tresor> vendreItems;
         private ObservableCollection<object> currentItems;
         private object selectedItem;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
+
+        #region Properties
+
+        public ICommand BuyCommand { get; }
 
         public string ButtonContent
         {
@@ -69,6 +96,7 @@ namespace KingOfNation.IHM
                 }
             }
         }
+
 
         public ObservableCollection<object> CurrentItems
         {
@@ -96,23 +124,16 @@ namespace KingOfNation.IHM
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
-        public ICommand BuyCommand { get; }
+        #endregion
+
+        #region Constructor
 
         public Boutique()
         {
             InitializeComponent();
             DataContext = this;
-            ((App)Application.Current).timerJ.Tick += afficherBois;
-            ((App)Application.Current).timerJ.Tick += afficherPierre;
-            ((App)Application.Current).timerJ.Tick += afficherFer;
-            ((App)Application.Current).timerJ.Tick += afficherOr;
-            ((App)Application.Current).timerJ.Tick += afficherHab;
+            ((App)Application.Current).timerJ.Tick += afficherRessource;
             ((App)Application.Current).timerJ.Start();
             LoadAcheterItemsFromCsv("../../../CSV/boutique.csv"); // Spécifiez le chemin vers votre fichier CSV
             vendreItems = new ObservableCollection<Tresor>();
@@ -123,6 +144,15 @@ namespace KingOfNation.IHM
             ButtonContent = "acheter";
             vendreItems.CollectionChanged += VendreItems_CollectionChanged; // Ajoutez ceci pour vous abonner à l'événement CollectionChanged
             BuyCommand = new RelayCommand(BuyItem, CanBuyItem);
+        }
+
+        #endregion
+
+        #region Operations
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private bool CanBuyItem(object parameter)
@@ -185,7 +215,7 @@ namespace KingOfNation.IHM
             else if (SelectedItem is Tresor tresor)
             {
                 int.TryParse(tresor.Price, out int price);
-                ((App)Application.Current).Joueur.TresorsJoueur.Remove(tresor);                
+                ((App)Application.Current).Joueur.TresorsJoueur.Remove(tresor);
                 vendreItems.Remove(tresor);
                 ((App)Application.Current).Joueur.Or += price;
                 MessageBox.Show($"Vous avez vendu {tresor.Nom} pour {price} or.");
@@ -261,29 +291,16 @@ namespace KingOfNation.IHM
             ButtonContent = "Vendre";
         }
 
-        private void afficherBois(object sender, EventArgs e)
+        private void afficherRessource(object sender, EventArgs e)
         {
             nbBois.Text = ((App)Application.Current).Joueur.Bois.ToString();
-        }
-
-        private void afficherPierre(object sender, EventArgs e)
-        {
             nbPierre.Text = ((App)Application.Current).Joueur.Pierre.ToString();
-        }
-
-        private void afficherFer(object sender, EventArgs e)
-        {
             nbFer.Text = ((App)Application.Current).Joueur.Fer.ToString();
-        }
-
-        private void afficherOr(object sender, EventArgs e)
-        {
             nbOr.Text = ((App)Application.Current).Joueur.Or.ToString();
-        }
-
-        private void afficherHab(object sender, EventArgs e)
-        {
             nbHab.Text = ((App)Application.Current).Joueur.Hab.ToString();
         }
+
+        #endregion
+        
     }
 }

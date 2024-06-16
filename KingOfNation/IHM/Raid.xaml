@@ -8,7 +8,7 @@
         Title="Raid" Height="450" Width="800">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="../img/imgGame/villageattack2Better.png"/>
+            <ImageBrush ImageSource="../img/imgGame/carteRaid.png"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>

@@ -13,11 +13,17 @@ namespace KingOfNation.IHM
     public partial class Raid : Window, INotifyPropertyChanged
     {
 
+        #region Attributes
+
         List<CsvData> csvDataList = new List<CsvData>();
         private bool verifRaidForet = false;
         private bool verifRaidMontagne = false;
         public event PropertyChangedEventHandler PropertyChanged;
         List<Tresor> tresorRand = ((App)Application.Current).Joueur.TresorsJoueur;
+
+        #endregion
+
+        #region Properties
 
         public List<Tresor> TresorRand
         {
@@ -31,9 +37,17 @@ namespace KingOfNation.IHM
             }
         }
 
+        #endregion
+
+        #region Constructor
+
         public Raid()
         {
+            WMPLib.WindowsMediaPlayer musicGame = ((App)Application.Current).musicGame;
             InitializeComponent();
+            musicGame.controls.stop();
+            musicGame.URL = "Rumbletown.mp3";
+            musicGame.controls.play();
             DataContext = ((App)Application.Current).Joueur;
             if (((App)Application.Current).Joueur.Leger == null)
             {
@@ -51,9 +65,13 @@ namespace KingOfNation.IHM
 
         }
 
+        #endregion
+
+        #region Operations
+
         private void Back(object sender, RoutedEventArgs e)
         {
-            Game game = new Game();
+            Game game = new Game(true);
             game.Show();
             this.Close();
         }
@@ -100,7 +118,6 @@ namespace KingOfNation.IHM
             }
         }
 
-
         private void raidPlaine(object sender, RoutedEventArgs e)
         {
             if (((App)Application.Current).Joueur.Leger.Nb == 0 && ((App)Application.Current).Joueur.Lourd.Nb == 0 && ((App)Application.Current).Joueur.Mdg.Nb == 0)
@@ -111,8 +128,8 @@ namespace KingOfNation.IHM
 
             Random rand = new Random();
 
-            // Base chance de succès est 50%
-            double chanceDeSucces = 0.5;
+            // Base chance de succès est 30%
+            double chanceDeSucces = 0.3;
 
             // Chaque machine de guerre augmente la chance de 10%
             chanceDeSucces += ((App)Application.Current).Joueur.Mdg.Nb * 0.1;
@@ -150,8 +167,8 @@ namespace KingOfNation.IHM
 
                 Random rand = new Random();
 
-                // Base chance de succès est 50%
-                double chanceDeSucces = 0.5;
+                // Base chance de succès est 30%
+                double chanceDeSucces = 0.3;
 
                 // Chaque soldat lourd augmente la chance de 10%
                 chanceDeSucces += ((App)Application.Current).Joueur.Lourd.Nb * 0.1;
@@ -178,7 +195,7 @@ namespace KingOfNation.IHM
             else if (verifRaidForet == false)
             {
                 MessageBox.Show("Veuillez monter le niveau de votre hôtel de ville afin d'accéder à ce raid");
-            }           
+            }
         }
 
         private void raidMontagne(object sender, RoutedEventArgs e)
@@ -195,8 +212,8 @@ namespace KingOfNation.IHM
 
                 Random rand = new Random();
 
-                // Base chance de succès est 50%
-                double chanceDeSucces = 0.5;
+                // Base chance de succès est 30%
+                double chanceDeSucces = 0.3;
 
                 // Chaque soldat léger augmente la chance de 10%
                 chanceDeSucces += ((App)Application.Current).Joueur.Leger.Nb * 0.1;
@@ -223,7 +240,7 @@ namespace KingOfNation.IHM
             else if (verifRaidMontagne == false)
             {
                 MessageBox.Show("Veuillez monter le niveau de votre hôtel de ville afin d'accéder à ce raid");
-            }           
+            }
         }
 
         private void CalculerPertesSoldatsPlaines(bool victoire)
@@ -364,7 +381,6 @@ namespace KingOfNation.IHM
             }
         }
 
-
         private void LoadCsvData(List<CsvData> csvDataList)
         {
             string filePath = "../../../CSV/" + ((App)Application.Current).Joueur.NomVillage + ".csv";
@@ -404,6 +420,8 @@ namespace KingOfNation.IHM
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        #endregion
 
     }
+
 }

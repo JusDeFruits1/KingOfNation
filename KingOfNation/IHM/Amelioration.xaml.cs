@@ -40,13 +40,8 @@ namespace KingOfNation.IHM
             InitializeComponent();
             LoadCsvData();
 
-            ((App)Application.Current).timerJ.Tick += afficherBois;
-            ((App)Application.Current).timerJ.Tick += afficherPierre;
-            ((App)Application.Current).timerJ.Tick += afficherFer;
-            ((App)Application.Current).timerJ.Tick += afficherOr;
-            ((App)Application.Current).timerJ.Tick += afficherHab;
+            ((App)Application.Current).timerJ.Tick += afficherRessource;
             ((App)Application.Current).timerJ.Start();
-
         }
 
         #endregion
@@ -750,30 +745,14 @@ namespace KingOfNation.IHM
             }
         }
 
-        private void afficherBois(object sender, EventArgs e)
+        private void afficherRessource(object sender, EventArgs e)
         {
             nbBois.Text = ((App)Application.Current).Joueur.Bois.ToString();
-        }
-
-        private void afficherPierre(object sender, EventArgs e)
-        {
             nbPierre.Text = ((App)Application.Current).Joueur.Pierre.ToString();
-        }
-
-        private void afficherFer(object sender, EventArgs e)
-        {
             nbFer.Text = ((App)Application.Current).Joueur.Fer.ToString();
-        }
-
-        private void afficherOr(object sender, EventArgs e)
-        {
             nbOr.Text = ((App)Application.Current).Joueur.Or.ToString();
-        }
-
-        private void afficherHab(object sender, EventArgs e)
-        {
             nbHab.Text = ((App)Application.Current).Joueur.Hab.ToString();
-        }
+        }        
 
         private void UpdateCsv(CsvData selectedData)
         {

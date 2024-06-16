@@ -34,11 +34,10 @@
     <None Remove="img\imgGame\barreauHorizon.png" />
     <None Remove="img\imgGame\barreauVerti.png" />
     <None Remove="img\imgGame\barrefond.png" />
+    <None Remove="img\imgGame\carteRaid.png" />
     <None Remove="img\imgGame\info.png" />
     <None Remove="img\imgGame\marqueurCarte.png" />
     <None Remove="img\imgGame\nvbarreau.png" />
-    <None Remove="img\imgGame\villageattack2.jpg" />
-    <None Remove="img\imgGame\villageattack2Better.png" />
     <None Remove="img\imgRessources\Bois.png" />
     <None Remove="img\imgRessources\Fer.png" />
     <None Remove="img\imgRessources\Habitant.png" />
@@ -65,16 +64,25 @@
     <None Remove="img\Village\Britannique2.png" />
     <None Remove="img\Village\Britannique3.png" />
     <None Remove="img\Village\Britannique4.png" />
+    <None Remove="img\Village\Egypte1.png" />
+    <None Remove="img\Village\Egypte2.png" />
+    <None Remove="img\Village\Egypte3.png" />
+    <None Remove="img\Village\Egypte4.png" />
     <None Remove="img\Village\Nippon1.png" />
     <None Remove="img\Village\Nippon2.png" />
     <None Remove="img\Village\Nippon3.png" />
     <None Remove="img\Village\Nippon4.png" />
+    <None Remove="img\Village\Romain1.png" />
+    <None Remove="img\Village\Romain2.png" />
+    <None Remove="img\Village\Romain3.png" />
+    <None Remove="img\Village\Romain4.png" />
     <None Remove="img\Village\Viking1.png" />
     <None Remove="img\Village\Viking2.png" />
     <None Remove="img\Village\Viking3.png" />
     <None Remove="img\Village\Viking4.png" />
     <None Remove="Music\ClashofClans.mp3" />
     <None Remove="Music\FarfadetM.mp3" />
+    <None Remove="Music\Rumbletown.mp3" />
     <None Remove="Music\Taverne.mp3" />
   </ItemGroup>
 
@@ -92,9 +100,6 @@
 
   <ItemGroup>
     <Resource Include="img\imgGame\marqueurCarte.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\imgGame\villageattack2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
@@ -126,7 +131,7 @@
     </Resource>
     <Resource Include="img\imgGame\nvbarreau.png" />
     <Resource Include="img\imgGame\barrefond.png" />
-    <Resource Include="img\imgGame\villageattack2Better.png">
+    <Resource Include="img\imgGame\carteRaid.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\imgRessources\Bois.png" />
@@ -147,6 +152,7 @@
     <Resource Include="img\Tresors\medailleSolaire.png" />
     <Resource Include="img\Tresors\mjolnir.png" />
     <Resource Include="img\Tresors\OneRing.png" />
+    <Resource Include="img\Village\Azteque1.png" />
     <Resource Include="img\Village\Azteque2.png" />
     <Resource Include="img\Village\Azteque3.png" />
     <Resource Include="img\Village\Azteque4.png" />
@@ -154,16 +160,43 @@
     <Resource Include="img\Village\Britannique2.png" />
     <Resource Include="img\Village\Britannique3.png" />
     <Resource Include="img\Village\Britannique4.png" />
+    <Resource Include="img\Village\Egypte1.png">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Village\Egypte2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Village\Egypte3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Village\Egypte4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\Village\Nippon1.png" />
     <Resource Include="img\Village\Nippon2.png" />
     <Resource Include="img\Village\Nippon3.png" />
     <Resource Include="img\Village\Nippon4.png" />
-    <Resource Include="img\Village\Viking1.png" />
+    <Resource Include="img\Village\Romain1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Village\Romain2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Village\Romain3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Village\Romain4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Village\Viking1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\Village\Viking2.png" />
     <Resource Include="img\Village\Viking3.png" />
     <Resource Include="img\Village\Viking4.png" />
     <Resource Include="Music\ClashofClans.mp3" />
     <Resource Include="Music\FarfadetM.mp3" />
+    <Resource Include="Music\Rumbletown.mp3" />
     <Resource Include="Music\Taverne.mp3" />
   </ItemGroup>
 

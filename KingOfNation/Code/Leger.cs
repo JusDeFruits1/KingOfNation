@@ -5,21 +5,20 @@ namespace KingOfNation.Code
 {
     public class Leger : Soldat, INotifyPropertyChanged
     {
-        /// <summary>
-        /// Le nom du soldat
-        /// </summary>
+
+        #region Attributes
+
         private string nom;
         private string description;
         private int nb;
 
+        #endregion
+
+        #region Properties
+
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Leger(string nom, int nb)
-        {
-            this.nom = nom;
-            this.nb = nb;
-        }
-
+       
         public override string Nom
         {
             get
@@ -52,9 +51,31 @@ namespace KingOfNation.Code
             }
         }
 
+        #endregion
+
+        #region Constructor
+
+        public Leger(string nom, int nb)
+        {
+            this.nom = nom;
+            this.nb = nb;
+        }
+
+        #endregion
+
+        #region Operations
+
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        #endregion
+
+
+
+
+
+
     }
 }

@@ -2,20 +2,18 @@ using System;
 using System.ComponentModel;
 
 public class Machine_de_guerre : Soldat, INotifyPropertyChanged  {
-    /// <summary>
-    /// Le nom du soldat
-    /// </summary>
+
+
+    #region Attributes
+
+
     private string nom;
     private string description;
     private int nb;
-
     public event PropertyChangedEventHandler PropertyChanged;
+    #endregion
 
-    public Machine_de_guerre(string nom, int nb)
-    {
-        this.nom = nom;        
-        this.nb = nb;
-    }
+    #region Properties
 
     public override string Nom
     {
@@ -49,9 +47,34 @@ public class Machine_de_guerre : Soldat, INotifyPropertyChanged  {
         }
     }
 
+    #endregion
+
+    #region Constructor
+
+    public Machine_de_guerre(string nom, int nb)
+    {
+        this.nom = nom;
+        this.nb = nb;
+    }
+
+    #endregion
+
+    #region Operations
+
+
     protected void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
+
+    #endregion
+
+
+
+
+
+
+
+
 
 }

@@ -20,6 +20,21 @@ namespace KingOfNation.IHM
     /// </summary>
     public partial class Taverne : Window
     {
+
+        #region Attributes
+
+
+
+        #endregion
+
+        #region Properties
+
+
+
+        #endregion
+
+        #region Constructor
+
         public Taverne()
         {
             WMPLib.WindowsMediaPlayer musicGame = ((App)Application.Current).musicGame;
@@ -32,6 +47,10 @@ namespace KingOfNation.IHM
             // Charger les lieutenants
             LoadLieutenants();
         }
+
+        #endregion
+
+        #region Operations
 
         private void Home(object sender, RoutedEventArgs e)
         {
@@ -103,6 +122,9 @@ namespace KingOfNation.IHM
         {
             nbOr.Text = ((App)Application.Current).Joueur.Or.ToString();
         }
+
+        #endregion
+
     }
 }
 

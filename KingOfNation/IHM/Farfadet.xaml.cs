@@ -20,7 +20,21 @@ namespace KingOfNation.IHM
     /// </summary>
     public partial class Farfadet : Window
     {
+
+        #region Attributes
+
         private Random _random;
+
+        #endregion
+
+        #region Properties
+
+
+
+        #endregion
+
+        #region Constructor
+
         public Farfadet()
         {
             WMPLib.WindowsMediaPlayer musicGame = ((App)Application.Current).musicGame;
@@ -32,6 +46,11 @@ namespace KingOfNation.IHM
             musicGame.controls.play();
             FarfadetMalicieux.Text = "Bienvenue dans la tanière du Farfadet malicieux. \n Ici je réalise moult espieglerie \n Souhaite tu que je te réalise un petit tour ? \n Je peux en échange de 800 pièces d'or";
         }
+
+        #endregion
+
+        #region Operations
+
         private void RefuserClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Le Farfadet malicieux se vexe de votre morosité \n Il vous expédie hors de sa tanière");
@@ -139,6 +158,9 @@ namespace KingOfNation.IHM
             }
         }
     }
+
+    #endregion
+
 }
 
 

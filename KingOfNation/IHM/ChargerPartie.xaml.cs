@@ -21,13 +21,30 @@ namespace KingOfNation.IHM
     /// </summary>
     public partial class ChargerPartie : Window
     {
-        private string directoryPath = @"DataSave"; // Remplacez par votre chemin
+
+        #region Attributes
+
+        private string directoryPath = @"DataSave";
+
+        #endregion
+
+        #region Properties
+
+
+
+        #endregion
+
+        #region Constructor
 
         public ChargerPartie()
         {
             InitializeComponent();
             LoadJsonFiles();
         }
+
+        #endregion
+
+        #region Operations
 
         private void LoadJsonFiles()
         {
@@ -64,5 +81,8 @@ namespace KingOfNation.IHM
             }
         }
     }
+
+    #endregion
+
 }
 

@@ -12,71 +12,92 @@ namespace KingOfNation.Code
 {
     public class Joueur : INotifyPropertyChanged
     {
+
+        #region Attributes
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private string pseudo;
+        private string empire;
+        private string nomVillage;
+
+        private int bois = 1000000;
+        private int pierre = 10000000;
+        private int fer = 1000000;
+        private int or = 1751000000;
+        private int hab = 101000000;
+        
+        private List<Lieutenant> lieutenantList = new List<Lieutenant>();
+        private List<Tresor> tresorsJoueur = new List<Tresor>();
+
+        private Leger leger;
+        private Lourd lourd;
+        private Machine_de_guerre mdg;
+
+        #endregion
+
+        #region Properties
+
         public string Pseudo
         {
             get { return pseudo; }
             set { pseudo = value; }
         }
-        private string empire;
+
         public string Empire
         {
             get { return empire; }
             set { empire = value; }
         }
-        private string nomVillage;
+
         public string NomVillage
         {
             get { return nomVillage; }
             set { nomVillage = value; }
         }
-        private int bois = 50000000;
+
         public int Bois
         {
             get { return bois; }
             set { bois = value; }
         }
-        private int pierre = 500000000;
+
         public int Pierre
         {
             get { return pierre; }
             set { pierre = value; }
         }
-        private int fer = 0;
+        
         public int Fer
         {
             get { return fer; }
             set { fer = value; }
         }
-        private int or = 170000005;
+
         public int Or
         {
             get { return or; }
             set { or = value; }
         }
-        private int hab = 1000000000;
+
         public int Hab
         {
             get { return hab; }
             set { hab = value; }
         }
-        private List<Lieutenant> lieutenantList = new List<Lieutenant>();
+
         public List<Lieutenant> LieutenantList
         {
             get { return lieutenantList; }
             set { lieutenantList = value; }
         }
-        private List<Tresor> tresorsJoueur = new List<Tresor>();
+
         public List<Tresor> TresorsJoueur
         {
             get { return tresorsJoueur; }
             set { tresorsJoueur = value; }
         }
-        
 
-        private Leger leger;
         public Leger Leger
         {
             get
@@ -91,11 +112,8 @@ namespace KingOfNation.Code
                     OnPropertyChanged(nameof(Leger));
                 }
             }
-                
-            
         }
 
-        private Lourd lourd;
         public Lourd Lourd
         {
             get
@@ -112,7 +130,6 @@ namespace KingOfNation.Code
             }
         }
 
-        private Machine_de_guerre mdg;
         public Machine_de_guerre Mdg
         {
             get
@@ -129,11 +146,14 @@ namespace KingOfNation.Code
             }
         }
 
+        #endregion
+
+        #region Constructor
         // Constructeur sans paramètres pour la désérialisation
         public Joueur() { }
 
         // (Optionnel) Constructeur avec paramètres pour initialisation facile
-        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Lieutenant> lieutenantsList, List<Tresor> tresorsJoueur, Leger leger,Lourd lourd,Machine_de_guerre mdg)
+        public Joueur(string pseudo, string empire, string nomVillage, int bois, int pierre, int fer, int or, int hab, List<Lieutenant> lieutenantsList, List<Tresor> tresorsJoueur, Leger leger, Lourd lourd, Machine_de_guerre mdg)
         {
             Pseudo = pseudo;
             Empire = empire;
@@ -149,7 +169,11 @@ namespace KingOfNation.Code
             Lourd = lourd;
             Mdg = mdg;
         }
-        
+
+        #endregion
+
+        #region Operations
+
         // Méthode pour sérialiser l'objet dans un fichier avec le nom du joueur
         public void SerializeToFile(string directoryPath)
         {
@@ -169,5 +193,6 @@ namespace KingOfNation.Code
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        #endregion
     }
 }

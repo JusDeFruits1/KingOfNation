@@ -3,22 +3,19 @@ using System;
 using System.ComponentModel;
 
 public class Lourd : Soldat,INotifyPropertyChanged  {
-    /// <summary>
-    /// Le nom du soldat
-    /// </summary>
+
+
+    #region Attributes
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
     private string nom;
     private string description;
     private int nb;
 
-    public event PropertyChangedEventHandler PropertyChanged;
+    #endregion
 
-
-    public Lourd(string nom,int nb)
-    {
-        this.nom = nom;
-        this.description = description;
-        this.nb = nb;
-    }
+    #region Properties
 
     public override string Nom
     {
@@ -52,9 +49,28 @@ public class Lourd : Soldat,INotifyPropertyChanged  {
         }
     }
 
+    #endregion
+
+    #region Constructor
+
+    public Lourd(string nom, int nb)
+    {
+        this.nom = nom;
+        this.description = description;
+        this.nb = nb;
+    }
+
+    #endregion
+
+    #region Operations
+
     protected void OnPropertyChanged(string propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
+
+    #endregion
+
+
 
 }

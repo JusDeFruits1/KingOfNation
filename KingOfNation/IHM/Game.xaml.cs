@@ -65,11 +65,7 @@ namespace KingOfNation.IHM
             NomVillage.Text =((App)Application.Current).Joueur.NomVillage;
 
             imgVillage.Source = new BitmapImage(new Uri(@"../img/Village/" + ((App)Application.Current).Joueur.Empire + nv + ".png", UriKind.Relative));
-            ((App)Application.Current).timerJ.Tick += afficherBois;
-            ((App)Application.Current).timerJ.Tick += afficherPierre;
-            ((App)Application.Current).timerJ.Tick += afficherFer;
-            ((App)Application.Current).timerJ.Tick += afficherOr;
-            ((App)Application.Current).timerJ.Tick += afficherHab;
+            ((App)Application.Current).timerJ.Tick += afficherRessource;
             ((App)Application.Current).timerJ.Start();
         }
 
@@ -99,32 +95,12 @@ namespace KingOfNation.IHM
             this.Close();
         }
 
-        private void afficherBois(object sender, EventArgs e)
+        private void afficherRessource(object sender, EventArgs e)
         {
             nbBois.Text = ((App)Application.Current).Joueur.Bois.ToString();
-        }
-
-        private void afficherPierre(object sender, EventArgs e)
-        {
-
             nbPierre.Text = ((App)Application.Current).Joueur.Pierre.ToString();
-        }
-
-        private void afficherFer(object sender, EventArgs e)
-        {
-
             nbFer.Text = ((App)Application.Current).Joueur.Fer.ToString();
-        }
-
-        private void afficherOr(object sender, EventArgs e)
-        {
-
             nbOr.Text = ((App)Application.Current).Joueur.Or.ToString();
-        }
-
-        private void afficherHab(object sender, EventArgs e)
-        {
-
             nbHab.Text = ((App)Application.Current).Joueur.Hab.ToString();
         }
 
@@ -174,7 +150,6 @@ namespace KingOfNation.IHM
                 if (elt.Nom == "Caserne")
                 {
                     Raid raid = new Raid();
-                    ((App)Application.Current).musicGame.controls.stop();
                     raid.Show();
                     this.Close();
                 }

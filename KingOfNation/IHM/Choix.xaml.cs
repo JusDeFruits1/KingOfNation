@@ -9,8 +9,21 @@ namespace KingOfNation.IHM
 {
     public partial class Choix : Window
     {
+
+        #region Attributes
+
         private BitmapImage[] images;
         private int centerIndex;
+
+        #endregion
+
+        #region Properties
+
+
+
+        #endregion
+
+        #region Constructor
 
         public Choix()
         {
@@ -28,6 +41,10 @@ namespace KingOfNation.IHM
 
             UpdateImages();
         }
+
+        #endregion
+
+        #region Operations
 
         private void UpdateImages()
         {
@@ -76,13 +93,13 @@ namespace KingOfNation.IHM
             {
                 MessageBox.Show($"Vous avez sélectionné l'empire : {ImageNameTextBlock.Text}");
                 ((App)Application.Current).Joueur.Empire = "Egypte";
-                
             }
             if (ImageNameTextBlock.Text == "EmpireAzteque")
             {
                 MessageBox.Show($"Vous avez sélectionné l'empire : {ImageNameTextBlock.Text}");
                 ((App)Application.Current).Joueur.Empire = "Azteque";
             }
+
             NouvellePartie nouvellePartie = new NouvellePartie();
             if (nouvellePartie.ShowDialog() == true)
             {
@@ -98,7 +115,7 @@ namespace KingOfNation.IHM
                 }
                 catch (Exception ex)
                 {
-                    
+
                 }
 
                 ((App)Application.Current).gamestart = true;
@@ -108,4 +125,8 @@ namespace KingOfNation.IHM
             }
         }
     }
+
+    #endregion
+
+
 }

@@ -71,9 +71,6 @@ namespace KingOfNation.IHM
             nbHab.Text = ((App)Application.Current).Joueur.Hab.ToString();
         }
 
-
-        #endregion
-
         private void Former(object sender, RoutedEventArgs e)
         {
             int nbTroupeMax = GetNbTroupeMax();
@@ -149,13 +146,13 @@ namespace KingOfNation.IHM
             troupeLeger.Text = ((App)Application.Current).Joueur.Leger.Nb.ToString();
             troupeLourd.Text = ((App)Application.Current).Joueur.Lourd.Nb.ToString();
             troupeMDG.Text = ((App)Application.Current).Joueur.Mdg.Nb.ToString();
-            
+
             afficherPoidsTotal();
 
         }
 
         private void afficherMaxTroupe()
-        {           
+        {
             maxTroupe.Text = GetNbTroupeMax().ToString();
         }
 
@@ -188,22 +185,22 @@ namespace KingOfNation.IHM
         }
 
         private void afficherPoidsTotal()
-        {            
-                int poidsTotalActuel = 0;
-                if (((App)Application.Current).Joueur.Leger != null)
-                {
-                    poidsTotalActuel += ((App)Application.Current).Joueur.Leger.Nb * 1;
-                }
-                if (((App)Application.Current).Joueur.Lourd != null)
-                {
-                    poidsTotalActuel += ((App)Application.Current).Joueur.Lourd.Nb * 5;
-                }
-                if (((App)Application.Current).Joueur.Mdg != null)
-                {
-                    poidsTotalActuel += ((App)Application.Current).Joueur.Mdg.Nb * 10;
-                }
-                poidsTotal.Text = poidsTotalActuel.ToString();
-        }        
+        {
+            int poidsTotalActuel = 0;
+            if (((App)Application.Current).Joueur.Leger != null)
+            {
+                poidsTotalActuel += ((App)Application.Current).Joueur.Leger.Nb * 1;
+            }
+            if (((App)Application.Current).Joueur.Lourd != null)
+            {
+                poidsTotalActuel += ((App)Application.Current).Joueur.Lourd.Nb * 5;
+            }
+            if (((App)Application.Current).Joueur.Mdg != null)
+            {
+                poidsTotalActuel += ((App)Application.Current).Joueur.Mdg.Nb * 10;
+            }
+            poidsTotal.Text = poidsTotalActuel.ToString();
+        }
 
         private void LoadCSVData(List<CsvData> csvDataList)
         {
@@ -232,11 +229,11 @@ namespace KingOfNation.IHM
                             // Ajouter uniquement les lignes où la seconde colonne est "1"
                             if (fields[1] == "1")
                             {
-                                csvDataList.Add(new CsvData { Nom = fields[0], Niveau = fields[2], Description = fields[4]});
+                                csvDataList.Add(new CsvData { Nom = fields[0], Niveau = fields[2], Description = fields[4] });
                             }
                         }
                     }
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -271,4 +268,8 @@ namespace KingOfNation.IHM
             MessageBoxImage.Information);
         }
     }
+
+    #endregion
+
+
 }

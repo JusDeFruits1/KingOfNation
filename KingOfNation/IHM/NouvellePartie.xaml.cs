@@ -16,13 +16,30 @@ namespace KingOfNation.IHM
 {
     public partial class NouvellePartie : Window
     {
+
+        #region Attributes
+
+
+
+        #endregion
+
+        #region Properties
+
         public string Pseudo { get; private set; }
         public string NomVille { get; private set; }
+
+        #endregion
+
+        #region Constructor
 
         public NouvellePartie()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Operations
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
@@ -43,5 +60,8 @@ namespace KingOfNation.IHM
             this.DialogResult = true;
             this.Close();
         }
+
+        #endregion
+
     }
 }

@@ -89,6 +89,7 @@ namespace KingOfNation.IHM
             ((App)Application.Current).OpenGame();
             this.Close();
         }
+
         private void OpenConstruction(object sender, RoutedEventArgs e)
         {
             Construction construction = new Construction();
