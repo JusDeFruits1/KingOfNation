@@ -32,13 +32,13 @@ namespace KingOfNation.Code
             get { return nomVillage; }
             set { nomVillage = value; }
         }
-        private int bois = 0;
+        private int bois = 50000000;
         public int Bois
         {
             get { return bois; }
             set { bois = value; }
         }
-        private int pierre = 0;
+        private int pierre = 500000000;
         public int Pierre
         {
             get { return pierre; }
@@ -50,13 +50,13 @@ namespace KingOfNation.Code
             get { return fer; }
             set { fer = value; }
         }
-        private int or = 175;
+        private int or = 170000005;
         public int Or
         {
             get { return or; }
             set { or = value; }
         }
-        private int hab = 10;
+        private int hab = 1000000000;
         public int Hab
         {
             get { return hab; }

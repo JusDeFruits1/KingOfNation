@@ -17,7 +17,7 @@
         <Button Width="140" Height="60" Content="Taverne" Click="Taverne" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,180,15,0" ></Button>
         <Button Width="140" Height="60" Content="Caserne" Click="Caserne" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,280,15,0"></Button>
         <Button Width="140" Height="60" Content="Boutique" Click="Boutique" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,380,15,0"></Button>
-        <Button Width="140" Height="130" Content="Attaque" Click="Attaque" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,480,15,0"></Button>
+        <Button Width="140" Height="130" Content="Conquête" Click="Conquete" FontSize="20" BorderThickness="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,480,15,0"></Button>
 
         <TextBlock Text="Pseudo Joueur  :" HorizontalAlignment="Left" FontSize="12" FontWeight="Bold" VerticalAlignment="Top" Margin="20,10,0,0" Width="95" Height="28"/>
         <TextBlock x:Name="PseudoJ" FontSize="12" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,10" Width="80" Height="28"/>

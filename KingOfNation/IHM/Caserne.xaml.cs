@@ -178,7 +178,7 @@ namespace KingOfNation.IHM
                     {
                         nbTroupeMax = 75;
                     }
-                    else if (elt.NiveauMax == "4")
+                    else if (elt.Niveau == "4")
                     {
                         nbTroupeMax = 110;
                     }

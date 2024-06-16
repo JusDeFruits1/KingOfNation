@@ -48,7 +48,6 @@ namespace KingOfNation.IHM
         }
     }
 
-
     public partial class Boutique : Window, INotifyPropertyChanged
     {
         private string buttonContent;
@@ -122,8 +121,7 @@ namespace KingOfNation.IHM
                 vendreItems.Add(elt);
             }
             ButtonContent = "acheter";
-
-
+            vendreItems.CollectionChanged += VendreItems_CollectionChanged; // Ajoutez ceci pour vous abonner à l'événement CollectionChanged
             BuyCommand = new RelayCommand(BuyItem, CanBuyItem);
         }
 
@@ -187,7 +185,8 @@ namespace KingOfNation.IHM
             else if (SelectedItem is Tresor tresor)
             {
                 int.TryParse(tresor.Price, out int price);
-                ((App)Application.Current).Joueur.TresorsJoueur.Remove(tresor);
+                ((App)Application.Current).Joueur.TresorsJoueur.Remove(tresor);                
+                vendreItems.Remove(tresor);
                 ((App)Application.Current).Joueur.Or += price;
                 MessageBox.Show($"Vous avez vendu {tresor.Nom} pour {price} or.");
             }
@@ -237,6 +236,14 @@ namespace KingOfNation.IHM
             }
         }
 
+        private void VendreItems_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (ButtonContent == "Vendre")
+            {
+                CurrentItems = new ObservableCollection<object>(vendreItems);
+            }
+        }
+
         private void Home(object sender, RoutedEventArgs e)
         {
             Game game = new Game();
@@ -253,7 +260,6 @@ namespace KingOfNation.IHM
         {
             ButtonContent = "Vendre";
         }
-
 
         private void afficherBois(object sender, EventArgs e)
         {

@@ -66,7 +66,7 @@
                         <Image Source="{Binding ImgPath}" Width="50" Height="50" Grid.Column="0"/>
                         <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0,10,0">
                             <TextBlock Text="{Binding Nom}" FontWeight="Bold"/>
-                            <TextBlock Text="Quantité : {Binding Quantite}"/>
+                            <TextBlock Text="Quantité :"/>
                         </StackPanel>
                         <TextBlock Text="{Binding Prix, StringFormat=C2}" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </Grid>

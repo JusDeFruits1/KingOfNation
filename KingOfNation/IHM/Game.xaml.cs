@@ -167,7 +167,7 @@ namespace KingOfNation.IHM
             }
         }
 
-        private void Attaque(object sender, RoutedEventArgs e)
+        private void Conquete(object sender, RoutedEventArgs e)
         {
             foreach (CsvData elt in csvDataList)
             {
@@ -221,6 +221,5 @@ namespace KingOfNation.IHM
         }
 
         #endregion
-
     }
 }
