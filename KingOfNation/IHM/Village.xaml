@@ -20,9 +20,8 @@
             <Image Source="../img/Button/retour.png"/>
         </Button>
         <Label Content="Votre village" Grid.Column="1" Grid.ColumnSpan="2" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Content="Construction" Click="OpenConstruction" Grid.Column="3" Grid.Row="1" Margin="20, 30"/>
-        <Button Content="Ameliorer" Click="OpenAmelioration" Grid.Column="3" Grid.Row="2" Margin="20, 30"/>
-        <Button Content="Detruire" Click="OpenDetruire" Grid.Column="3" Grid.Row="3" Margin="20, 30"/>
+        <Button Content="Construction" Click="OpenConstruction" Grid.Column="3" Grid.Row="1" Margin="20,79,20,90" Grid.RowSpan="2" FontSize="15"/>
+        <Button Content="Ameliorer" Click="OpenAmelioration" Grid.Column="3" Grid.Row="2" Margin="20,79,20,89" Grid.RowSpan="2" FontSize="15"/>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>

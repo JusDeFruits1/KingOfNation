@@ -14,6 +14,7 @@
     <None Remove="CSV\AAB1433D.tmp" />
     <None Remove="img\Batiment\farfadet.jpg" />
     <None Remove="img\Batiment\farfadet.png" />
+    <None Remove="img\Batiment\shop.png" />
     <None Remove="img\Batiment\Taverne.jpg" />
     <None Remove="img\Batiment\Taverne.png" />
     <None Remove="img\Button\back.png" />
@@ -52,6 +53,18 @@
     <None Remove="img\Tresors\medailleSolaire.png" />
     <None Remove="img\Tresors\mjolnir.png" />
     <None Remove="img\Tresors\OneRing.png" />
+    <None Remove="img\Village\Azteque1.png" />
+    <None Remove="img\Village\Azteque2.png" />
+    <None Remove="img\Village\Azteque3.png" />
+    <None Remove="img\Village\Azteque4.png" />
+    <None Remove="img\Village\Britannique1.png" />
+    <None Remove="img\Village\Britannique2.png" />
+    <None Remove="img\Village\Britannique3.png" />
+    <None Remove="img\Village\Britannique4.png" />
+    <None Remove="img\Village\Nippon1.png" />
+    <None Remove="img\Village\Nippon2.png" />
+    <None Remove="img\Village\Nippon3.png" />
+    <None Remove="img\Village\Nippon4.png" />
     <None Remove="img\Village\Viking1.png" />
     <None Remove="img\Village\Viking2.png" />
     <None Remove="img\Village\Viking3.png" />
@@ -78,9 +91,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\Batiment\farfadet.jpg" />
     <Resource Include="img\Batiment\farfadet.png" />
-    <Resource Include="img\Batiment\Taverne.jpg" />
+    <Resource Include="img\Batiment\shop.png" />
     <Resource Include="img\Batiment\Taverne.png" />
     <Resource Include="img\Button\back.png" />
     <Resource Include="img\Button\quit.png" />
@@ -116,6 +128,17 @@
     <Resource Include="img\Tresors\medailleSolaire.png" />
     <Resource Include="img\Tresors\mjolnir.png" />
     <Resource Include="img\Tresors\OneRing.png" />
+    <Resource Include="img\Village\Azteque2.png" />
+    <Resource Include="img\Village\Azteque3.png" />
+    <Resource Include="img\Village\Azteque4.png" />
+    <Resource Include="img\Village\Britannique1.png" />
+    <Resource Include="img\Village\Britannique2.png" />
+    <Resource Include="img\Village\Britannique3.png" />
+    <Resource Include="img\Village\Britannique4.png" />
+    <Resource Include="img\Village\Nippon1.png" />
+    <Resource Include="img\Village\Nippon2.png" />
+    <Resource Include="img\Village\Nippon3.png" />
+    <Resource Include="img\Village\Nippon4.png" />
     <Resource Include="img\Village\Viking1.png" />
     <Resource Include="img\Village\Viking2.png" />
     <Resource Include="img\Village\Viking3.png" />
