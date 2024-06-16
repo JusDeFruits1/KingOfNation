@@ -111,7 +111,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Pierre += (int)Math.Ceiling(8 * minePConstruite * minePNV * buffPierre);
+        ((App)Application.Current).Joueur.Pierre += (int)Math.Ceiling(10 * minePConstruite * minePNV * buffPierre);
         return ((App)Application.Current).Joueur.Pierre;
     }
 
@@ -142,7 +142,7 @@ public class Production
                 }
             }
         }
-        ((App)Application.Current).Joueur.Fer += (int)Math.Ceiling(6 * mineFConstruite * mineFNV * buffFer);
+        ((App)Application.Current).Joueur.Fer += (int)Math.Ceiling(5 * mineFConstruite * mineFNV * buffFer);
         return ((App)Application.Current).Joueur.Fer;
     }
 

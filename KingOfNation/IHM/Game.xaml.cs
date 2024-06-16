@@ -19,6 +19,7 @@ using Microsoft.VisualBasic.FileIO;
 using System.Diagnostics;
 using KingOfNation.Code;
 using System.Text.Json;
+using WMPLib;
 
 namespace KingOfNation.IHM
 {
@@ -51,7 +52,6 @@ namespace KingOfNation.IHM
                 musicGame.URL = "ClashofClans.mp3";
                 musicGame.controls.play();
             }
-            
 
             foreach (CsvData elt in csvDataList)
             {

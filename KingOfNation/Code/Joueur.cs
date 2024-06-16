@@ -29,31 +29,31 @@ namespace KingOfNation.Code
             get { return nomVillage; }
             set { nomVillage = value; }
         }
-        private int bois = 50000;
+        private int bois = 0;
         public int Bois
         {
             get { return bois; }
             set { bois = value; }
         }
-        private int pierre = 500000;
+        private int pierre = 0;
         public int Pierre
         {
             get { return pierre; }
             set { pierre = value; }
         }
-        private int fer = 50000;
+        private int fer = 0;
         public int Fer
         {
             get { return fer; }
             set { fer = value; }
         }
-        private int or = 50000;
+        private int or = 175;
         public int Or
         {
             get { return or; }
             set { or = value; }
         }
-        private int hab = 550;
+        private int hab = 10;
         public int Hab
         {
             get { return hab; }
