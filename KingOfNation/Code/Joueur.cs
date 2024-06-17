@@ -12,7 +12,6 @@ namespace KingOfNation.Code
 {
     public class Joueur : INotifyPropertyChanged
     {
-
         #region Attributes
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -21,11 +20,11 @@ namespace KingOfNation.Code
         private string empire;
         private string nomVillage;
 
-        private int bois = 1000000;
-        private int pierre = 10000000;
-        private int fer = 1000000;
-        private int or = 1751000000;
-        private int hab = 101000000;
+        private int bois = 0;
+        private int pierre = 0;
+        private int fer = 0;
+        private int or = 175;
+        private int hab = 10;
         
         private List<Lieutenant> lieutenantList = new List<Lieutenant>();
         private List<Tresor> tresorsJoueur = new List<Tresor>();

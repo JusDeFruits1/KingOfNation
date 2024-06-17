@@ -50,12 +50,13 @@
         <TextBlock HorizontalAlignment="Left" Margin="780,40,0,0" VerticalAlignment="Top" Height="25" Width="50" x:Name="nbHab" Text="0" FontSize="20" FontFamily="Comic sans Ms"/>
 
         <Image x:Name="imgVillage" Source="../img/Batiment/farfadet.png" Width="1150" Height="550" Margin="-90,0,95,-90"/>
-        
+
         <Button Click="Save" FontSize="15" Width="40" Height="40" Margin="0,20,290,0" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Image Source="../img/Button/save.png" Opacity="0.7"/>
         </Button>
         <Button Click="Quit" FontSize="15" Width="40" Height="40" Margin="0,20,230,0" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Image Source="../img/Button/quit.png" Opacity="0.6"/>
         </Button>
+        <Button Content="Cheat" HorizontalAlignment="Left" Margin="960,19,0,0" VerticalAlignment="Top" Height="45" Width="45" Click="Cheat"/>
     </Grid>
 </Window>
