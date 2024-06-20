@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KingOfNation.IHM"
         mc:Ignorable="d"
-        Title="Raid" Height="450" Width="800">
+        Title="Raid" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="../img/imgGame/carteRaid.png"/>

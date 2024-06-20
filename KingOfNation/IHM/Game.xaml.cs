@@ -199,11 +199,11 @@ namespace KingOfNation.IHM
 
         private void Cheat(object sender, RoutedEventArgs e)
         {
-            ((App)Application.Current).Joueur.Bois = 900000000;
-            ((App)Application.Current).Joueur.Pierre = 900000000;
-            ((App)Application.Current).Joueur.Fer = 900000000;
-            ((App)Application.Current).Joueur.Or = 900000000;
-            ((App)Application.Current).Joueur.Hab = 900000000;
+            ((App)Application.Current).Joueur.Bois = 9000;
+            ((App)Application.Current).Joueur.Pierre = 9000;
+            ((App)Application.Current).Joueur.Fer = 9000;
+            ((App)Application.Current).Joueur.Or = 9000;
+            ((App)Application.Current).Joueur.Hab = 9000;
         }
     }
 }

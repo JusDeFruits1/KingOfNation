@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KingOfNation.Code"
         mc:Ignorable="d"
-        Title="Boutique" Height="480" Width="950">
+        Title="Boutique" Height="480" Width="950" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
