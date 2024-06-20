@@ -1,0 +1,9 @@
+Nom;Est_Construit;Nv;Nv_max;Desc;Rs_prod_1;Qt_rs_prod_1;Rs_prod_2;Qt_rs_prod_2;Or;Qt_Or;Mat_construct_1;Qt_rs_construct_1;Mat_construct_2;Qt_rs_construct_2;Rs_amelio;Cout_amelio;Mat_amelio_1;Cout_mat_amelio_1;Mat_amelio_2;Cout_mat_amelio_2;Mult_amelio;Constructible;Buff
+Hotel de ville;1;2;4;Batiment central du village;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;NULL;Gold;400;Bois;1000;Pierre;1000;2;0;0
+Boutique;1;1;1;Une boutique ou vous pouvez acheter et vendre des items;NULL;NULL;NULL;NULL;Gold;200;Bois;350;Pierre;300;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;1
+Caserne;1;4;4;La caserne permet de produire des soldats et definit votre max de troupe;NULL;NULL;NULL;NULL;Gold;80;Bois;250;Pierre;250;Gold;2080;Pierre;1680;Bois;2200;2;0;0
+Commerce;1;1;5;Vous pourrez produire de l'or au commerce;Gold;4;NULL;NULL;Gold;75;Bois;150;Pierre;150;Gold;260;Bois;200;Fer;100;2;0;1
+Habitation;1;1;8;Les habitations permettent d'avoir plus d'habitants;Habitant;10;NULL;NULL;Gold;20;NULL;NULL;NULL;NULL;Gold;60;Bois;150;Fer;10;2;0;0
+Mine;1;1;5; La mine permet de produire de la pierre et du fer;Pierre;10;Fer;5;Gold;50;Bois;120;NULL;NULL;Gold;80;Bois;90;Pierre;50;2;0;1
+Scierie;1;1;5; La scierie vous permettra de produire du bois;Bois;10;NULL;NULL;Gold;30;NULL;NULL;NULL;NULL;Gold;30;Bois;80;Pierre;40;2;0;1
+Taverne;1;1;1;La taverne permet de recruter des lieutenants pour le village;NULL;NULL;NULL;NULL;Gold;220;Pierre;500;Fer;90;NULL;NULL;NULL;NULL;NULL;NULL;NULL;0;0

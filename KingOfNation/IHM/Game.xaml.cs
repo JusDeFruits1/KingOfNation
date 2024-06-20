@@ -195,8 +195,6 @@ namespace KingOfNation.IHM
             }
         }
 
-        #endregion
-
         private void Cheat(object sender, RoutedEventArgs e)
         {
             ((App)Application.Current).Joueur.Bois = 9000;
@@ -205,5 +203,8 @@ namespace KingOfNation.IHM
             ((App)Application.Current).Joueur.Or = 9000;
             ((App)Application.Current).Joueur.Hab = 9000;
         }
+
+        #endregion
+
     }
 }

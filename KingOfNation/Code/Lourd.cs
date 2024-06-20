@@ -71,6 +71,4 @@ public class Lourd : Soldat,INotifyPropertyChanged  {
 
     #endregion
 
-
-
 }

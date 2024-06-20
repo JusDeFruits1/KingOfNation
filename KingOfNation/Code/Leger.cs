@@ -72,10 +72,5 @@ namespace KingOfNation.Code
 
         #endregion
 
-
-
-
-
-
     }
 }

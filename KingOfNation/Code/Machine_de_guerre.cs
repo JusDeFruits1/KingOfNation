@@ -69,12 +69,4 @@ public class Machine_de_guerre : Soldat, INotifyPropertyChanged  {
 
     #endregion
 
-
-
-
-
-
-
-
-
 }
